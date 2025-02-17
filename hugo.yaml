@@ -12,10 +12,10 @@ params:
   ShowCodeCopyButtons: true
   
   homeInfoParams:
-    Title: "로보코"
+    Title: "Accelate with Robot Co-Worker"
     Content: |
-      당장 활용할 수 있는 AI·클라우드 솔루션과 교육을 동시에,
-      기업의 디지털 혁신과 조직 역량 강화를 단숨에 실현합니다.
+      보다 빠른 AI·클라우드 혁신과 실질적인 조직 역량 강화,
+      당신의 비즈니스를 새로운 차원으로 도약시키는 여정이 지금 시작됩니다.
 
   socialIcons:
     - name: github
