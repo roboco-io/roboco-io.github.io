@@ -21,17 +21,24 @@ params:
     - name: github
       url: "https://github.com/roboco-io"
 
+  assets:
+    disableHLJS: true
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+
 menu:
   main:
-    - identifier: archives
-      name: 아카이브
-      url: /archives/
+    - identifier: solutions
+      name: 솔루션
+      url: /solutions/
       weight: 10
-    - identifier: categories
-      name: 카테고리
-      url: /categories/
+    - identifier: about
+      name: 회사 소개
+      url: /about/
       weight: 20
-    - identifier: tags
-      name: 태그
-      url: /tags/
+    - identifier: contact
+      name: 문의하기
+      url: /contact/
       weight: 30
