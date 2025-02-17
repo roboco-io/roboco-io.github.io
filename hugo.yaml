@@ -1,6 +1,6 @@
 baseURL: "https://roboco-io.github.io"
 languageCode: "ko-kr"
-title: "Roboco IO"
+title: "로보코 | AI·클라우드 솔루션"
 theme: "PaperMod"
 
 params:
@@ -12,8 +12,10 @@ params:
   ShowCodeCopyButtons: true
   
   homeInfoParams:
-    Title: "안녕하세요 👋"
-    Content: "Roboco IO의 기술 블로그입니다."
+    Title: "로보코"
+    Content: |
+      당장 활용할 수 있는 AI·클라우드 솔루션과 교육을 동시에,
+      기업의 디지털 혁신과 조직 역량 강화를 단숨에 실현합니다.
 
   socialIcons:
     - name: github
