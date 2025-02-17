@@ -1,0 +1,35 @@
+baseURL: "https://roboco-io.github.io"
+languageCode: "ko-kr"
+title: "Roboco IO"
+theme: "PaperMod"
+
+params:
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  
+  homeInfoParams:
+    Title: "안녕하세요 👋"
+    Content: "Roboco IO의 기술 블로그입니다."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/roboco-io"
+
+menu:
+  main:
+    - identifier: archives
+      name: 아카이브
+      url: /archives/
+      weight: 10
+    - identifier: categories
+      name: 카테고리
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: 태그
+      url: /tags/
+      weight: 30
