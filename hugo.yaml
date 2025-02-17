@@ -1,6 +1,6 @@
 baseURL: "https://roboco-io.github.io"
 languageCode: "ko-kr"
-title: "로보코 | AI·클라우드 솔루션"
+title: "RoboCo.IO - Robot Co-Worker"
 theme: "PaperMod"
 
 params:
