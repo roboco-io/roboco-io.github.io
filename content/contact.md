@@ -6,12 +6,10 @@ layout: "contact"
 draft: false
 ---
 
-## 문의하기
-
 로보코는 귀사의 디지털 혁신 여정에 함께할 준비가 되어 있습니다. 
 AI와 클라우드 도입에 관한 상담부터 기술 교육 문의까지, 어떤 내용이든 편하게 연락해 주시기 바랍니다.
 
-### 연락처
+## 연락처
 
 - **이메일**: contact@roboco.io
 
@@ -29,9 +27,4 @@ AI와 클라우드 도입에 관한 상담부터 기술 교육 문의까지, 어
   - 기술 교육
   - 기타
 
-### SNS
-
-- **LinkedIn**: linkedin.com/company/roboco-io
-- **GitHub**: github.com/roboco-io
-- **YouTube**: youtube.com/@roboco-io
 
