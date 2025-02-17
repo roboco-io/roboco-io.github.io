@@ -1,5 +1,7 @@
 # RoboCo.IO 웹사이트
 
+[![Deploy Hugo site to Pages](https://github.com/roboco-io/roboco-io.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/roboco-io/roboco-io.github.io/actions/workflows/hugo.yml)
+
 [RoboCo.IO](https://roboco-io.github.io)의 공식 웹사이트 저장소입니다.
 
 ## 프로젝트 개요
