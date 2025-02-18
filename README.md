@@ -14,7 +14,7 @@
 ## 기술 스택
 
 - **정적 사이트 생성기**: Hugo v0.143.1
-- **테마**: PaperMod
+- **테마**: [Hello Friend NG](https://github.com/rhazdon/hugo-theme-hello-friend-ng)
 - **호스팅**: GitHub Pages
 - **CI/CD**: GitHub Actions
 
@@ -25,10 +25,11 @@
 brew install hugo
 ```
 
-2. 저장소 클론
+2. 저장소 클론 및 서브모듈 초기화
 ```bash
 git clone https://github.com/roboco-io/roboco-io.github.io.git
 cd roboco-io.github.io
+git submodule update --init --recursive
 ```
 
 3. 로컬 서버 실행
@@ -43,8 +44,13 @@ hugo server -D
 ├── archetypes/     # 컨텐츠 템플릿
 ├── assets/         # CSS, JS, 이미지 등 에셋
 ├── content/        # 마크다운 컨텐츠
+│   ├── posts/      # 블로그 포스트
+│   ├── solutions/  # 솔루션 소개
+│   ├── about/      # 회사 소개
+│   └── contact/    # 문의하기
 ├── layouts/        # 레이아웃 템플릿
 ├── static/         # 정적 파일
+├── themes/         # Hugo 테마
 └── hugo.yaml       # Hugo 설정 파일
 ```
 
