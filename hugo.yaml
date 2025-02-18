@@ -1,34 +1,44 @@
 baseURL: "https://roboco-io.github.io"
 languageCode: "ko-kr"
 title: "RoboCo.IO - Robot Co-Worker"
-theme: "PaperMod"
+theme: "hello-friend-ng"
 
 params:
-  defaultTheme: auto
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  
-  homeInfoParams:
-    Title: "Accelate with Robot Co-Worker"
-    Content: |
-      로보코는 AWS·구글 등 글로벌 IT 기업 출신 전문가들이 모여, 기업의 디지털 혁신을 더 쉽고 빠르게 실현하도록 돕는 IT 컨설팅 파트너입니다. 생성형 AI와 클라우드 네이티브 기술을 활용해 즉시 적용 가능한 솔루션과 맞춤형 교육을 동시에 제공하며, 고객의 비즈니스를 새로운 차원으로 도약시키기 위한 조직 역량 강화까지 지원합니다.
+  dateform: "Jan 2, 2006"
+  dateformShort: "Jan 2"
+  dateformNum: "2006-01-02"
+  dateformNumTime: "2006-01-02 15:04"
 
-  socialIcons:
+  # 홈페이지 설정
+  homeSubtitle: "기업의 AI 혁신을 더 쉽고 빠르게 실현하도록 돕는 IT 컨설팅 파트너"
+  
+  # 테마 설정
+  defaultTheme: "auto"
+  disableReadOtherPosts: false
+  enableSharingButtons: true
+  enableGlobalLanguageMenu: false
+  
+  # 소셜 아이콘
+  social:
     - name: github
       url: "https://github.com/roboco-io"
 
-  assets:
-    disableHLJS: true
-    favicon: "/favicon.ico"
-    favicon16x16: "/favicon-16x16.png"
-    favicon32x32: "/favicon-32x32.png"
-    apple_touch_icon: "/apple-touch-icon.png"
+  # 푸터 설정
+  footer:
+    trademark: 2025 RoboCo, Inc.
+    rss: true
+    copyright: true
+    author: true
+
+    topText: []
+    bottomText: []
 
 menu:
   main:
+    - identifier: posts
+      name: 포스트
+      url: /posts/
+      weight: 5
     - identifier: solutions
       name: 솔루션
       url: /solutions/
