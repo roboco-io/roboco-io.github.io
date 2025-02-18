@@ -13,10 +13,11 @@ params:
   homeSubtitle: "기업의 AI 혁신을 더 쉽고 빠르게 실현하도록 돕는 IT 컨설팅 파트너"
   
   # 테마 설정
-  defaultTheme: "auto"
+  defaultTheme: "dark"
   disableReadOtherPosts: false
   enableSharingButtons: true
-  enableGlobalLanguageMenu: false
+  enableGlobalLanguageMenu: true
+  enableThemeToggle: true
   
   # 소셜 아이콘
   social:
