@@ -28,6 +28,7 @@ params:
   footer:
     trademark: 2025 RoboCo, Inc.
     rss: true
+    slackbot: true
     copyright: true
     author: true
 
