@@ -16,7 +16,7 @@ params:
   defaultTheme: "dark"
   disableReadOtherPosts: false
   enableSharingButtons: true
-  enableGlobalLanguageMenu: true
+  enableGlobalLanguageMenu: false
   enableThemeToggle: true
   
   # 소셜 아이콘
