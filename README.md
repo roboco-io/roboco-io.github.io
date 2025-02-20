@@ -93,7 +93,7 @@ cp roboco-icon.svg ../favicon/favicon.svg
 rsvg-convert -h 16 -b none roboco-icon.svg > ../favicon/favicon-16x16.png
 rsvg-convert -h 32 -b none roboco-icon.svg > ../favicon/favicon-32x32.png
 rsvg-convert -h 96 -b none roboco-icon.svg > ../favicon/favicon-96x96.png
-rsvg-convert -h 180 -b none roboco-icon.svg > ../favicon/apple-touch-icon.png
+rsvg-convert -w 180 -h 180 -b none roboco-icon.svg > ../favicon/apple-touch-icon.png
 rsvg-convert -h 192 -b none roboco-icon.svg > ../favicon/android-chrome-192x192.png
 rsvg-convert -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.png
 
