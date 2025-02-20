@@ -1,0 +1,21 @@
+{
+    "name": "ROBOCO - Robot Co-Worker",
+    "short_name": "ROBOCO",
+    "description": "기업의 AI 혁신을 더 쉽고 빠르게 실현하도록 돕는 IT 컨설팅 파트너",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#434343",
+    "background_color": "#434343",
+    "display": "standalone"
+}

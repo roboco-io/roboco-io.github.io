@@ -100,6 +100,9 @@ rsvg-convert -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.
 # Apple Touch 아이콘을 루트 디렉토리에도 복사
 cp ../favicon/apple-touch-icon.png ../apple-touch-icon.png
 
+# 웹 앱 매니페스트를 루트 디렉토리에도 복사
+cp ../favicon/site.webmanifest ../site.webmanifest
+
 # ICO 파일 생성 (16x16, 32x32, 96x96 크기 포함)
 cd ../favicon
 magick convert favicon-16x16.png favicon-32x32.png favicon-96x96.png favicon.ico

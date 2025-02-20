@@ -45,7 +45,7 @@ params:
         href: "/favicon/apple-touch-icon.png"
       # 웹 앱 매니페스트
       - rel: "manifest"
-        href: "/favicon/site.webmanifest"
+        href: "/site.webmanifest"
     
     # 웹 앱 메타 태그
     meta:
