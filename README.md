@@ -90,12 +90,12 @@ cd static/images
 cp roboco-icon.svg ../favicon/favicon.svg
 
 # 투명 배경으로 PNG 파비콘 생성
-rsvg-convert -h 16 -b none roboco-icon.svg > ../favicon/favicon-16x16.png
-rsvg-convert -h 32 -b none roboco-icon.svg > ../favicon/favicon-32x32.png
-rsvg-convert -h 96 -b none roboco-icon.svg > ../favicon/favicon-96x96.png
+rsvg-convert -w 16 -h 16 -b none roboco-icon.svg > ../favicon/favicon-16x16.png
+rsvg-convert -w 32 -h 32 -b none roboco-icon.svg > ../favicon/favicon-32x32.png
+rsvg-convert -w 96 -h 96 -b none roboco-icon.svg > ../favicon/favicon-96x96.png
 rsvg-convert -w 180 -h 180 -b none roboco-icon.svg > ../favicon/apple-touch-icon.png
-rsvg-convert -h 192 -b none roboco-icon.svg > ../favicon/android-chrome-192x192.png
-rsvg-convert -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.png
+rsvg-convert -w 192 -h 192 -b none roboco-icon.svg > ../favicon/android-chrome-192x192.png
+rsvg-convert -w 512 -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.png
 
 # Apple Touch 아이콘을 루트 디렉토리에도 복사
 cp ../favicon/apple-touch-icon.png ../apple-touch-icon.png
