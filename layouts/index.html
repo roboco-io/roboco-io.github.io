@@ -1,0 +1,14 @@
+{{ define "main" }}
+    <div id="home-center">
+        {{ partial "home/logo.html" . }}
+
+        {{- with .Site.Params.homeSubtitle }}
+            <p>{{.}}</p>
+        {{- end }}
+        {{- with .Site.Params.social }}
+            <div id="home-social">
+                {{ partial "social-icons.html" . }}
+            </div>
+        {{- end }}
+    </div>
+{{ end }}
