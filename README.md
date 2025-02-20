@@ -74,6 +74,32 @@ categories: ["카테고리"]
 
 3. 마크다운으로 컨텐츠 작성
 
+## 파비콘 생성
+
+파비콘은 `scripts/generate_favicons.sh` 스크립트를 사용하여 자동으로 생성할 수 있습니다:
+
+```bash
+# 스크립트 실행 (의존성 자동 설치)
+./scripts/generate_favicons.sh
+```
+
+스크립트는 다음과 같은 작업을 수행합니다:
+
+1. 필요한 도구 설치 확인 및 설치
+   - librsvg: SVG → PNG 변환
+   - ImageMagick: ICO 파일 생성
+
+2. 파비콘 생성
+   - 브라우저 탭용 PNG (16x16, 32x32, 96x96)
+   - ICO 파일 (16x16, 32x32, 96x96)
+   - iOS 홈 화면용 (180x180)
+   - Android 홈 화면용 (192x192, 512x512)
+
+3. 파일 복사
+   - Apple Touch 아이콘을 루트 디렉토리에 복사
+
+> 참고: 소스 SVG 파일은 `static/favicon/favicon.svg`에 위치해야 합니다.
+
 ## 파비콘 생성 가이드
 
 SVG 파일에서 여러 크기의 파비콘을 생성하려면 다음 단계를 따르세요:
