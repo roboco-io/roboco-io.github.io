@@ -1,9 +1,7 @@
-{{ $darkLogo := "/images/roboco-logo_white.svg" }}
-{{ $lightLogo := "/images/roboco-logo_black.svg" }}
+{{ $logo := "/images/roboco-logo.svg" }}
 
 <div class="logo-wrapper">
-    <img src="{{ $darkLogo }}" alt="ROBOCO Logo" class="logo dark-logo">
-    <img src="{{ $lightLogo }}" alt="ROBOCO Logo" class="logo light-logo">
+    <img src="{{ $logo }}" alt="ROBOCO Logo" class="logo">
     <style>
         .logo-wrapper {
             display: flex;
@@ -14,23 +12,8 @@
             max-width: 250px;
             height: auto;
         }
-        .logo.dark-logo {
-            display: none;
-        }
-        .logo.light-logo {
-            display: none;
-        }
-        :root[data-theme="dark"] .logo.dark-logo {
-            display: block;
-        }
-        :root[data-theme="dark"] .logo.light-logo {
-            display: none;
-        }
-        :root[data-theme="light"] .logo.light-logo {
-            display: block;
-        }
-        :root[data-theme="light"] .logo.dark-logo {
-            display: none;
+        :root[data-theme="dark"] .logo {
+            filter: invert(100%);
         }
     </style>
 </div>
