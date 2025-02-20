@@ -43,7 +43,18 @@ params:
         url: "/favicon/favicon-96x96.png"
       - rel: "manifest"
         url: "/favicon/site.webmanifest"
-
+    
+    # 웹 앱 메타 태그
+    meta:
+      - name: "apple-mobile-web-app-title"
+        content: "ROBOCO"
+      - name: "application-name"
+        content: "ROBOCO"
+      - name: "msapplication-TileColor"
+        content: "#434343"
+      - name: "theme-color"
+        content: "#434343"
+  
   # 소셜 아이콘
   social:
     - name: github
