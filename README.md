@@ -2,11 +2,11 @@
 
 [![Deploy Hugo site to Pages](https://github.com/roboco-io/roboco-io.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/roboco-io/roboco-io.github.io/actions/workflows/hugo.yml)
 
-[RoboCo.IO](https://roboco-io.github.io)의 공식 웹사이트 저장소입니다.
+[ROBOCO.IO](https://roboco-io.github.io)의 공식 웹사이트 저장소입니다.
 
 ## 프로젝트 개요
 
-- **프로젝트명**: RoboCo.IO 웹사이트
+- **프로젝트명**: ROBOCO.IO 웹사이트
 - **목적**: AI·클라우드 솔루션 및 교육 서비스 소개
 - **웹사이트**: [https://roboco-io.github.io](https://roboco-io.github.io)
 - **기술 스택**: Hugo, GitHub Pages
@@ -87,4 +87,4 @@ categories: ["카테고리"]
 
 ## 라이선스
 
-Copyright 2025 RoboCo.IO. All rights reserved.
+Copyright 2025 ROBOCO.IO. All rights reserved.

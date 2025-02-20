@@ -1,6 +1,6 @@
 baseURL: "https://roboco-io.github.io"
 languageCode: "ko-kr"
-title: "RoboCo.IO - Robot Co-Worker"
+title: "ROBOCO - Robot Co-Worker"
 theme: "hello-friend-ng"
 
 params:
@@ -26,13 +26,8 @@ params:
 
   # 푸터 설정
   footer:
-    trademark: 2025 RoboCo, Inc.
+    trademark: 2025 ROBOCO, Inc.
     rss: true
-    copyright: true
-    author: true
-
-    topText: []
-    bottomText: []
 
 menu:
   main:
