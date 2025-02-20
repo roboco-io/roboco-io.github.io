@@ -19,6 +19,24 @@ params:
   enableGlobalLanguageMenu: false
   enableThemeToggle: true
   
+  # 파비콘 설정
+  favicon:
+    color: "#434343"
+    icons:
+      - rel: "apple-touch-icon"
+        sizes: "180x180"
+        url: "/favicon/apple-touch-icon.png"
+      - rel: "icon"
+        type: "image/png"
+        sizes: "32x32"
+        url: "/favicon/favicon-32x32.png"
+      - rel: "icon"
+        type: "image/png"
+        sizes: "16x16"
+        url: "/favicon/favicon-16x16.png"
+      - rel: "manifest"
+        url: "/favicon/site.webmanifest"
+
   # 소셜 아이콘
   social:
     - name: github

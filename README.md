@@ -74,6 +74,30 @@ categories: ["카테고리"]
 
 3. 마크다운으로 컨텐츠 작성
 
+## 파비콘 생성 가이드
+
+SVG 파일에서 여러 크기의 파비콘을 생성하려면 다음 단계를 따르세요:
+
+1. librsvg 설치 (이미 설치되어 있다면 생략)
+```bash
+brew install librsvg
+```
+
+2. SVG 파일로부터 여러 크기의 PNG 파일 생성
+```bash
+cd static/images
+rsvg-convert -h 16 roboco-icon.svg > ../favicon/favicon-16x16.png
+rsvg-convert -h 32 roboco-icon.svg > ../favicon/favicon-32x32.png
+rsvg-convert -h 180 roboco-icon.svg > ../favicon/apple-touch-icon.png
+rsvg-convert -h 192 roboco-icon.svg > ../favicon/android-chrome-192x192.png
+rsvg-convert -h 512 roboco-icon.svg > ../favicon/android-chrome-512x512.png
+```
+
+생성된 파비콘 파일들의 용도:
+- `favicon-16x16.png`, `favicon-32x32.png`: 브라우저 탭과 북마크 아이콘
+- `apple-touch-icon.png`: iOS 홈 화면 아이콘
+- `android-chrome-192x192.png`, `android-chrome-512x512.png`: Android 홈 화면 아이콘
+
 ## 배포
 
 - `main` 브랜치에 푸시하면 GitHub Actions를 통해 자동으로 배포됩니다.
