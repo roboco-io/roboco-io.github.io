@@ -86,11 +86,12 @@ brew install librsvg
 2. SVG 파일로부터 여러 크기의 PNG 파일 생성
 ```bash
 cd static/images
-rsvg-convert -h 16 roboco-icon.svg > ../favicon/favicon-16x16.png
-rsvg-convert -h 32 roboco-icon.svg > ../favicon/favicon-32x32.png
-rsvg-convert -h 180 roboco-icon.svg > ../favicon/apple-touch-icon.png
-rsvg-convert -h 192 roboco-icon.svg > ../favicon/android-chrome-192x192.png
-rsvg-convert -h 512 roboco-icon.svg > ../favicon/android-chrome-512x512.png
+# 투명 배경으로 생성하려면 -b none 옵션을 추가합니다
+rsvg-convert -h 16 -b none roboco-icon.svg > ../favicon/favicon-16x16.png
+rsvg-convert -h 32 -b none roboco-icon.svg > ../favicon/favicon-32x32.png
+rsvg-convert -h 180 -b none roboco-icon.svg > ../favicon/apple-touch-icon.png
+rsvg-convert -h 192 -b none roboco-icon.svg > ../favicon/android-chrome-192x192.png
+rsvg-convert -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.png
 ```
 
 생성된 파비콘 파일들의 용도:
