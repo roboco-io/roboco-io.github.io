@@ -49,9 +49,9 @@ params:
     
     # 웹 앱 메타 태그
     meta:
-      - name: "apple-mobile-web-app-title"
-        content: "ROBOCO"
       - name: "application-name"
+        content: "ROBOCO"
+      - name: "apple-mobile-web-app-title"
         content: "ROBOCO"
       - name: "apple-mobile-web-app-capable"
         content: "yes"
@@ -61,6 +61,8 @@ params:
         content: "#2d89ef"
       - name: "theme-color"
         content: "#ffffff"
+      - name: "title"
+        content: "ROBOCO - Robot Co-Worker"
   
   # 소셜 아이콘
   social:
