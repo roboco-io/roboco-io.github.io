@@ -86,16 +86,26 @@ brew install librsvg
 2. SVG 파일로부터 여러 크기의 PNG 파일 생성
 ```bash
 cd static/images
-# 투명 배경으로 생성하려면 -b none 옵션을 추가합니다
+# SVG 파비콘 복사
+cp roboco-icon.svg ../favicon/favicon.svg
+
+# 투명 배경으로 PNG 파비콘 생성
 rsvg-convert -h 16 -b none roboco-icon.svg > ../favicon/favicon-16x16.png
 rsvg-convert -h 32 -b none roboco-icon.svg > ../favicon/favicon-32x32.png
+rsvg-convert -h 96 -b none roboco-icon.svg > ../favicon/favicon-96x96.png
 rsvg-convert -h 180 -b none roboco-icon.svg > ../favicon/apple-touch-icon.png
 rsvg-convert -h 192 -b none roboco-icon.svg > ../favicon/android-chrome-192x192.png
 rsvg-convert -h 512 -b none roboco-icon.svg > ../favicon/android-chrome-512x512.png
+
+# ICO 파일 생성 (16x16, 32x32, 96x96 크기 포함)
+cd ../favicon
+magick convert favicon-16x16.png favicon-32x32.png favicon-96x96.png favicon.ico
 ```
 
 생성된 파비콘 파일들의 용도:
-- `favicon-16x16.png`, `favicon-32x32.png`: 브라우저 탭과 북마크 아이콘
+- `favicon.svg`: 벡터 기반의 파비콘 (모던 브라우저 지원)
+- `favicon.ico`: 다중 크기 아이콘 (16x16, 32x32, 96x96)을 포함한 레거시 브라우저용 파비콘
+- `favicon-16x16.png`, `favicon-32x32.png`, `favicon-96x96.png`: 브라우저 탭과 북마크 아이콘
 - `apple-touch-icon.png`: iOS 홈 화면 아이콘
 - `android-chrome-192x192.png`, `android-chrome-512x512.png`: Android 홈 화면 아이콘
 

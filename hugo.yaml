@@ -23,6 +23,9 @@ params:
   favicon:
     color: "#434343"
     icons:
+      - rel: "icon"
+        type: "image/svg+xml"
+        url: "/favicon/favicon.svg"
       - rel: "apple-touch-icon"
         sizes: "180x180"
         url: "/favicon/apple-touch-icon.png"
@@ -34,6 +37,10 @@ params:
         type: "image/png"
         sizes: "16x16"
         url: "/favicon/favicon-16x16.png"
+      - rel: "icon"
+        type: "image/png"
+        sizes: "96x96"
+        url: "/favicon/favicon-96x96.png"
       - rel: "manifest"
         url: "/favicon/site.webmanifest"
 
