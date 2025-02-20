@@ -23,26 +23,29 @@ params:
   favicon:
     color: "#434343"
     icons:
+      # 브라우저 탭 파비콘
       - rel: "icon"
         type: "image/svg+xml"
-        url: "/favicon/favicon.svg"
+        href: "/favicon/favicon.svg"
       - rel: "icon"
         type: "image/png"
         sizes: "16x16"
-        url: "/favicon/favicon-16x16.png"
+        href: "/favicon/favicon-16x16.png"
       - rel: "icon"
         type: "image/png"
         sizes: "32x32"
-        url: "/favicon/favicon-32x32.png"
+        href: "/favicon/favicon-32x32.png"
       - rel: "icon"
         type: "image/png"
         sizes: "96x96"
-        url: "/favicon/favicon-96x96.png"
+        href: "/favicon/favicon-96x96.png"
+      # iOS 홈 화면 아이콘
       - rel: "apple-touch-icon"
         sizes: "180x180"
-        url: "/favicon/apple-touch-icon.png"
+        href: "/favicon/apple-touch-icon.png"
+      # 웹 앱 매니페스트
       - rel: "manifest"
-        url: "/favicon/site.webmanifest"
+        href: "/favicon/site.webmanifest"
     
     # 웹 앱 메타 태그
     meta:
