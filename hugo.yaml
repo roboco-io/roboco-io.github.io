@@ -50,10 +50,14 @@ params:
         content: "ROBOCO"
       - name: "application-name"
         content: "ROBOCO"
+      - name: "apple-mobile-web-app-capable"
+        content: "yes"
+      - name: "apple-mobile-web-app-status-bar-style"
+        content: "default"
       - name: "msapplication-TileColor"
-        content: "#434343"
+        content: "#2d89ef"
       - name: "theme-color"
-        content: "#434343"
+        content: "#ffffff"
   
   # 소셜 아이콘
   social:
