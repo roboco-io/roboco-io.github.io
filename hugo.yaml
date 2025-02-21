@@ -77,18 +77,18 @@ params:
 menu:
   main:
     - identifier: about
-      name: 회사 소개
+      name: about
       url: /about/
       weight: 10
     - identifier: solutions
-      name: 솔루션
+      name: solutions
       url: /solutions/
       weight: 20
     - identifier: posts
-      name: 포스트
+      name: posts
       url: /posts/
       weight: 30
     - identifier: contact
-      name: 문의하기
+      name: contact
       url: /contact/
       weight: 40
