@@ -77,18 +77,18 @@ params:
 menu:
   main:
     - identifier: about
-      name: about
+      name: About
       url: /about/
       weight: 10
     - identifier: solutions
-      name: solutions
+      name: Solutions
       url: /solutions/
       weight: 20
     - identifier: posts
-      name: posts
+      name: Posts
       url: /posts/
       weight: 30
     - identifier: contact
-      name: contact
+      name: Contact
       url: /contact/
       weight: 40
