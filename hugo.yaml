@@ -1,6 +1,6 @@
 baseURL: "https://roboco-io.github.io"
 languageCode: "ko-kr"
-title: "ROBOCO - Robot Co-Worker"
+title: "ROBOCO"
 theme: "hello-friend-ng"
 
 params:
