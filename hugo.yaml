@@ -62,7 +62,7 @@ params:
       - name: "theme-color"
         content: "#ffffff"
       - name: "title"
-        content: "ROBOCO - Robot Co-Worker"
+        content: "ROBOCO"
   
   # 소셜 아이콘
   social:
