@@ -1,0 +1,18 @@
+{{ "<!-- Firebase Configuration -->" | safeHTML }}
+{{ `<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyBr7aWCphmqfCyTrP8bL7dy2jmB-BUhtA8",
+      authDomain: "roboco-blog.firebaseapp.com",
+      projectId: "roboco-blog",
+      storageBucket: "roboco-blog.firebasestorage.app",
+      messagingSenderId: "271355511424",
+      appId: "1:271355511424:web:afe6c395323917e6169c65",
+      measurementId: "G-XL520T0G70"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>` | safeHTML }}
