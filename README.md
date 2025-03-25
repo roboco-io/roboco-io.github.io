@@ -29,10 +29,14 @@ brew install hugo
 ```bash
 git clone https://github.com/roboco-io/roboco-io.github.io.git
 cd roboco-io.github.io
+```
+
+3. 서브모듈 초기화
+```bash
 git submodule update --init --recursive
 ```
 
-3. 로컬 서버 실행
+4. 로컬 서버 실행
 ```bash
 hugo server -D
 ```
