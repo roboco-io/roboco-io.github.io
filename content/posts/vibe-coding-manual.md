@@ -210,7 +210,6 @@ AI 모델은 강력하지만 과도한 엔지니어링, 범위 확장 또는 컨
   - 의존성 역전 원칙 (Dependency Inversion Principle)
 - TDD로 구현하세요: 테스트 주도 개발 방식으로 먼저 테스트를 작성하고 구현하세요.
 - Clean Architecture를 사용해서 구현하세요: 책임과 관심사를 명확히 분리하여 구현하세요.
-- Pulumi나 CloudFormation에 설정하는 Description은 영문으로 작성하세요.
 
 #### 2️⃣ 코드 품질 원칙
 
