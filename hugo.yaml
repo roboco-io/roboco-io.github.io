@@ -10,7 +10,7 @@ params:
   dateformNumTime: "2006-01-02 15:04"
 
   # 홈페이지 설정
-  homeSubtitle: "기업의 AI 혁신을 더 쉽고 빠르게 실현하도록 돕는 IT 컨설팅 파트너"
+  homeSubtitle: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
   
   # 테마 설정
   defaultTheme: "dark"
