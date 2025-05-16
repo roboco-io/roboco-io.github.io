@@ -5,8 +5,11 @@ draft: true
 toc: false
 images:
 tags:
-  - untagged
+  - cline
+  - vibe-coding
 ---
+
+{{< figure src="/posts/images/Dohyun.png" title="정도현 - 로보코 수석 컨설턴트" style=".author-image">}}
 
 ## **클라인, 왜 다시 주목받는가?**
 
