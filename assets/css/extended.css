@@ -87,6 +87,12 @@
     display: block;
 }
 
+/* 이미지 중앙정렬 */
+.center-image {
+    display: block;
+    margin: 0 auto;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .hero-title {
