@@ -33,4 +33,4 @@ tags:
 
 이제 바이브 코딩은 선택사항이 아니다. 생존을 위한 필수 전략이다.
 
-{{< figure src="/posts/images/ai-be-my-nakama.png" title="개발자의 든든한 동료가 된 AI 로봇을 그려달라 했는데, AI는 요정하지도 않은 고양이를 넣어주었다. 역시 개발자는 야옹이지!" style=".center-image">}}
+{{< figure src="/posts/images/ai-be-my-nakama.png" title="AI에게 개발자의 든든한 동료가 된 AI 로봇을 그려달라 했는데, 요청하지도 않은 고양이를 넣어주었다. 역시 개발자는 야옹이지!" style=".center-image">}}
