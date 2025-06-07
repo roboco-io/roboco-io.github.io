@@ -1,11 +1,12 @@
 ---
-title: "Vibe Coding Review Strategy"
+title: "바이브 코딩 리뷰 전략"
 date: 2025-06-07T12:21:04+09:00
 draft: true
 toc: false
 images:
 tags:
-  - untagged
+  - vibe-coding
+  - productivity
 ---
 
 {{< figure src="/posts/images/Dohyun.png" title="정도현 - 로보코 수석 컨설턴트" style=".author-image">}}
