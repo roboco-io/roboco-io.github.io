@@ -25,7 +25,7 @@ tags:
 
 이렇게 생성된 다이어그램은 VS Code의 drawio preview 확장 기능을 이용하면 편리하게 미리 볼 수 있다. 또한 draw.io 클라이언트를 설치하면 함께 제공되는 CLI 도구로 손쉽게 svg나 png 형태의 이미지로 컨버트하여 문서에 삽입할 수도 있다.
 
-![alt text](https://raw.githubusercontent.com/serithemage/ecs-fargate-fast-scaleout/92548e1b386f6f7151cefb761c152bb01678df84/docs/diagrams/architecture.svg)
+![alt text](https://raw.githubusercontent.com/serithemage/ecs-fargate-fast-scaleout/835a9e98b0684ffc0d57de47075f03a4aeacd2cb/docs/diagrams/architecture.svg)
 
 한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. [공식 문서](https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능을 지원하는 버전의 mermaid가 제공되지 않는다면, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
 
