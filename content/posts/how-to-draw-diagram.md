@@ -19,13 +19,13 @@ tags:
 
 물론 때때로 mermaid만으로는 부족할 때가 있다. 더 정교하고 복잡한 다이어그램이 필요할 때는 draw.io를 이용할 수 있다. draw.io는 XML 기반의 .drawio 파일 포맷을 사용하기 때문에 AI에게 직접 이 포맷으로 다이어그램을 생성하라고 지시하면 비교적 쉽게 작업이 가능하다. 다만, AWS 아이콘과 같은 특정 아이콘의 ID는 공개되어 있지 않아서 AI가 그대로 활용하기가 쉽지 않다.
 
-그래서 나는 draw.io 클라이언트에서 AWS 아키텍처 아이콘의 ID를 직접 추출해서 별도로 [문서화](https://github.com/serithemage/ecs-fargate-fast-scaleout/blob/main/docs/aws-2025-icons-drawio.md)했다. 이를 통해 AI에게 아이콘 ID를 알려줘서 원하는 아이콘을 정확히 활용할 수 있도록 한 것이다. 이 문서는 다음 깃허브 리포지토리에서 실제 작업한 예제를 통해 확인할 수 있다.
+그래서 나는 draw.io 클라이언트에서 AWS 아키텍처 아이콘의 ID를 직접 추출해서 별도로 [문서화](https://github.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/blob/main/docs/aws-2025-icons-drawio.md)했다. 이를 통해 AI에게 아이콘 ID를 알려줘서 원하는 아이콘을 정확히 활용할 수 있도록 한 것이다. 이 문서는 다음 깃허브 리포지토리에서 실제 작업한 예제를 통해 확인할 수 있다.
 
-[ECS - Fargate Fast Scaleout](https://github.com/serithemage/ecs-fargate-fast-scaleout/)
+[ECS - Fargate Fast Scaleout](https://github.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/)
 
 이렇게 생성된 다이어그램은 VS Code의 drawio 관련 확장 기능을 이용하면 편리하게 미리 보거나 수정할 수 있다. 또한 draw.io 클라이언트를 설치하면 함께 제공되는 CLI 도구로 손쉽게 svg나 png 형태의 이미지로 컨버트하여 문서에 삽입할 수도 있다.
 
-![alt text](https://raw.githubusercontent.com/serithemage/ecs-fargate-fast-scaleout/abbb4dee4d89070692fc4edc0e81a313c910c52b/docs/diagrams/architecture.svg)
+![alt text](https://raw.githubusercontent.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/abbb4dee4d89070692fc4edc0e81a313c910c52b/docs/diagrams/architecture.svg)
 
 한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. [공식 문서](https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능은 지원하지 않기 때문에, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
 
