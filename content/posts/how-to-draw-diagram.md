@@ -18,26 +18,12 @@ tags:
 
 그래서 나는 draw.io 클라이언트에서 AWS 아키텍처 아이콘의 ID를 직접 추출해서 별도로 [문서화](https://github.com/serithemage/ecs-fargate-fast-scaleout/blob/main/docs/aws-2025-icons-drawio.md)했다. 이를 통해 AI에게 아이콘 ID를 알려줘서 원하는 아이콘을 정확히 활용할 수 있도록 한 것이다. 이 문서는 다음 깃허브 리포지토리에서 실제 작업한 예제를 통해 확인할 수 있다.
 
-https://github.com/serithemage/ecs-fargate-fast-scaleout/
+[ECS - Fargate Fast Scaleout](https://github.com/serithemage/ecs-fargate-fast-scaleout/)
 
 이렇게 생성된 다이어그램은 VS Code의 drawio preview 확장 기능을 이용하면 편리하게 미리 볼 수 있다. 또한 draw.io 클라이언트를 설치하면 함께 제공되는 CLI 도구로 손쉽게 svg나 png 형태의 이미지로 컨버트하여 문서에 삽입할 수도 있다.
 
 ![alt text](image.png)
 
-한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. 공식 문서(https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능을 지원하는 버전의 mermaid가 제공되지 않는다면, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
-
-```mermaid
-architecture-beta
-    group api(logos:aws-lambda)[API]
-
-    service db(logos:aws-aurora)[Database] in api
-    service disk1(logos:aws-glacier)[Storage] in api
-    service disk2(logos:aws-s3)[Storage] in api
-    service server(logos:aws-ec2)[Server] in api
-
-    db:L -- R:server
-    disk1:T -- B:server
-    disk2:T -- B:db
-```
+한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. [공식 문서](https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능을 지원하는 버전의 mermaid가 제공되지 않는다면, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
 
 좋은 문서는 단지 설명서를 넘어서, 협업의 질을 높이고 장기적으로 프로젝트의 가치를 지속시킨다. 바이브 코딩에서 문서화는 선택이 아닌 필수다.
