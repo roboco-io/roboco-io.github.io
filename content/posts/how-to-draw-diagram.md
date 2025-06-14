@@ -6,6 +6,9 @@ toc: false
 images:
 tags:
   - productivity
+  - tips
+  - aws
+  - drawio
 ---
 
 {{< figure src="/posts/images/Dohyun.png" title="정도현 - 로보코 수석 컨설턴트" style=".author-image">}}
