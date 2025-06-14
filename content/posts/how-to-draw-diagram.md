@@ -27,6 +27,6 @@ tags:
 
 ![alt text](https://raw.githubusercontent.com/serithemage/ecs-fargate-fast-scaleout/abbb4dee4d89070692fc4edc0e81a313c910c52b/docs/diagrams/architecture.svg)
 
-한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. [공식 문서](https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능을 지원하는 버전의 mermaid가 제공되지 않는다면, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
+한편, 최근 mermaid의 최신 버전에서는 AWS 아이콘을 비롯해 다양한 아키텍처 아이콘을 기본 지원하기 시작했다. [공식 문서](https://mermaid.js.org/syntax/architecture.html)를 참고하면 바로 활용이 가능하다. 하지만 아직 GitHub에서 이 최신 기능은 지원하지 않기 때문에, 앞서 내가 설명한 방식이 당분간 가장 유용한 접근법이 될 것이다.
 
 좋은 문서는 단지 설명서를 넘어서, 협업의 질을 높이고 장기적으로 프로젝트의 가치를 지속시킨다. 바이브 코딩에서 문서화는 선택이 아닌 필수다.
