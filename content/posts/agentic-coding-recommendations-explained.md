@@ -16,9 +16,6 @@ tags:
 
 며칠 전 개발자 커뮤니티 Geek News에서 Armin Ronacher의 블로그 글 [「Agentic Coding Recommendations」(에이전틱 코딩 권장사항)](https://lucumr.pocoo.org/2025/6/12/agentic-coding/)을 접하고 적잖은 충격을 받았다. 글의 저자인 Armin은 윈래 Flask 웹 프레임워크 창시자로 유명한데, 그의 주장은 Roboco 가 지향하는 방향과도 맞닿아 있었기 때문이다. 이번 포스팅에서는 이제 막 Claude Code, Cursor, Windsurf 같은 도구를 접하는 바이브 코딩 입문자들을 위해, Armin의 글에 담긴 핵심 내용을 쉽게 풀어 설명하고자 합다.
 
-> 에이전트 (Agent)
->
-> 
 ## 에이전틱 코딩이란 무엇인가?
 
 Armin이 말하는 에이전틱 코딩 (Agentic Coding) 이란, 코딩 작업의 많은 부분을 AI 에이전트에게 위임하는 개발 방식이다. 여기서 에이전트란 개발자의 지시를 받아 스스로 작업을 수행하는 자율 프로그램을 의미한다. 여기서는 사람처럼 코딩 업무를 도와주는 AI 프로그램을 가리키며, 파일 편집, 명령 실행, 웹 검색 등 개발 관련 작업을 대리인(agent) 처럼 처리한다.
