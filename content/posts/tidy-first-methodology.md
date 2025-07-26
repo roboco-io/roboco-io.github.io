@@ -14,7 +14,7 @@ tags:
 
 최근 나는 클로드 코드(Claude Code)를 주요 작업 도구로 사용하고 있다. 클로드 코드가 탁월한 성능을 보이는 이유는 작업을 즉각적으로 실행하지 않고, 작업 전체를 체계적으로 계획한 뒤 작고 명확한 단계로 나누어 순차적으로 수행하기 때문이다.
 
-오늘은 여기에 더해 한 가지 유용한 방법론을 소개하고자 한다. 바로 TDD(Test Driven Development)의 창시자로 유명한 Kent Beck이 자신의 블로그에서 제안한 "Augmented Coding"이라는 접근법이다. 이 양반도 용어 만들기에 집착하는 모습을 보니 바이브 코딩이라는 대세에 얼른 숟가락을 얹고자 하는것 같다. 하지만 나는 이 접근법을 기존에 Kent Beck이 쓴 책-[켄트 벡의 Tidy First?](https://www.hanbit.co.kr/store/books/look.php?p_code=B1474193984)의 내용에 기반하고 있기에 "Tidy First 방법론"이라 내 맘대로 부르기로 했다.
+오늘은 여기에 더해 한 가지 유용한 방법론을 소개하고자 한다. 바로 TDD(Test Driven Development)의 창시자로 유명한 Kent Beck이 자신의 블로그에서 제안한 "Augmented Coding"이라는 접근법이다. 이 양반도 용어 만들기에 집착하는 모습을 보니 바이브 코딩이라는 대세에 얼른 숟가락을 얹고자 하는것 같다. 하지만 나는 이 접근법이 기존에 Kent Beck이 쓴 책-[켄트 벡의 Tidy First?](https://www.hanbit.co.kr/store/books/look.php?p_code=B1474193984)의 내용에 기반하고 있기에 "Tidy First 방법론"이라 내 맘대로 부르기로 했다.
 
 ## Augmented Coding과 Tidy First의 핵심
 
