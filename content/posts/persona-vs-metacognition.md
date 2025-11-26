@@ -5,7 +5,10 @@ draft: true
 toc: false
 images:
 tags:
-  - untagged
+  - prompt-engineering
+  - LLM
+  - persona
+  - metacognition
 ---
 
 > 자신감과 신중함의 줄타기에 대해서 
