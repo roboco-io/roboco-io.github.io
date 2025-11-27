@@ -11,7 +11,7 @@ tags:
   - metacognition
 ---
 
-> 자신감과 신중함의 줄타기에 대해서 
+> 자신감과 신중함 사이의 줄타기에 대해서 
 
 {{< figure src="/posts/images/Dohyun.png" title="정도현 - 로보코 수석 컨설턴트" style=".author-image">}}
 
