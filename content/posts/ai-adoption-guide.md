@@ -1,5 +1,5 @@
 ---
-title: "AI 도입 가이드: “도구 구매”가 아니라 “조직 설계”다"
+title: "기업 AI 도입 가이드"
 date: 2025-12-26T09:16:27+09:00
 draft: false
 toc: false
