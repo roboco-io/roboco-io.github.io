@@ -151,11 +151,11 @@ Everything Claude Code는 단순한 설정 파일 모음이 아니라 **AI와 �
 
 ## 참고 자료
 
-- Affaan Mustafa, *Everything Claude Code Repository* (GitHub) – https://github.com/affaan-m/everything-claude-code
-- Tilnote, *Everything Claude Code 정리* – https://tilnote.io/en/pages/696db2d265a2e4dd63f35cc7
-- JP Caparas, *The Claude Code setup that won a hackathon* – https://jpcaparas.medium.com/the-claude-code-setup-that-won-a-hackathon-a75a161cd41c
-- MCP Servers Catalog – https://mcpservers.org/servers/asifdotpy/github-mcp-server-asifdotpy
-- Tatsuya Takasaka, *Zenn: Anthropic 해커톤 우승자의 Claude Code 설정 해설* – https://zenn.dev/ttks/articles/a54c7520f827be
+- [Affaan Mustafa, *Everything Claude Code Repository* (GitHub)](https://github.com/affaan-m/everything-claude-code)
+- [Tilnote, *Everything Claude Code 정리*](https://tilnote.io/en/pages/696db2d265a2e4dd63f35cc7)
+- [JP Caparas, *The Claude Code setup that won a hackathon*](https://jpcaparas.medium.com/the-claude-code-setup-that-won-a-hackathon-a75a161cd41c)
+- [MCP Servers Catalog](https://mcpservers.org/servers/asifdotpy/github-mcp-server-asifdotpy)
+- [Tatsuya Takasaka, *Zenn: Anthropic 해커톤 우승자의 Claude Code 설정 해설*](https://zenn.dev/ttks/articles/a54c7520f827be)
 
 [^tilnote]: https://tilnote.io/en/pages/696db2d265a2e4dd63f35cc7
 [^github]: https://github.com/affaan-m/everything-claude-code
