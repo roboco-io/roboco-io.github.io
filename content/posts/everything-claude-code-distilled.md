@@ -1,5 +1,5 @@
 ---
-title: "Everything Claude Code Distilled"
+title: "Everything Claude Code - 해커톤 우승자의 AI 개발 팀 레시피"
 date: 2026-01-20T09:30:07+09:00
 draft: false
 toc: false
