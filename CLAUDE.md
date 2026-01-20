@@ -9,6 +9,9 @@ ROBOCO.IO corporate website - a Hugo-based static site deployed to GitHub Pages.
 ## Commands
 
 ```bash
+# First-time setup (clone with submodules)
+git submodule update --init --recursive
+
 # Local development server (includes drafts)
 hugo server -D
 
@@ -51,10 +54,13 @@ Theme overrides are placed in `layouts/` to customize the hello-friend-ng theme:
 ```yaml
 ---
 title: "제목"
-date: YYYY-MM-DD
+date: 2025-01-01T10:00:00+09:00
 draft: false
-tags: ["태그1", "태그2"]
-categories: ["카테고리"]
+toc: false
+images:
+tags:
+  - tag1
+  - tag2
 ---
 ```
 
