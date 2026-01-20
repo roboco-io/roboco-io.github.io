@@ -24,27 +24,6 @@ Everything Claude Code는 Claude Code CLI를 **가상 개발 팀 환경**으로 
 
 ---
 
-## 목차
-
-- [목차](#목차)
-- [1. 프로젝트 개요](#1-프로젝트-개요)
-- [2. 저장소 구조와 아키텍처](#2-저장소-구조와-아키텍처)
-  - [2.1 Agents](#21-agents)
-  - [2.2 Skills](#22-skills)
-  - [2.3 Commands](#23-commands)
-  - [2.4 Rules](#24-rules)
-  - [2.5 Hooks](#25-hooks)
-  - [2.6 MCP 설정](#26-mcp-설정)
-  - [2.7 Plugins \& Examples](#27-plugins--examples)
-- [3. Claude API 활용 원칙](#3-claude-api-활용-원칙)
-- [4. 사용 기술 스택과 도구 체인](#4-사용-기술-스택과-도구-체인)
-- [5. 해커톤 우승으로 이어진 차별성](#5-해커톤-우승으로-이어진-차별성)
-- [6. 기술적 한계와 개선 방향](#6-기술적-한계와-개선-방향)
-- [7. 맺음말](#7-맺음말)
-- [참고 자료](#참고-자료)
-
----
-
 ## 1. 프로젝트 개요
 
 Everything Claude Code는 “Claude를 다역할 에이전트 팀으로 운영하라”는 명확한 철학으로 설계됐다.[^tilnote] 메인 세션이 프로젝트 매니저 역할을 맡고, 세부 작업은 다양한 서브 에이전트가 병렬로 수행한다. 작성자는 이 구성으로 2025년 9월 Anthropic x Forum Ventures 해커톤에서 **zenith.chat**을 완전히 Claude Code만으로 개발해 우승했다는 실전 사례도 공유했다.[^github]
