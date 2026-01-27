@@ -21,8 +21,6 @@ tags:
 
 이 포스트에서는 두 GitHub 오픈 소스 프로젝트 Everything Claude Code(affaan-m)와 Oh My ClaudeCode(Yeachan-Heo)를 도입 관점에서 비교해 보았다.[^ecc-github][^omc-github]
 
-Everything Claude Code(ECC)는 Anthropic의 Claude Code CLI 환경에서 쓰는 종합 설정 모음이다.[^ecc-github] Oh My ClaudeCode(OMC)는 Claude Code에 다중 에이전트 오케스트레이션 기능을 추가해 oh-my-zsh처럼 손쉬운 사용을 지향하는 플러그인이다.[^omc-github][^omc-medium]
-
 ---
 
 ## 비교 요약
