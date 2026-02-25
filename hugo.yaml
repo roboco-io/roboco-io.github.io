@@ -4,6 +4,7 @@ title: "ROBOCO"
 theme: "hello-friend-ng"
 
 params:
+  author: "ROBOCO"
   dateform: "Jan 2, 2006"
   dateformShort: "Jan 2"
   dateformNum: "2006-01-02"
