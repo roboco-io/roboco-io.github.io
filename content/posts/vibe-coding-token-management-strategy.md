@@ -1,6 +1,6 @@
 ---
 title: "바이브 코딩의 토큰 관리 전략"
-date: 2026-03-19T10:30:00+09:00
+date: 2026-03-19T09:00:00+09:00
 draft: false
 toc: false
 images:
