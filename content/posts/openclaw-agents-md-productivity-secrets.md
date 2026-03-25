@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw 생산성의 비밀: AGENTS.md 해부"
 date: 2026-03-25T10:00:00+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
