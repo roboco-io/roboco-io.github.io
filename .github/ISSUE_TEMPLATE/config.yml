@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "ROBOCO.IO 홈페이지"
+    url: https://roboco-io.github.io
+    about: "홈페이지 방문하기"

@@ -1,0 +1,42 @@
+name: "홈페이지 피드백"
+description: "홈페이지 디자인, 기능, 접근성에 대한 피드백"
+title: "[홈페이지] "
+labels: ["feedback", "website"]
+body:
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: 피드백 유형
+      options:
+        - 디자인 / UI 개선
+        - 기능 요청
+        - 버그 / 깨진 링크
+        - 접근성
+        - 기타
+    validations:
+      required: true
+
+  - type: input
+    id: page-url
+    attributes:
+      label: 관련 페이지 URL
+      description: "해당 페이지의 URL을 입력해주세요."
+      placeholder: "https://roboco-io.github.io/..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: feedback-content
+    attributes:
+      label: 피드백 내용
+      description: "자유롭게 의견을 남겨주세요."
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 스크린샷 (선택)
+      description: "관련 스크린샷이 있다면 첨부해주세요."
+    validations:
+      required: false

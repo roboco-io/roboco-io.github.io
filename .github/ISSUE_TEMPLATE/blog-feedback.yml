@@ -1,0 +1,43 @@
+name: "블로그 글 피드백"
+description: "블로그 글에 대한 의견, 오류 제보, 추가 주제 제안"
+title: "[피드백] "
+labels: ["feedback", "blog"]
+body:
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: 피드백 유형
+      options:
+        - 오류 제보 (사실 관계, 오탈자 등)
+        - 의견 및 토론
+        - 추가 주제 제안
+        - 기타
+    validations:
+      required: true
+
+  - type: input
+    id: post-url
+    attributes:
+      label: 관련 글 URL
+      description: "피드백 대상 글의 URL을 입력해주세요."
+      placeholder: "https://roboco-io.github.io/posts/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback-content
+    attributes:
+      label: 피드백 내용
+      description: "자유롭게 의견을 남겨주세요."
+      placeholder: "글에서 인상 깊었던 점, 수정이 필요한 부분, 또는 관련 주제 제안 등"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 추가 참고 자료 (선택)
+      description: "관련 링크나 참고 자료가 있다면 공유해주세요."
+      placeholder: "관련 문서, 기사, 코드 등"
+    validations:
+      required: false
