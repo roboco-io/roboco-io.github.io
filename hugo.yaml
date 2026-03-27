@@ -2,6 +2,7 @@ baseURL: "https://roboco.io"
 languageCode: "ko-kr"
 title: "ROBOCO"
 theme: "hello-friend-ng"
+buildFuture: true
 
 params:
   author: "ROBOCO"
