@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw의 5계층 게이트키핑: AI 에이전트 시대의 품질 관리"
-date: 2026-03-27T10:00:00+09:00
+date: 2026-03-27T00:00:00+09:00
 draft: false
 toc: false
 images:
