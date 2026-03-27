@@ -22,6 +22,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 defaults:
   run:
     shell: bash
@@ -59,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5.0.0
