@@ -42,7 +42,7 @@ OpenClaw의 AGENTS.md는 이 지도를 놀랍도록 구체적으로 그린다.
 
 ---
 
-## 2. 경계를 코드가 아닌 규칙으로 강제하라
+## 2. 경계를 설명이 아닌 규칙으로 강제하라
 
 OpenClaw AGENTS.md의 [Coding Style & Naming Conventions](https://github.com/openclaw/openclaw/blob/main/AGENTS.md#coding-style--naming-conventions) 섹션에서 가장 인상적인 부분은 **임포트 경계(import boundary)** 규칙이다. 이 규칙들은 단순한 코딩 스타일이 아니라, 아키텍처를 보호하는 가드레일이다.
 
