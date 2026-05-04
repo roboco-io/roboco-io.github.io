@@ -21,6 +21,12 @@ tags:
 
 그래서 나는 draw.io 클라이언트에서 AWS 아키텍처 아이콘의 ID를 직접 추출해서 별도로 [문서화](https://github.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/blob/main/docs/aws-2025-icons-drawio.md)했다. 이를 통해 AI에게 아이콘 ID를 알려줘서 원하는 아이콘을 정확히 활용할 수 있도록 한 것이다. 이 문서는 다음 깃허브 리포지토리에서 실제 작업한 예제를 통해 확인할 수 있다.
 
+## TL;DR
+
+- 바이브 코딩에서 문서화는 선택 사항이 아니라 설계 의도와 협업 맥락을 공유하기 위한 핵심 작업이다.
+- 간단한 구조는 마크다운과 mermaid로 충분하지만, 더 정교한 아키텍처 다이어그램은 draw.io 파일을 AI와 함께 생성할 수 있다.
+- AWS 아이콘처럼 AI가 알기 어려운 세부 ID는 별도 문서로 제공하면 원하는 다이어그램을 더 정확하게 만들 수 있다.
+
 [ECS - Fargate Fast Scaleout](https://github.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/)
 
 이렇게 생성된 다이어그램은 VS Code의 drawio 관련 확장 기능을 이용하면 편리하게 미리 보거나 수정할 수 있다. 또한 draw.io 클라이언트를 설치하면 함께 제공되는 CLI 도구로 손쉽게 svg나 png 형태의 이미지로 컨버트하여 문서에 삽입할 수도 있다.

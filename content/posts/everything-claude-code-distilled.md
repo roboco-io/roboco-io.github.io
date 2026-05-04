@@ -24,6 +24,14 @@ Everything Claude Code는 Claude Code CLI를 **가상 개발 팀 환경**으로 
 
 ---
 
+## TL;DR
+
+- Everything Claude Code는 Claude Code CLI를 역할 분리된 가상 개발 팀처럼 운영하기 위한 설정 모음이다.
+- 에이전트, 스킬, 슬래시 명령, 규칙, 훅을 조합해 계획, TDD, 리뷰, 문서화를 반복 가능한 흐름으로 만든다.
+- 핵심은 도구를 많이 붙이는 것이 아니라 필요한 맥락과 가드레일만 켜서 Claude가 안정적으로 일하게 하는 것이다.
+
+---
+
 ## 1. 프로젝트 개요
 
 Everything Claude Code는 “Claude를 다역할 에이전트 팀으로 운영하라”는 명확한 철학으로 설계됐다.[^tilnote] 메인 세션이 프로젝트 매니저 역할을 맡고, 세부 작업은 다양한 서브 에이전트가 병렬로 수행한다. 작성자는 이 구성으로 2025년 9월 Anthropic x Forum Ventures 해커톤에서 **zenith.chat**을 완전히 Claude Code만으로 개발해 우승했다는 실전 사례도 공유했다.[^github]

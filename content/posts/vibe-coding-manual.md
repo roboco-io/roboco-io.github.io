@@ -11,6 +11,11 @@ tags:
 
 이 포스트는 reddit에 올라온 [Vibe Coding 매뉴얼](https://www.reddit.com/r/ChatGPTCoding/comments/1j5l4xw/vibe_coding_manual/)을 번역한 것입니다.
 
+## TL;DR
+
+- Vibe Coding은 명세, 규칙, 감독을 조합해 AI와 함께 프로젝트를 만드는 개발 방식이다.
+- 규칙 파일에는 코딩 스타일, 기술 스택, 워크플로우, 커뮤니케이션 기대치를 명확히 나눠 적는 것이 핵심이다.
+- 작은 스크립트부터 대규모 앱까지 적용할 수 있지만, AI의 범위 확장과 컨텍스트 손실을 계속 관리해야 한다.
 
 ## 소개: Vibe Coding과 AI의 핵심 개념
 
