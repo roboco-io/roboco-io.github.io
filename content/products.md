@@ -49,8 +49,38 @@ draft: false
 
 ---
 
-## **그 외 오픈소스 활동**
+## **오픈소스 도구와 리소스**
 
-로보코의 GitHub 조직에서 컨설팅·교육에서 사용하는 도구와 자료를 함께 공개하고 있습니다.
+자체 사이트는 아직 없지만, 로보코가 컨설팅·교육 현장에서 만들고 다듬어 온 도구와 큐레이션을 GitHub에 공개하고 있습니다. 모두 실제 프로젝트와 강의에서 활용 중인 결과물입니다.
+
+### **roboco-cli**
+
+Claude Code와 바이브 코딩을 위한 AI-네이티브 개발 스캐폴딩 CLI. 로보코의 컨설팅 방법론 — 어떻게 프로젝트를 시작하고, AI 에이전트가 잘 작업할 수 있도록 저장소를 구조화하는지 — 을 명령어 한 줄로 압축한 도구입니다.
+
+- GitHub: [roboco-io/roboco-cli](https://github.com/roboco-io/roboco-cli)
+
+### **awesome-vibecoding**
+
+바이브 코딩의 리소스·튜토리얼·베스트 프랙티스·예제를 모아둔 awesome 큐레이션 리스트. 한국·해외 자료를 폭넓게 다루며, 새로 등장하는 도구와 사례를 지속적으로 반영합니다.
+
+- GitHub: [roboco-io/awesome-vibecoding](https://github.com/roboco-io/awesome-vibecoding)
+
+### **hwp2md**
+
+HWP(한글 워드프로세서) 문서를 LLM이 다룰 수 있는 Markdown으로 변환하는 도구. 한국 비즈니스 환경에서 AI를 도입할 때 가장 먼저 마주치는 문서 호환성 문제를 해결하기 위해 만들었습니다.
+
+- GitHub: [roboco-io/hwp2md](https://github.com/roboco-io/hwp2md)
+
+### **plugins**
+
+Claude Code의 사용성을 확장하는 Skills·Commands·Agents·Hooks 플러그인 모음. 로보코가 컨설팅·교육 워크플로우에서 다듬어 온 패턴을 누구나 설치해 쓸 수 있도록 정리해 두었습니다.
+
+- GitHub: [roboco-io/plugins](https://github.com/roboco-io/plugins)
+
+---
+
+## **더 많은 활동**
+
+위 외에도 다양한 데모·실험·교육 자료를 공개하고 있습니다.
 
 - [github.com/roboco-io](https://github.com/roboco-io)
