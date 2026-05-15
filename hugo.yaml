@@ -69,7 +69,6 @@ params:
   
   # 푸터 설정
   footer:
-    startYear: 2025
     trademark: ROBOCO, Inc.
     rss: true
 
