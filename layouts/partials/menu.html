@@ -1,0 +1,41 @@
+<nav class="menu">
+    <ul class="menu__inner">
+        {{- $currentPage := . -}}
+        {{ range sort .Site.Menus.main ".Weight" -}}
+            {{- $external := false -}}
+            {{- $icon := "" -}}
+            {{- with .Params -}}
+                {{- if .external }}{{ $external = true }}{{ end -}}
+                {{- with .icon }}{{ $icon = . }}{{ end -}}
+            {{- end -}}
+            <li{{ if $icon }} class="menu__item--icon"{{ end }}>
+                {{- if $external -}}
+                    <a href="{{ .URL }}" target="_blank" rel="noopener"{{ if $icon }} aria-label="{{ .Name }}" title="{{ .Name }}" class="menu__icon-link"{{ end }}>
+                        {{- if $icon -}}
+                            {{ partial "svg.html" (dict "name" $icon) }}
+                        {{- else -}}
+                            {{ .Name }}
+                        {{- end -}}
+                    </a>
+                {{- else -}}
+                    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                {{- end -}}
+            </li>
+        {{- end }}
+
+        {{- if .Site.Params.EnableGlobalLanguageMenu }}
+        <ul class="submenu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">{{ .Language }}</a>
+                <div class="dropdown-content">
+                    {{- if hugo.IsMultilingual }}
+                        {{ range $.Translations }}
+                            <a title="{{ .Language }}" href="{{ .Permalink }}">{{ .Language }}</a>
+                        {{ end }}
+                    {{- end }}
+                </div>
+            </li>
+        </ul>
+        {{- end }}
+    </ul>
+</nav>

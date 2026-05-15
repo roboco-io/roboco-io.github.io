@@ -67,11 +67,6 @@ params:
       - name: "title"
         content: "ROBOCO"
   
-  # 소셜 아이콘
-  social:
-    - name: github
-      url: "https://github.com/roboco-io"
-
   # 푸터 설정
   footer:
     trademark: 2025 ROBOCO, Inc.
@@ -87,6 +82,10 @@ menu:
       name: Solutions
       url: /solutions/
       weight: 20
+    - identifier: products
+      name: Products
+      url: /products/
+      weight: 25
     - identifier: posts
       name: Posts
       url: /posts/
@@ -95,3 +94,10 @@ menu:
       name: Contact
       url: /contact/
       weight: 40
+    - identifier: github
+      name: GitHub
+      url: https://github.com/roboco-io
+      weight: 50
+      params:
+        external: true
+        icon: github

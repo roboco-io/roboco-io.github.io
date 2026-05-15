@@ -78,6 +78,25 @@
     color: var(--secondary);
 }
 
+/* 상단 메뉴 아이콘 링크 (GitHub 등) */
+.menu__inner .menu__item--icon {
+    display: flex;
+    align-items: center;
+}
+
+.menu__inner .menu__icon-link {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    line-height: 0;
+}
+
+.menu__inner .menu__icon-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
 /* 글쓴이 이미지 스타일 */
 .author-image {
     width: 100px;
