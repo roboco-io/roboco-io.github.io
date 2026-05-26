@@ -51,7 +51,7 @@ draft: false
 
 ## **오픈소스 도구와 리소스**
 
-자체 사이트는 아직 없지만, 로보코가 컨설팅·교육 현장에서 만들고 다듬어 온 도구와 큐레이션을 GitHub에 공개하고 있습니다. 모두 실제 프로젝트와 강의에서 활용 중인 결과물입니다.
+자체 사이트는 아직 없지만, 로보코가 컨설팅·교육 현장과 자체 연구에서 만들고 다듬어 온 도구·실험·큐레이션을 GitHub에 공개하고 있습니다. 모두 실제 프로젝트, 강의, 그리고 "이게 정말 작은 비용으로 가능한가"를 직접 확인한 실험의 결과물입니다.
 
 ### **roboco-cli**
 
@@ -76,6 +76,30 @@ HWP(한글 워드프로세서) 문서를 LLM이 다룰 수 있는 Markdown으로
 Claude Code의 사용성을 확장하는 Skills·Commands·Agents·Hooks 플러그인 모음. 로보코가 컨설팅·교육 워크플로우에서 다듬어 온 패턴을 누구나 설치해 쓸 수 있도록 정리해 두었습니다.
 
 - GitHub: [roboco-io/plugins](https://github.com/roboco-io/plugins)
+
+### **s3-experiments**
+
+Amazon S3를 단순 스토리지가 아닌 Key-Value Store, Event Store, 내구성 RDBMS(Litestream+SQLite), 서버리스 RDBMS(Athena), 파일 I/O 대안으로 활용하는 방법을 탐구하는 실험 프로젝트. CDK로 배포 가능한 동작 코드와 전용 서비스(DynamoDB, RDS, Aurora) 대비 정직한 트레이드오프 벤치마크를 함께 제공합니다 — 전담 클라우드 연구팀 없이도 아키텍처 결정의 가이드레일을 작은 비용으로 검증할 수 있게.
+
+- GitHub: [roboco-io/s3-experiments](https://github.com/roboco-io/s3-experiments)
+
+### **serverless-autoresearch**
+
+Karpathy의 autoresearch를 AWS SageMaker Spot에서 재현·확장하는 프로젝트. H100 한 대를 8시간 점유해야 가능했던 야간 자동 모델 개선 실험을 2.3× 빠르고 5–18× 저렴하게 운영했고, 48개 실험 전체를 $3.94에 완료했습니다. HUGI 패턴을 적용한 병렬 진화 파이프라인과 8장의 핸즈온 튜토리얼도 함께 공개합니다.
+
+- GitHub: [roboco-io/serverless-autoresearch](https://github.com/roboco-io/serverless-autoresearch)
+
+### **vibe-ready-cli**
+
+내 저장소가 바이브 코딩(AI 에이전트 기반 개발)에 얼마나 준비되어 있는지 한 명령으로 점검해 주는 CLI. Claude Agent SDK를 활용해 LLM이 직접 저장소를 탐색하고 6개 카테고리에 점수를 매긴 뒤, 종합 등급과 구체적인 개선 권장 사항을 제시합니다(`npx vibe-ready .` 로 즉시 실행 가능).
+
+- GitHub: [roboco-io/vibe-ready-cli](https://github.com/roboco-io/vibe-ready-cli)
+
+### **ghx-cli**
+
+공식 GitHub CLI(`gh`)가 다루지 못하는 영역을 채우는 확장 CLI. GitHub Projects v2의 뷰·워크플로·필드 관리와 GitHub Discussions CRUD를 GraphQL API로 직접 조작할 수 있게 해 줍니다(`ghx project`, `ghx item`, `ghx field`, `ghx view` 등). 프로젝트 관리 자동화·일괄 처리·템플릿 적용 같은 실무 시나리오를 한 명령으로.
+
+- GitHub: [roboco-io/ghx-cli](https://github.com/roboco-io/ghx-cli)
 
 ---
 
