@@ -20,11 +20,13 @@ tags:
 
 랄프 루프(Ralph loop)는 단순한 방식이다. 골과 완료 조건만 명시하고, 단일 세션에서 에이전트가 완료 판정을 통과할 때까지 자율적으로 반복하게 둔다. 계획서도, 태스크 분할도, 세션 간 인수인계 문서도 없다. 언뜻 보면 무계획하고 비효율적으로 보인다.
 
-그런데 통제된 실험으로 실측해 보니, 이 단순한 방식이 계획 기반 워크플로보다 **약 9배 저렴하게** 같은 과제를 완주했다. 바이브 코딩이 표준이 되면서 많은 조직이 토큰 부족을 겪고 있는 지금[^1], 이 결과의 원리를 이해하는 것은 실질적인 비용 문제와 직결된다. 이 글은 그 실측 결과와 함께, 랄프 루프를 저렴하게 만드는 진짜 메커니즘인 **프롬프트 캐싱의 동작 원리**를 설명한다.
+바이브 코딩이 표준이 되면서 많은 조직이 토큰 부족을 겪고 있다. 이전 글에서 토큰 관리 전략을 다뤘지만[^1], 그때의 처방은 대부분 경험칙이었다. 그래서 우리는 경험칙을 검증하기 위한 실험 리포지토리 [vibecoding-token-experiments](https://github.com/roboco-io/vibecoding-token-experiments)[^2]를 만들었다. 토큰 사용에 대한 가설을 카탈로그로 관리하고, RealWorld App[^3] 백엔드 구현이라는 고정 벤치마크 과제 위에서 워크플로 전략, 토큰 습관, 언어라는 세 축의 가설을 통제된 조건으로 하나씩 실측하는 프로젝트다.
+
+그 첫 번째 축이 워크플로 전략이었다. 실측해 보니, 랄프 루프라는 이 단순한 방식이 계획 기반 워크플로보다 **약 9배 저렴하게** 같은 과제를 완주했다. 이 글은 지금까지 수행한 네 실험의 결과와 함께, 랄프 루프를 저렴하게 만드는 진짜 메커니즘인 **프롬프트 캐싱의 동작 원리**를 설명한다.
 
 ## 1. 실험: 랄프 루프 vs 계획 기반 워크플로
 
-공통 과제는 RealWorld App[^2] 백엔드 구현이다. Medium 클론의 REST API를 스펙대로 구현하고 공식 API 테스트를 100% 통과해야 완주로 인정한다. 모델은 Claude Opus 하나로 고정해 모델 차이로 인한 교란을 제거했고, 도구는 Claude Code를 사용했다. 측정은 세션 로그의 usage 필드를 집계해 **billable 토큰** (input + output + cache_creation) 기준으로 삼았다.
+공통 과제는 RealWorld App 백엔드 구현이다. Medium 클론의 REST API를 스펙대로 구현하고 공식 API 테스트를 100% 통과해야 완주로 인정한다. 모델은 Claude Opus 하나로 고정해 모델 차이로 인한 교란을 제거했고, 도구는 Claude Code를 사용했다. 측정은 세션 로그의 usage 필드를 집계해 **billable 토큰** (input + output + cache_creation) 기준으로 삼았다.
 
 비교한 두 워크플로는 이렇다.
 
@@ -57,11 +59,11 @@ tags:
 
 랄프 루프가 이긴 것은 루프 구조가 우월해서가 아니다. **한 번 만든 컨텍스트를 프롬프트 캐시로 끝까지 재활용했기 때문이다.** 이 메커니즘을 이해하면 결과가 당연해진다.
 
-**원리 1: 캐시는 프롬프트의 앞부분(prefix)을 통째로 저장한다.** Claude API의 프롬프트 캐싱[^3]은 프롬프트 맨 앞에서부터의 연속 구간을 캐시한다. 내용의 해시가 키이므로, 바이트 단위로 동일한 prefix가 다시 오면 모델이 재처리 없이 서버에 저장된 상태를 그대로 불러온다. usage 필드에서 `cache_creation_input_tokens`는 이번 요청에서 새로 캐시에 쓴 토큰, `cache_read_input_tokens`는 캐시 히트로 읽어온 토큰이다.
+**원리 1: 캐시는 프롬프트의 앞부분(prefix)을 통째로 저장한다.** Claude API의 프롬프트 캐싱[^4]은 프롬프트 맨 앞에서부터의 연속 구간을 캐시한다. 내용의 해시가 키이므로, 바이트 단위로 동일한 prefix가 다시 오면 모델이 재처리 없이 서버에 저장된 상태를 그대로 불러온다. usage 필드에서 `cache_creation_input_tokens`는 이번 요청에서 새로 캐시에 쓴 토큰, `cache_read_input_tokens`는 캐시 히트로 읽어온 토큰이다.
 
 **원리 2: 에이전트 대화는 구조적으로 캐시 친화적이다.** 에이전트의 대화는 append-only로 누적된다. 이전 턴을 수정하지 않고 뒤에만 붙이므로, 직전까지의 히스토리 전체가 항상 안정된 prefix가 된다. 결과적으로 매 턴 "이전 전부 = 캐시 읽기, 이번 턴의 새 입력과 출력만 정가"로 과금된다. Claude Code는 시스템 프롬프트, 도구 정의, 대화 히스토리를 자동으로 캐싱하므로 사용자가 따로 설정할 것도 없다.
 
-**원리 3: 캐시 읽기는 정가의 0.1배다.** 캐시 쓰기는 기본 input의 1.25배(5분 TTL 기준)로 약간의 할증이 붙지만, 읽기는 **0.1배** 수준에 불과하다[^4]. 게다가 5분 TTL은 히트할 때마다 무료로 리셋되므로, 에이전트가 5분 안에 계속 턴을 이어가는 한 캐시는 세션 내내 살아 있다. 한 번이라도 히트하면 손익분기를 넘는 구조다.
+**원리 3: 캐시 읽기는 정가의 0.1배다.** 캐시 쓰기는 기본 input의 1.25배(5분 TTL 기준)로 약간의 할증이 붙지만, 읽기는 **0.1배** 수준에 불과하다[^5]. 게다가 5분 TTL은 히트할 때마다 무료로 리셋되므로, 에이전트가 5분 안에 계속 턴을 이어가는 한 캐시는 세션 내내 살아 있다. 한 번이라도 히트하면 손익분기를 넘는 구조다.
 
 **원리 4: 캐시는 세션이 아니라 prefix 내용에 키잉된다.** 새 세션이 비싼 정확한 이유가 여기 있다. 시스템 프롬프트와 도구 정의처럼 세션 간 공통인 부분(위에서 측정한 약 20.6K의 기동세 영역)은 TTL 내라면 재사용될 수 있지만, **대화 히스토리와 읽은 파일은 세션마다 다르므로** 그 부분은 매번 캐시 쓰기(1.25배)로 재구축된다. 또한 캐시는 tools → system → messages 계층 구조라서, 도구 정의나 모델을 바꾸면 그 아래 전부가 무효화된다.
 
@@ -118,6 +120,7 @@ billable 지표는 cache read를 제외한 근사치이므로, 실제 청구 금
 ---
 
 [^1]: 바이브 코딩의 토큰 관리 전략: /posts/vibe-coding-token-management-strategy/
-[^2]: RealWorld - "The mother of all demo apps": https://github.com/gothinkster/realworld
-[^3]: Anthropic 공식 문서 - Prompt caching: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
-[^4]: Anthropic 공식 문서 - Pricing: https://platform.claude.com/docs/en/pricing
+[^2]: vibecoding-token-experiments - 토큰 실험 관리 리포지토리 (가설 카탈로그, 실험 설계, 원자료 로그 공개): https://github.com/roboco-io/vibecoding-token-experiments
+[^3]: RealWorld - "The mother of all demo apps": https://github.com/gothinkster/realworld
+[^4]: Anthropic 공식 문서 - Prompt caching: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+[^5]: Anthropic 공식 문서 - Pricing: https://platform.claude.com/docs/en/pricing
