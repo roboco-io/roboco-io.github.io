@@ -22,4 +22,11 @@ Please include the following information in your email, and we'll get back to yo
   - AI Bootcamp (AI training / vibe coding workshops)
   - AI Partnership (ongoing advisory / growth support / software development)
   - AI Transformation Advisory (company-wide AI integration strategy)
+  - Certification & Compliance Consulting (K-FSI / ISO 27001 / K-ISMS)
   - Other
+
+## Company Brochure
+
+A four-page brochure covering ROBOCO's services and measured results.
+
+- **[Download the company brochure (PDF)](/brochure/roboco-brochure.en.pdf)**
