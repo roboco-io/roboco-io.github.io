@@ -9,6 +9,7 @@ on:
       - 'layouts/**'
       - 'static/**'
       - 'assets/**'
+      - 'data/**'
       - 'hugo.yaml'
       - 'config.yaml'
   workflow_dispatch:

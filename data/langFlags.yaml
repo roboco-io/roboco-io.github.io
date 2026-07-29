@@ -1,0 +1,6 @@
+# 테마(hello-friend-ng)의 data/langFlags.yaml 오버라이드.
+# 테마 원본에는 ko 매핑이 없어 en/ja 페이지에서 한국어 플래그가 비어 렌더링되고,
+# en은 영국(gb) 국기로 매핑되어 있어 미국(us)으로 교체.
+en: us
+ja: jp
+ko: kr
