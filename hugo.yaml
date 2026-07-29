@@ -1,8 +1,36 @@
 baseURL: "https://roboco.io"
-languageCode: "ko-kr"
 title: "ROBOCO"
 theme: "hello-friend-ng"
 buildFuture: true
+
+defaultContentLanguage: "ko"
+defaultContentLanguageInSubdir: false
+
+languages:
+  ko:
+    languageName: "한국어"
+    languageCode: "ko-kr"
+    weight: 1
+    contentDir: "content/ko"
+    title: "ROBOCO"
+    params:
+      homeSubtitle: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
+  en:
+    languageName: "English"
+    languageCode: "en-us"
+    weight: 2
+    contentDir: "content/en"
+    title: "ROBOCO"
+    params:
+      homeSubtitle: "ROBOCO is an IT consulting partner that helps you transform your business through vibe coding, backed by proven solutions and processes."
+  ja:
+    languageName: "日本語"
+    languageCode: "ja"
+    weight: 3
+    contentDir: "content/ja"
+    title: "ROBOCO"
+    params:
+      homeSubtitle: "ROBOCOは、実績あるソリューションとプロセスでバイブコーディングによるビジネス変革を支援するITコンサルティングパートナーです。"
 
 params:
   author: "ROBOCO"
@@ -12,14 +40,11 @@ params:
   dateformNum: "2006-01-02"
   dateformNumTime: "2006-01-02 15:04"
 
-  # 홈페이지 설정
-  homeSubtitle: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
-  
   # 테마 설정
   defaultTheme: "dark"
   disableReadOtherPosts: false
   enableSharingButtons: true
-  enableGlobalLanguageMenu: false
+  enableGlobalLanguageMenu: true
   enableThemeToggle: true
   
   # 파비콘 설정
