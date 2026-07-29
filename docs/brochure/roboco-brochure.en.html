@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ROBOCO Company Brochure</title>
+<style>
+  :root {
+    --ink: #050f28;
+    --navy: #000428;
+    --blue: #004e92;
+    --steel: #5b7794;
+    --mist: #edf3fa;
+    --line: #d4e0ec;
+    --paper: #ffffff;
+    --signal: #ffb03a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    background: #888;
+  }
+  .mono { font-family: "SF Mono", "Menlo", "Consolas", monospace; }
+
+  @page { size: A4; margin: 0; }
+  .sheet {
+    width: 210mm; height: 297mm;
+    background: var(--paper);
+    padding: 16mm 15mm;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  @media screen {
+    body { padding: 20px; }
+    .sheet { margin: 0 auto 20px; box-shadow: 0 4px 24px rgba(0,0,0,.35); }
+  }
+
+  /* ---------- common ---------- */
+  .eyebrow {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 8.5pt; letter-spacing: .22em;
+    color: var(--blue); text-transform: uppercase;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 3mm; margin-bottom: 7mm;
+    display: flex; justify-content: space-between;
+  }
+  .eyebrow .pg { color: var(--steel); letter-spacing: 0; }
+  h2.head {
+    font-size: 22pt; font-weight: 800; line-height: 1.25;
+    letter-spacing: -.01em; margin-bottom: 4mm;
+  }
+  .lead { font-size: 10pt; line-height: 1.7; color: #2c3b55; max-width: 155mm; }
+  .lead strong { color: var(--ink); }
+
+  /* ---------- 1p cover ---------- */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: #fff;
+  }
+  .cover-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .wordmark { font-size: 20pt; font-weight: 800; letter-spacing: .30em; }
+  .wordmark .dot { color: var(--signal); }
+  .cover-role { font-size: 9pt; letter-spacing: .12em; color: #b9cbe3; }
+  .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover-x {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 64pt; color: var(--signal); line-height: 1;
+    margin-bottom: 8mm; font-weight: 400;
+  }
+  h1.thesis {
+    font-size: 38pt; font-weight: 800; line-height: 1.28;
+    letter-spacing: -.01em; margin-bottom: 9mm;
+  }
+  h1.thesis em { font-style: normal; color: var(--signal); }
+  .cover-sub { font-size: 11pt; line-height: 1.75; color: #dbe6f4; max-width: 150mm; }
+  .ledger {
+    border-top: 1px solid rgba(255,255,255,.35);
+    padding-top: 5mm;
+  }
+  .ledger-caption {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 7.5pt; letter-spacing: .18em; color: #9fb4d1;
+    margin-bottom: 4mm;
+  }
+  .ledger-grid { display: flex; }
+  .ledger-item { flex: 1; padding-right: 6mm; }
+  .ledger-item + .ledger-item { border-left: 1px solid rgba(255,255,255,.2); padding-left: 6mm; }
+  .ledger-num {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 15pt; color: var(--signal); margin-bottom: 2mm; white-space: nowrap;
+  }
+  .ledger-label { font-size: 8pt; line-height: 1.5; color: #c3d3e8; }
+
+  /* ---------- 2p About ---------- */
+  .caps { display: flex; gap: 5mm; margin: 7mm 0; }
+  .cap {
+    flex: 1; background: var(--mist); padding: 6mm 5mm 5mm;
+    border-top: 3px solid var(--blue);
+  }
+  .cap h3 { font-size: 11pt; font-weight: 800; margin-bottom: 2.5mm; }
+  .cap p { font-size: 8.5pt; line-height: 1.65; color: #35486a; }
+  .cycle { display: flex; gap: 5mm; margin-top: 2mm; }
+  .cycle-col { flex: 1; border: 1px solid var(--line); padding: 5.5mm 5mm; }
+  .cycle-col h4 { font-size: 10pt; font-weight: 800; margin-bottom: 1.5mm; }
+  .cycle-col .tag {
+    font-family: "SF Mono","Menlo",monospace; font-size: 7pt;
+    letter-spacing: .15em; color: var(--blue); margin-bottom: 3.5mm;
+  }
+  .cycle-col ul { list-style: none; }
+  .cycle-col li {
+    font-size: 8.5pt; line-height: 1.55; color: #2c3b55;
+    padding: 1.8mm 0 1.8mm 4.5mm; position: relative;
+    border-top: 1px dashed var(--line);
+  }
+  .cycle-col li::before { content: "—"; position: absolute; left: 0; color: var(--blue); }
+  .cycle-col li strong { color: var(--ink); }
+  .cycle-note {
+    margin-top: auto; background: var(--ink); color: #dbe6f4;
+    font-size: 8.5pt; line-height: 1.65; padding: 4.5mm 5.5mm;
+  }
+  .cycle-note strong { color: var(--signal); }
+
+  /* ---------- 3p Solutions ---------- */
+  .svc { border-top: 2px solid var(--ink); padding: 3.6mm 0 4mm; display: flex; gap: 6mm; }
+  .svc-name { width: 44mm; flex-shrink: 0; }
+  .svc-name h3 { font-size: 13pt; font-weight: 800; line-height: 1.3; }
+  .svc-name .for { font-size: 8pt; color: var(--steel); margin-top: 1.5mm; line-height: 1.5; }
+  .svc-body { flex: 1; }
+  .svc-body p { font-size: 8.8pt; line-height: 1.65; color: #2c3b55; margin-bottom: 2.5mm; }
+  .svc-role {
+    font-family: "SF Mono","Menlo",monospace; font-size: 8pt;
+    color: var(--blue); background: var(--mist);
+    display: inline-block; padding: 1.4mm 3mm;
+  }
+  .why { display: flex; gap: 5mm; margin-top: 4mm; }
+  .why div { flex: 1; }
+  .why h4 { font-size: 9.5pt; font-weight: 800; margin-bottom: 1.6mm; }
+  .why h4::before { content: "× "; color: var(--signal); font-family: "SF Mono","Menlo",monospace; }
+  .why p { font-size: 8pt; line-height: 1.6; color: #35486a; }
+  .start {
+    margin-top: auto; border: 2px solid var(--ink);
+    display: flex; text-align: center;
+  }
+  .start div { flex: 1; padding: 4mm 3mm; }
+  .start div + div { border-left: 1px solid var(--line); }
+  .start b { display: block; font-size: 9.5pt; margin-bottom: 1.2mm; }
+  .start span { font-size: 7.8pt; color: var(--steel); line-height: 1.5; display: block; }
+
+  /* ---------- 4p Products ---------- */
+  .feat { display: flex; gap: 5mm; margin: 6mm 0 5mm; }
+  .feat-card {
+    flex: 1; background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: #fff; padding: 6mm 5.5mm;
+  }
+  .feat-card h3 { font-size: 12pt; font-weight: 800; margin-bottom: 2mm; }
+  .feat-card .tagline { font-size: 8.2pt; line-height: 1.6; color: #dbe6f4; margin-bottom: 3mm; }
+  .feat-card .url { font-family: "SF Mono","Menlo",monospace; font-size: 7pt; color: var(--signal); line-height: 1.6; }
+  .oss { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 5mm; }
+  .oss-item { border-top: 1px solid var(--line); padding-top: 2.6mm; }
+  .oss-item h4 { font-family: "SF Mono","Menlo",monospace; font-size: 9pt; margin-bottom: 1.2mm; }
+  .oss-item p { font-size: 7.8pt; line-height: 1.55; color: #35486a; }
+  .contact-band {
+    margin: auto -15mm -16mm; background: var(--ink); color: #fff;
+    padding: 8mm 15mm 9mm; display: flex; justify-content: space-between; align-items: center;
+  }
+  .contact-band h3 { font-size: 14pt; font-weight: 800; line-height: 1.4; }
+  .contact-band h3 small { display: block; font-size: 8.5pt; font-weight: 400; color: #b9cbe3; margin-top: 1.5mm; }
+  .contact-list { text-align: right; font-family: "SF Mono","Menlo",monospace; font-size: 9pt; line-height: 2; }
+  .contact-list b { color: var(--signal); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 1p — Cover ═══════════ -->
+<section class="sheet cover">
+  <div class="cover-top">
+    <div class="wordmark">ROBOCO</div>
+    <div class="cover-role">AI TRANSFORMATION PARTNER</div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-x">×10</div>
+    <h1 class="thesis">AI doesn't replace.<br>It <em>amplifies</em>.</h1>
+    <p class="cover-sub">ROBOCO delivers comprehensive consulting, training, and software development so AI becomes integrated across your entire business. We don't do the work for you — we make your team wield AI directly and perform at a whole new level. That is ROBOCO's role.</p>
+  </div>
+  <div class="ledger">
+    <div class="ledger-caption">PROOF LEDGER — MEASURED RESULTS FROM ROBOCO'S OWN PUBLISHED EXPERIMENTS</div>
+    <div class="ledger-grid">
+      <div class="ledger-item">
+        <div class="ledger-num">$3.94</div>
+        <div class="ledger-label">Total cost of all 48 model-improvement experiments (SageMaker Spot)</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">2.3× / 5–18×</div>
+        <div class="ledger-label">Karpathy's autoresearch, reproduced — faster and cheaper</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">$1–2/mo</div>
+        <div class="ledger-label">LLM agent service operating cost (zero when idle)</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">3 LLMs</div>
+        <div class="ledger-label">Claude·GPT·Gemini parallel analysis with 4-dimensional scoring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 2p — About ═══════════ -->
+<section class="sheet">
+  <div class="eyebrow"><span>ABOUT — ROBOCO HAS YOUR BACK</span><span class="pg">02</span></div>
+  <h2 class="head">The Initiative Stays With You</h2>
+  <p class="lead">Outsourcing can be fast, but the knowledge leaves with the vendor. ROBOCO chose a different path: <strong>you keep full control while leading your own AI transformation — safely and cost-effectively — with the power of AI and the cloud behind you.</strong> ROBOCO is your partner on that journey. The things you couldn't do for lack of senior talent — data-driven decision-making, software development, process innovation — can start today. But "possible" and "done safely and effectively" are different things. That is exactly where ROBOCO comes in.</p>
+
+  <div class="caps">
+    <div class="cap">
+      <h3>AI Expertise</h3>
+      <p>We teach hands-on methods for integrating AI across management and operations. Vibe coding lets even non-developers build software — and we flag the traps and risks in advance. We verify "how far you can go, and where danger begins" through our own research, and guide you accordingly.</p>
+    </div>
+    <div class="cap">
+      <h3>Global Big Tech Experience</h3>
+      <p>Founding members from Amazon and Google form your safety guardrail. Our own experiments prove that big-tech cost efficiency can start small — without a dedicated research organization or a large budget — and we transplant that approach directly into client environments.</p>
+    </div>
+    <div class="cap">
+      <h3>Training &amp; Capability Transfer</h3>
+      <p>The ultimate deliverable of every service is not a report or a system but capability accumulated inside your organization. We design role-specific learning loops where executives, leaders, practitioners, and operators each learn and measure. Your independence is ROBOCO's success.</p>
+    </div>
+  </div>
+
+  <h2 class="head" style="font-size:15pt; margin-top:2mm;">The Consulting–Research Flywheel</h2>
+  <div class="cycle">
+    <div class="cycle-col">
+      <h4>Projects serving client businesses directly</h4>
+      <div class="tag">① CONSULTING</div>
+      <ul>
+        <li><strong>Vibe coding adoption consulting</strong> for a security software group</li>
+        <li><strong>K-FSI audit response support</strong> for a global service company's Korean subsidiary</li>
+        <li><strong>Vibe coding workshop</strong> curriculum (developer / non-developer tracks)</li>
+        <li><strong>Challenge Driven Learning</strong> (4-role learning-loop training platform)</li>
+      </ul>
+    </div>
+    <div class="cycle-col">
+      <h4>Self-directed experiments with AI as researcher</h4>
+      <div class="tag">② RESEARCH</div>
+      <ul>
+        <li><strong>Persona Insight</strong> — multi-LLM 4-dimensional scoring of Git activity</li>
+        <li><strong>S3 Deep Dive</strong> — S3 as KV, event store, RDBMS, serverless DB</li>
+        <li><strong>Serverless Autoresearch</strong> — all 48 experiments for $3.94</li>
+        <li><strong>Serverless OpenClaw</strong> — an LLM agent run for $1–2 a month</li>
+      </ul>
+    </div>
+  </div>
+  <p class="cycle-note">Patterns validated in both streams flow back into the diagnosis, training, and PoC design for the next client, raising the speed and accuracy of our consulting. Experiments that once required a dedicated team and a large budget now run <strong>solo, fast, and cheap</strong> — published openly as proof of the democratization of technology.</p>
+</section>
+
+<!-- ═══════════ 3p — Solutions ═══════════ -->
+<section class="sheet">
+  <div class="eyebrow"><span>SOLUTIONS</span><span class="pg">03</span></div>
+  <h2 class="head">From First Steps to Full Transformation<br>— and Into Regulated Markets</h2>
+
+  <div class="svc" style="margin-top:4mm;">
+    <div class="svc-name">
+      <h3>AI Bootcamp</h3>
+      <div class="for">Companies starting with AI · startups without a tech team · companies breaking free of outsourcing</div>
+    </div>
+    <div class="svc-body">
+      <p>Hands-on training in using AI across management and operations, vibe coding training (separate developer / non-developer tracks), a workshop where your team builds its first MVP, and guidelines your organization can run on its own afterward. The goal isn't sitting through lectures — it's <strong>your team using AI as a collaborator to automate and improve its own work.</strong> In a K-FSI audit response, we embedded a system the internal team runs itself: anonymization, verification, and quality control.</p>
+      <span class="svc-role">ROBOCO's role — Coach: you do the work; we teach and correct</span>
+    </div>
+  </div>
+
+  <div class="svc">
+    <div class="svc-name">
+      <h3>AI Partnership</h3>
+      <div class="for">Companies struggling to scale · legacy modernization needs · systematizing internal AI capability</div>
+    </div>
+    <div class="svc-body">
+      <p>Pair programming and pair design with your team, legacy modernization strategy, internal AI champion development, and weekly standing meetings. For a security software group, we designed and ran a <strong>three-stage Why–What–How program</strong> — an adoption session for 70 developers, modern software engineering for 20 senior leaders, then a full-day workshop — getting leaders and practitioners aligned on a shared vocabulary for change.</p>
+      <span class="svc-role">ROBOCO's role — Senior partner: you drive; we navigate</span>
+    </div>
+  </div>
+
+  <div class="svc">
+    <div class="svc-name">
+      <h3>AI Transformation Advisory</h3>
+      <div class="for">Mid-size to large enterprises transforming company-wide · changing tech and culture at once</div>
+    </div>
+    <div class="svc-body">
+      <p>AI integration strategy and roadmap through executive workshops, AI opportunity discovery by department (prioritized via multi-LLM parallel analysis), company-wide training programs, AI CoE support, and quarterly executive briefings. We help your team run PoCs directly — validating <strong>advanced patterns in small experiments</strong>, like multipurpose S3, SageMaker Spot, and serverless LLM agents, even without a dedicated cloud research team.</p>
+      <span class="svc-role">ROBOCO's role — Strategic advisor: what executive decisions require</span>
+    </div>
+  </div>
+
+  <div class="svc">
+    <div class="svc-name">
+      <h3>Certification &amp; Compliance Consulting</h3>
+      <div class="for">Global SaaS/cloud companies preparing for K-FSI · companies earning or renewing ISO 27001 / K-ISMS</div>
+    </div>
+    <div class="svc-body">
+      <p><strong>AI agents running inside your private tenancy</strong> accelerate the entire certification journey: criteria analysis, gap review, evidence management, and response drafting. Assessment criteria, applicable laws, and evidence are compiled into a cross-referenced knowledge base (LLM Wiki) — so response speed compounds throughout the audit, and the wiki remains your asset afterward. Sensitive materials never leave for an external SaaS — <strong>preparing for compliance never violates compliance itself.</strong></p>
+      <span class="svc-role">ROBOCO's role — Certification prep partner: data and know-how stay with you</span>
+    </div>
+  </div>
+
+  <div class="why">
+    <div>
+      <h4>We don't do it for you</h4>
+      <p>It may look slower, but capability accumulates inside your organization. Role-specific learning loops that stay — that's a real investment.</p>
+    </div>
+    <div>
+      <h4>A safe guardrail</h4>
+      <p>We flag hallucinations, security holes, and technical debt in advance. Failure conditions and cost patterns from our experiments and projects become the guardrails for the next engagement.</p>
+    </div>
+    <div>
+      <h4>We celebrate graduation</h4>
+      <p>ROBOCO's success is your independence. When your team can use AI on its own, that's the best possible outcome.</p>
+    </div>
+  </div>
+
+  <div class="start">
+    <div><b>Free initial consultation</b><span>We assess your situation and propose the best-fit service</span></div>
+    <div><b>One-month pilot</b><span>Confirm fit through real work. No charge if unsatisfied</span></div>
+    <div><b>Cancel monthly</b><span>We compete on value, not long-term lock-in</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ 4p — Products + Contact ═══════════ -->
+<section class="sheet">
+  <div class="eyebrow"><span>PRODUCTS</span><span class="pg">04</span></div>
+  <h2 class="head">Born in the Field:<br>Tools for the Vibe Coding Era</h2>
+  <p class="lead">We turn insights from consulting and training engagements into products of our own. All are published for anyone to use — feedback and contributions welcome.</p>
+
+  <div class="feat">
+    <div class="feat-card">
+      <h3>Intent Engineering</h3>
+      <p class="tagline"><em>Ship intent, not code.</em> — a vibe coding paradigm where you record intent clearly and delegate the rest to AI. A practical methodology for documenting, evolving, and sharing the "what and why" with your team.</p>
+      <div class="url">intent.roboco.io · github.com/roboco-io/intent-engineering</div>
+    </div>
+    <div class="feat-card">
+      <h3>VibeMap</h3>
+      <p class="tagline">The complete map of vibe coding, from idea to deployment. Explore 60+ concepts and their relationships — intent engineering, Claude Code, Git, TDD, AWS serverless — in one interactive graph.</p>
+      <div class="url">vibemap.roboco.io · github.com/roboco-io/vibemap</div>
+    </div>
+    <div class="feat-card">
+      <h3>Vibe Adoption Framework</h3>
+      <p class="tagline">A framework structuring the journey from a traditional enterprise to agent-centric development: 3 principles, 6 perspectives (26 capabilities), 4 transformation areas, 4 adoption stages. Distilled from ROBOCO's consulting experience. Available in Korean, English, and Japanese.</p>
+      <div class="url">vaf.roboco.io · github.com/roboco-io/vibe-adoption-framework</div>
+    </div>
+  </div>
+
+  <div class="oss">
+    <div class="oss-item"><h4>roboco-cli</h4><p>AI-native development scaffolding CLI. ROBOCO's consulting methodology compressed into a single command.</p></div>
+    <div class="oss-item"><h4>vibe-ready-cli</h4><p>Checks a repository's vibe coding readiness across 6 categories. Run instantly with <code>npx vibe-ready .</code></p></div>
+    <div class="oss-item"><h4>awesome-vibecoding</h4><p>A curated awesome list of vibe coding resources, tutorials, and best practices.</p></div>
+    <div class="oss-item"><h4>hwp2md</h4><p>Converts HWP documents into LLM-ready Markdown — clearing the first hurdle of AI adoption for Korean business.</p></div>
+    <div class="oss-item"><h4>plugins</h4><p>A collection of Claude Code Skills, Commands, Agents, and Hooks — patterns refined in consulting workflows.</p></div>
+    <div class="oss-item"><h4>ghx-cli</h4><p>Drives GitHub Projects v2 and Discussions directly via GraphQL — beyond what the official gh CLI covers.</p></div>
+    <div class="oss-item"><h4>s3-experiments</h4><p>Pushing S3 into KV, event store, RDBMS, and serverless DB roles — with honest trade-off benchmarks published.</p></div>
+    <div class="oss-item"><h4>serverless-autoresearch</h4><p>autoresearch reproduced on SageMaker Spot — 2.3× faster, 5–18× cheaper, all 48 experiments for $3.94.</p></div>
+    <div class="oss-item"><h4>claude-wiki</h4><p>Auto-generates and incrementally updates an agent-friendly codebase wiki with Claude Code. No API key required.</p></div>
+    <div class="oss-item"><h4>semiconductor-design</h4><p>AutoResearch experiments for open-source DL accelerator design — the latest case of the "AI as researcher" approach.</p></div>
+  </div>
+
+  <div class="contact-band">
+    <h3>Start without the pressure.<small>Reach out about anything — we'll get back to you within 24 hours.</small></h3>
+    <div class="contact-list">
+      <b>@</b> contact@roboco.io<br>
+      <b>web</b> roboco.io<br>
+      <b>git</b> github.com/roboco-io
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
