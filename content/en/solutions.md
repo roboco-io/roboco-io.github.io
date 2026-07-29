@@ -36,7 +36,7 @@ The point of the bootcamp isn't to sit through lectures — it's to **let the cl
 
 - **Vibe coding workshop curriculum** — separate tracks for senior developers and non-developers, so developers use AI as a collaborator to speed up development while non-developers automate repetitive tasks and cut operational time.
 - **Challenge Driven Learning** — a training platform that explicitly separates four roles: HR staff, people managers, trainees, and operators. Participants bring real work problems into the program, so learning outcomes are measured and embedded at the organizational level, turning the training budget into an asset rather than a cost.
-- **K-FSI audit response support for the Korean subsidiary of a global service company** — we designed a policy, evidence-organization, and response-drafting workflow together with AI to speed up and standardize responses to auditor inquiries, and embedded guidelines that let the internal team run anonymization, verification, and answer-quality control themselves — structurally lowering compliance risk.
+- **K-FSI audit response support for the Korean subsidiary of a global service company** — we designed a policy, evidence-organization, and response-drafting workflow together with AI to speed up and standardize responses to auditor inquiries, and embedded guidelines that let the internal team run anonymization, verification, and answer-quality control themselves — structurally lowering compliance risk. (For dedicated support across the full certification journey, see [Certification & Compliance Consulting](#certification--compliance-consulting--entering-regulated-markets) below.)
 
 **ROBOCO's role**: Coach. You do the work; ROBOCO teaches and corrects from the sidelines.
 
@@ -109,6 +109,36 @@ The point of the advisory service is to **give executives the information and ex
 > The learning barriers we identify in the Bootcamp, the organizational adoption patterns we validate in the Partnership, and the technical validation results from advisory projects and our own experiments all flow back into the diagnosis and execution plan for the next client — continuously raising the speed and accuracy of ROBOCO's consulting.
 
 **ROBOCO's role**: Strategic advisor. Executives set the direction; ROBOCO provides the information and execution methods that decision requires.
+
+---
+
+## **Certification & Compliance Consulting — Entering Regulated Markets**
+
+Entering Korea's regulated markets requires certification. Cloud providers serving the financial sector must pass K-FSI (the Financial Security Institute's CSP Safety Assessment), and companies that need to prove their information security posture must earn ISO 27001 or K-ISMS. ROBOCO accelerates the entire certification journey — criteria analysis, gap review, evidence management, and response drafting — with **AI agents that run inside your private tenancy.**
+
+The materials involved in certification prep are your company's most sensitive documents: security policies, audit evidence, contracts. In ROBOCO's approach, none of it leaves your environment. Because both the agents and the knowledge base operate entirely within infrastructure you own and control, **the process of preparing for compliance never violates compliance itself.**
+
+### Right for you if you're
+
+- A global SaaS/cloud company preparing for the K-FSI assessment to win Korean financial-sector customers
+- A company facing initial certification or renewal for ISO 27001 or K-ISMS(-P)
+- A company whose headquarters works in English while the audit runs in Korean, making bilingual response and evidence management a burden
+- A company where audit know-how accumulates only in individuals — not the organization — forcing a restart from scratch every year
+
+### What's included
+
+- **Criteria structuring and gap review** — We structure the assessment criteria item by item (e.g., K-FSI's 11 control domains, 48 assessment items, and 162 assessment methods) and run gap reviews based on the previous year's findings. Reviews are cross-validated across different LLMs to filter out single-model bias.
+- **A regulatory knowledge base (LLM Wiki)** — We compile assessment criteria, applicable laws, internal controls, and evidence into a cross-referenced wiki. Unlike RAG, which re-searches every time, knowledge understood once gets reused — so response speed compounds throughout the audit, and after certification the wiki remains your asset, becoming the starting point for next year's renewal.
+- **An evidence management system** — We build a three-layer mapping from assessment item (§X.Y.Z) to control to evidence file, and test accessibility by asking, "When an auditor reviews this item, how many steps does it take to reach which materials?" Auditor feedback is decomposed and classified at the atomic level so nothing slips through.
+- **A register of applicable laws** — We collect the full text of the Korean laws cited in the assessment (the Cloud Computing Act, the Regulation on Supervision of Electronic Financial Transactions, the Personal Information Protection Act, and more) and map each to its assessment items, structurally preventing "failure to review applicable laws" findings.
+- **Bilingual response management** — We review translation and terminology consistency between English draft responses and the Korean submissions (Korean audits accept only Korean-language documents), resolving the language barrier between headquarters and the Korean audit at the workflow level.
+- **Operational internalization** — After certification, we embed guidelines and workflows so your internal team can run evidence collection, verification, and answer-quality control on a repeatable basis.
+
+### Real-world applications
+
+- **K-FSI safety assessment response for a global SaaS company** — We compiled 156 pages of assessment criteria and five applicable laws into a private knowledge base, and cross-validated gap reviews based on the previous year's audit findings across multiple LLMs. We decomposed some 280 auditor feedback items to the atomic level, mapped them to some 50 evidence folders, and ran the daily cycle of feedback processing, evidence submission, and re-request handling as an AI agent workflow — securing both speed and consistency in audit response. Every document was processed exclusively within the client's own environment.
+
+**ROBOCO's role**: Certification preparation partner. The data stays in your tenancy and the know-how stays in your organization; ROBOCO provides the methodology and the agent workflows.
 
 ---
 
