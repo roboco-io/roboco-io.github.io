@@ -6,6 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ROBOCO.IO corporate website - a Hugo-based static site deployed to GitHub Pages. Korean language content focused on AI/cloud consulting services and vibe coding topics.
 
+## Multilingual Content (ko/en/ja)
+
+- 한국어(`content/ko/`)가 원본. 영어는 `content/en/`(/en/), 일본어는 `content/ja/`(/ja/). 한국어 URL은 루트를 유지한다.
+- **한국어 콘텐츠를 생성·수정하면 반드시 en/ja 번역도 같은 작업에서 동기화한다.** 절차와 규칙은 `translate-content` 스킬(`.claude/skills/translate-content/`)을 따른다. `content/ko/**/*.md` 편집 시 PostToolUse 훅이 자동으로 이를 상기시킨다.
+- 이미지(`content/ko/posts/images/`)는 3개 언어 공용이며 `/posts/images/...` 경로 그대로 참조한다.
+- 브랜드 표기: 모든 언어에서 ROBOCO는 라틴 문자 유지(ロボコ 금지).
+
 ## Commands
 
 ```bash
