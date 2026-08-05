@@ -25,7 +25,7 @@ draft: false
 
 ### 링크
 
-- 사이트: [intent.roboco.io](https://intent.roboco.io)
+- 사이트: [intent.roboco.io](https://intent.roboco.io/ko/)
 - GitHub: [roboco-io/intent-engineering](https://github.com/roboco-io/intent-engineering)
 
 ---
@@ -49,7 +49,7 @@ draft: false
 
 ### 링크
 
-- 사이트: [vaf.roboco.io](https://vaf.roboco.io) (한국어: [/ko/](https://vaf.roboco.io/ko/), 日本語: [/ja/](https://vaf.roboco.io/ja/))
+- 사이트: [vaf.roboco.io](https://vaf.roboco.io/ko/)
 - GitHub: [roboco-io/vibe-adoption-framework](https://github.com/roboco-io/vibe-adoption-framework)
 
 ---
@@ -73,7 +73,7 @@ draft: false
 
 ### 링크
 
-- 사이트: [vdlc.roboco.io](https://vdlc.roboco.io) (한국어: [/ko/](https://vdlc.roboco.io/ko/), 日本語: [/ja/](https://vdlc.roboco.io/ja/))
+- 사이트: [vdlc.roboco.io](https://vdlc.roboco.io/ko/)
 - GitHub: [roboco-io/vibe-driven-development-lifecycle](https://github.com/roboco-io/vibe-driven-development-lifecycle)
 
 ---

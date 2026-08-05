@@ -25,7 +25,7 @@ ROBOCOは、コンサルティングと教育の現場で得た知見を自社�
 
 ### リンク
 
-- サイト: [intent.roboco.io](https://intent.roboco.io)
+- サイト: [intent.roboco.io](https://intent.roboco.io/ja/)
 - GitHub: [roboco-io/intent-engineering](https://github.com/roboco-io/intent-engineering)
 
 ---
@@ -49,7 +49,7 @@ ROBOCOは、コンサルティングと教育の現場で得た知見を自社�
 
 ### リンク
 
-- サイト: [vaf.roboco.io](https://vaf.roboco.io)(韓国語: [/ko/](https://vaf.roboco.io/ko/)、日本語: [/ja/](https://vaf.roboco.io/ja/))
+- サイト: [vaf.roboco.io](https://vaf.roboco.io/ja/)
 - GitHub: [roboco-io/vibe-adoption-framework](https://github.com/roboco-io/vibe-adoption-framework)
 
 ---
@@ -73,7 +73,7 @@ ROBOCOは、コンサルティングと教育の現場で得た知見を自社�
 
 ### リンク
 
-- サイト: [vdlc.roboco.io](https://vdlc.roboco.io)(韓国語: [/ko/](https://vdlc.roboco.io/ko/)、日本語: [/ja/](https://vdlc.roboco.io/ja/))
+- サイト: [vdlc.roboco.io](https://vdlc.roboco.io/ja/)
 - GitHub: [roboco-io/vibe-driven-development-lifecycle](https://github.com/roboco-io/vibe-driven-development-lifecycle)
 
 ---
@@ -92,7 +92,7 @@ ROBOCOは、コンサルティングと教育の現場で得た知見を自社�
 
 ### リンク
 
-- サイト: [vibemap.roboco.io](https://vibemap.roboco.io)
+- サイト: [vibemap.roboco.io](https://vibemap.roboco.io)(韓国語)
 - GitHub: [roboco-io/vibemap](https://github.com/roboco-io/vibemap)
 
 ---

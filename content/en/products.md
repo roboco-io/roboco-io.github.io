@@ -49,7 +49,7 @@ Adopting a few tools doesn't change how you develop software. VAF distills the b
 
 ### Links
 
-- Site: [vaf.roboco.io](https://vaf.roboco.io) (Korean: [/ko/](https://vaf.roboco.io/ko/), Japanese: [/ja/](https://vaf.roboco.io/ja/))
+- Site: [vaf.roboco.io](https://vaf.roboco.io)
 - GitHub: [roboco-io/vibe-adoption-framework](https://github.com/roboco-io/vibe-adoption-framework)
 
 ---
@@ -73,7 +73,7 @@ Bolting AI onto the implementation stage of a traditional SDLC has clear limits.
 
 ### Links
 
-- Site: [vdlc.roboco.io](https://vdlc.roboco.io) (Korean: [/ko/](https://vdlc.roboco.io/ko/), Japanese: [/ja/](https://vdlc.roboco.io/ja/))
+- Site: [vdlc.roboco.io](https://vdlc.roboco.io)
 - GitHub: [roboco-io/vibe-driven-development-lifecycle](https://github.com/roboco-io/vibe-driven-development-lifecycle)
 
 ---
@@ -92,7 +92,7 @@ The vibe coding ecosystem is expanding fast, and it's often hard to know where t
 
 ### Links
 
-- Site: [vibemap.roboco.io](https://vibemap.roboco.io)
+- Site: [vibemap.roboco.io](https://vibemap.roboco.io) (Korean)
 - GitHub: [roboco-io/vibemap](https://github.com/roboco-io/vibemap)
 
 ---
