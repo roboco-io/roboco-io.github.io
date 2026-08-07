@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#ffffff"/>
   <rect x="0" y="618" width="1200" height="12" fill="#434343"/>
-  <g transform="translate(377.7, 60) scale(1.5)" fill="#1a1a1a">
+  <g transform="translate(377.7, 100) scale(1.5)" fill="#1a1a1a">
     <rect x="72.1" y="154.17" width="152.94" height="8.94"/>
     <rect x="98.99" y="10.03" width="9.07" height="9.13" transform="translate(207.06 29.2) rotate(-180)"/>
     <rect x="108.07" y="19.11" width="9.07" height="9.01" transform="translate(225.22 47.24) rotate(-180)"/>
@@ -23,6 +23,5 @@
     <path d="M206.27,216.9v-4.43h-6.42v-26.57h6.42v-4.43h25.68v4.43h6.42v8.86h-12.84v-4.43h-6.42v17.71h6.42v-4.43h12.84v8.86h-6.42v4.43h-25.68Z"/>
     <path d="M251.22,216.9v-4.43h-6.42v-26.57h6.42v-4.43h25.68v4.43h6.42v26.57h-6.42v4.43h-25.68ZM270.48,190.33h-6.42v17.71h6.42v-17.71Z"/>
   </g>
-  <text x="600" y="497" text-anchor="middle" font-family="Apple SD Gothic Neo, AppleGothic, Noto Sans CJK KR, sans-serif" font-size="40" font-weight="600" fill="#434343">바이브 코딩을 통한 비즈니스 혁신</text>
-  <text x="600" y="556" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="400" letter-spacing="2" fill="#8a8a8a">roboco.io</text>
+  <text x="600" y="520" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="400" letter-spacing="2" fill="#8a8a8a">roboco.io</text>
 </svg>
