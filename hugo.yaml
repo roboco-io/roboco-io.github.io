@@ -15,6 +15,7 @@ languages:
     title: "ROBOCO"
     params:
       homeSubtitle: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
+      description: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
   en:
     languageName: "English"
     languageCode: "en-us"
@@ -23,6 +24,7 @@ languages:
     title: "ROBOCO"
     params:
       homeSubtitle: "ROBOCO is an IT consulting partner that helps you transform your business through vibe coding, backed by proven solutions and processes."
+      description: "ROBOCO is an IT consulting partner that helps you transform your business through vibe coding, backed by proven solutions and processes."
   ja:
     languageName: "日本語"
     languageCode: "ja"
@@ -31,6 +33,7 @@ languages:
     title: "ROBOCO"
     params:
       homeSubtitle: "ROBOCOは、実績あるソリューションとプロセスでバイブコーディングによるビジネス変革を支援するITコンサルティングパートナーです。"
+      description: "ROBOCOは、実績あるソリューションとプロセスでバイブコーディングによるビジネス変革を支援するITコンサルティングパートナーです。"
 
 params:
   # SNS 공유(Open Graph/Twitter Card) 기본 섬네일 — 포스트 frontmatter의 images가 있으면 그것이 우선
