@@ -38,7 +38,7 @@ languages:
 params:
   # SNS 공유(Open Graph/Twitter Card) 기본 섬네일 — 포스트 frontmatter의 images가 있으면 그것이 우선
   images:
-    - "/images/og-default.png"
+    - "/images/og-default.png?v=2"
   author: "ROBOCO"
   email: "contact@roboco.io"
   dateform: "Jan 2, 2006"
