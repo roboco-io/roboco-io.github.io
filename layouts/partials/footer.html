@@ -10,6 +10,13 @@
         </div>
     </div>
     {{ end }}
+    {{ with .Site.Menus.footer }}
+    <div class="footer__inner">
+        <div class="footer__content">
+            {{ range . }}<span><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></span>{{ end }}
+        </div>
+    </div>
+    {{ end }}
     {{with .Site.Params.footer.bottomText}}
     <div class="footer__inner">
         <div class="footer__content">

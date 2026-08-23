@@ -132,3 +132,20 @@ menu:
       params:
         external: true
         icon: github
+  footer:
+    - identifier: privacy
+      name: Privacy Policy
+      url: /privacy/
+      weight: 10
+    - identifier: security
+      name: Security
+      url: /security/
+      weight: 20
+    - identifier: dpa
+      name: DPA
+      url: /dpa/
+      weight: 30
+    - identifier: terms
+      name: Terms
+      url: /terms/
+      weight: 40
