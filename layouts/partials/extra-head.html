@@ -2,6 +2,11 @@
 {{ with resources.Get "css/extended.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end }}
+{{ if .IsHome }}
+{{ with resources.Get "css/factory.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}
+{{ end }}
 
 {{ "<!-- Firebase Configuration -->" | safeHTML }}
 {{ `<script type="module">

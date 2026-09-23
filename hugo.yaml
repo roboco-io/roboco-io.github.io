@@ -14,8 +14,8 @@ languages:
     contentDir: "content/ko"
     title: "ROBOCO"
     params:
-      homeSubtitle: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
-      description: "로보코는 검증된 솔루션과 프로세스로 바이브 코딩을 통한 비즈니스 혁신을 돕는 IT 컨설팅 파트너입니다."
+      homeSubtitle: "귀사가 소유하고 운영하는 소프트웨어 공장을 함께 만듭니다."
+      description: "로보코는 귀사가 소유하고 운영하는 소프트웨어 공장을 함께 만듭니다. 실제 업무 파일럿부터 AI 네이티브 개발 체계 구축, 운영 고도화까지 함께합니다."
   en:
     languageName: "English"
     languageCode: "en-us"
@@ -23,8 +23,8 @@ languages:
     contentDir: "content/en"
     title: "ROBOCO"
     params:
-      homeSubtitle: "ROBOCO is an IT consulting partner that helps you transform your business through vibe coding, backed by proven solutions and processes."
-      description: "ROBOCO is an IT consulting partner that helps you transform your business through vibe coding, backed by proven solutions and processes."
+      homeSubtitle: "Build a software factory your team owns and runs."
+      description: "ROBOCO helps you build a software factory your team owns and runs, from a real-work pilot to AI-native development and continuous operational improvement."
   ja:
     languageName: "日本語"
     languageCode: "ja"
@@ -32,8 +32,8 @@ languages:
     contentDir: "content/ja"
     title: "ROBOCO"
     params:
-      homeSubtitle: "ROBOCOは、実績あるソリューションとプロセスでバイブコーディングによるビジネス変革を支援するITコンサルティングパートナーです。"
-      description: "ROBOCOは、実績あるソリューションとプロセスでバイブコーディングによるビジネス変革を支援するITコンサルティングパートナーです。"
+      homeSubtitle: "貴社が所有し、運営するソフトウェアファクトリーを共に構築します。"
+      description: "ROBOCOは貴社が所有・運営するソフトウェアファクトリーを共に構築します。実務パイロットからAIネイティブな開発体制の構築、運用の高度化まで伴走します。"
 
 params:
   # SNS 공유(Open Graph/Twitter Card) 기본 섬네일 — 포스트 frontmatter의 images가 있으면 그것이 우선

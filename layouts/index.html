@@ -1,9 +1,65 @@
 {{ define "main" }}
-    <div id="home-center">
+    <main class="factory-home">
+      <section class="factory-intro" aria-labelledby="factory-title">
         {{ partial "home/logo.html" . }}
+        <h1 id="factory-title">{{ .Params.hero.title }}</h1>
+        <p class="factory-lead">{{ .Params.hero.description }}</p>
+        <div class="factory-actions">
+          <a class="factory-button" href="{{ "contact/" | relLangURL }}">{{ .Params.cta.button }}</a>
+          <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}">{{ .Params.hero.secondary }}</a>
+        </div>
+      </section>
 
-        {{- with .Site.Params.homeSubtitle }}
-            <p>{{.}}</p>
-        {{- end }}
-    </div>
+      <section class="factory-section" aria-labelledby="factory-flow-title">
+        <h2 id="factory-flow-title">{{ .Params.flow.title }}</h2>
+        <p class="factory-section-lead">{{ .Params.flow.description }}</p>
+        <div class="factory-cycle">
+          <ol class="factory-flow">
+            {{ range .Params.flow.steps }}
+              <li>
+                <h3>{{ .title }}</h3>
+                <p>{{ .description }}</p>
+              </li>
+            {{ end }}
+          </ol>
+          <p class="factory-feedback">{{ .Params.flow.feedback }}</p>
+          <p class="factory-guardrails">{{ .Params.flow.guardrails }}</p>
+        </div>
+        <p class="factory-ownership">{{ .Params.flow.ownership }}</p>
+        <a class="factory-text-link" href="{{ "posts/beyond-vibe-coding-software-factory/" | relLangURL }}">{{ .Params.flow.article }}</a>
+      </section>
+
+      <section class="factory-section" aria-labelledby="factory-journey-title">
+        <h2 id="factory-journey-title">{{ .Params.journey.title }}</h2>
+        <p class="factory-section-lead">{{ .Params.journey.description }}</p>
+        <ol class="factory-journey">
+          {{ range $index, $step := .Params.journey.steps }}
+            <li>
+              <span class="factory-step-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+              <h3><a href="{{ "solutions/" | relLangURL }}#{{ .anchor }}">{{ .title }}</a></h3>
+              <p>{{ .description }}</p>
+            </li>
+          {{ end }}
+        </ol>
+        <p class="factory-specialist">{{ .Params.journey.specialist }} <a href="{{ "solutions/" | relLangURL }}#compliance">{{ .Params.journey.specialistlink }}</a></p>
+      </section>
+
+      <section class="factory-section factory-case" aria-labelledby="factory-case-title">
+        <div>
+          <p class="factory-case-context">{{ .Params.casestudy.context }}</p>
+          <h2 id="factory-case-title">{{ .Params.casestudy.title }}</h2>
+        </div>
+        <div>
+          <p>{{ .Params.casestudy.story }}</p>
+          <p>{{ .Params.casestudy.progress }}</p>
+          <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#case-study">{{ .Params.casestudy.link }}</a>
+        </div>
+      </section>
+
+      <section class="factory-section factory-start" aria-labelledby="factory-start-title">
+        <h2 id="factory-start-title">{{ .Params.cta.title }}</h2>
+        <p>{{ .Params.cta.description }}</p>
+        <a class="factory-button" href="{{ "contact/" | relLangURL }}">{{ .Params.cta.button }}</a>
+      </section>
+    </main>
 {{ end }}

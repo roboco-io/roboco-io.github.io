@@ -1,12 +1,12 @@
 ---
 title: "Contact Us"
-summary: "If you have any questions for ROBOCO, please feel free to reach out anytime"
+summary: "Discuss a software factory pilot, factory setup, or operational improvement with ROBOCO."
 layout: "contact"
 draft: false
 ---
 
-ROBOCO is ready to join you on your AI transformation journey.
-Whether it's consulting, training, or software development, feel free to reach out about anything.
+Start building a software factory your team owns and runs with one real piece of work.
+Tell us about your team, product, and the work you want to improve. Together, we'll agree on the pilot's scope, timeline, cost, and success criteria. [Explore our solutions and transformation stages](/en/solutions/)
 
 ## Contact
 
@@ -19,9 +19,9 @@ Please include the following information in your email, and we'll get back to yo
 - Phone number
 - Email address
 - Inquiry type
-  - AI Bootcamp (AI training / vibe coding workshops)
-  - AI Partnership (ongoing advisory / growth support / software development)
-  - AI Transformation Advisory (company-wide AI integration strategy)
+  - Practical pilot (validate development, verification, and deployment through real work)
+  - Software factory setup (build an AI-native development system and transfer capability)
+  - Operational improvement (improve the product and development system, and adopt new AI capabilities)
   - Certification & Compliance Consulting (K-FSI / ISO 27001 / K-ISMS)
   - Other
 
