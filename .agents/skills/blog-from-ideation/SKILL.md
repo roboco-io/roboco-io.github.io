@@ -1,14 +1,12 @@
 ---
 name: blog-from-ideation
-description: ideation 문서(초안, 메모, URL)를 받아 팩트 체크와 리서치를 거쳐 ROBOCO.IO Hugo 블로그 포스트로 변환한다. "블로그 작성", "포스트 생성", "ideation을 글로" 같은 요청에 사용한다.
-argument-hint: [ideation-file-path 또는 주제]
-disable-model-invocation: true
+description: ideation 문서(초안, 메모, URL)를 받아 팩트 체크와 리서치를 거쳐 ROBOCO.IO Hugo 한국어 블로그와 영어·일본어 번역을 함께 작성한다. "블로그 작성", "포스트 생성", "ideation을 글로" 같은 요청에 사용한다.
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(gh *), Bash(hugo *), WebFetch, WebSearch, AskUserQuestion
 ---
 
 # Ideation → 블로그 포스트 생성
 
-ideation 문서를 받아 5단계 워크플로로 블로그 포스트를 생성한다.
+ideation 문서를 받아 한국어 블로그 포스트를 작성하고 영어·일본어 번역까지 생성한다. 사용자가 한국어만 요청하거나 번역을 보류한 경우에는 해당 지시를 따른다.
 
 ## 입력
 
@@ -37,7 +35,7 @@ ideation 문서를 받아 5단계 워크플로로 블로그 포스트를 생성�
 
 ### 3단계: 초안 작성
 
-- `content/posts/` 에 포스트 파일을 생성한다
+- `content/ko/posts/`에 한국어 포스트 파일을 생성한다
 - [reference.md](reference.md)의 frontmatter, 저자 표기, 문체 규칙을 따른다
 - 각주(`[^N]`)는 1번부터 빠짐없이 연속 번호를 사용한다
 
@@ -51,8 +49,16 @@ ideation 문서를 받아 5단계 워크플로로 블로그 포스트를 생성�
 - 문체 일관성: 논문체나 번역체가 섞이지 않았는가
 - 구조 완결성: 도입-본문-결론 흐름이 자연스러운가
 
-### 5단계: 사용자 리뷰
+### 5단계: 영어·일본어 번역
+
+- [translate-blog-post 스킬](../translate-blog-post/SKILL.md)을 읽고 적용한다.
+- 별도 번역 요청이나 확인을 기다리지 않고 같은 파일명의 영어·일본어 포스트를 생성한다.
+- 사용자 피드백으로 한국어 본문을 수정하면 해당 번역도 함께 갱신한다. 사용자가 작업 언어를 제한한 경우는 제외한다.
+- 번역 대조 검토와 Hugo 빌드, 생성된 페이지의 언어 전환·내부 링크 확인을 완료한다.
+
+### 6단계: 사용자 리뷰
 
 - 완성된 포스트의 핵심 구조와 주요 판단을 요약해 보여준다
+- 한국어·영어·일본어 파일 링크와 검증 결과를 함께 제공한다
 - AskUserQuestion으로 수정 필요 여부를 확인한다
 - Hugo 로컬 프리뷰를 제안한다: `hugo server -D`
