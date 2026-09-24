@@ -36,7 +36,7 @@ oh-my-claudecode(OMC)는 Claude Code에 “멀티 에이전트 오케스트레�
 
 OMC가 내세우는 한 줄 요약은 “Multi-agent orchestration for Claude Code. Zero learning curve.”다.[^github] 핵심은 두 가지다.
 
-1. **자동 위임(delegation-first)**: “복잡한 작업”이라고 말하면 설계/리서치/실행/QA 같은 전문 역할로 쪼개 병렬로 굴린다.
+1. **자동 위임(delegation-first)** : “복잡한 작업”이라고 말하면 설계/리서치/실행/QA 같은 전문 역할로 쪼개 병렬로 굴린다.
 2. **자동 모드 전환**: “plan this”, “don’t stop until done” 같은 표현을 감지해 계획 인터뷰나 지속 실행(완료 보증) 성향을 켠다.
 
 저장소가 공개하는 “Under the hood” 구성도는 OMC가 단순 프롬프트 모음이 아니라, Claude Code의 확장 포인트(agents/skills/hooks/statusline)를 묶어 **실사용 워크플로**로 만든 패키지라는 걸 보여준다.[^github]
@@ -91,8 +91,8 @@ OMC는 이 구조를 “레이어”로 정리한다.[^arch]
 
 공식 문서 기준으로 OMC는 크게 다음을 한 번에 제공한다.[^github][^full]
 
-- **특화 에이전트 세트(27개)**: architect, researcher, designer, writer, critic, planner, qa-tester 등 역할군(티어 변형 포함)[^github]
-- **스킬 세트(28개)**: orchestrate, ultrawork, ralph, planner, git-master, frontend-ui-ux, learner 등[^github]
+- **특화 에이전트 세트(27개)** : architect, researcher, designer, writer, critic, planner, qa-tester 등 역할군(티어 변형 포함)[^github]
+- **스킬 세트(28개)** : orchestrate, ultrawork, ralph, planner, git-master, frontend-ui-ux, learner 등[^github]
 - **HUD Statusline**: 오케스트레이션 진행 상황을 Claude Code 상태바에 요약 표시[^github]
 - **메모리/노트 시스템**: 컨텍스트 컴팩션 이후에도 핵심 정보를 남기려는 3-Tier 메모리 아이디어(우선순위/작업 메모리/수동 노트)[^full]
 

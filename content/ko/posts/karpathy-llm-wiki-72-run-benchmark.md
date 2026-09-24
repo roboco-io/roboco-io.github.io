@@ -54,7 +54,7 @@ LLM Wiki 패턴의 핵심은 RAG와의 차이다. RAG는 매 질의마다 임베
 
 **의사결정 질문**: "이 마이그레이션 워크로드에서 토큰 효율과 답변 품질을 동시에 충족하는 기법은 무엇인가?" 종속변수 우선순위는 ① 토큰 비용 ② 답변 품질 ③ 작업 시간.
 
-**워크로드 — 8개 작업(T1–T8)**:
+**워크로드 — 8개 작업(T1–T8)** :
 
 | ID | 질문 요지 | 작업 유형 |
 |----|---------|----------|
@@ -69,7 +69,7 @@ LLM Wiki 패턴의 핵심은 RAG와의 차이다. RAG는 매 질의마다 임베
 
 **격리**: 세 기법을 git worktree 3개로 분리하고, 각 worktree에 전용 CLAUDE.md를 덮어썼다. submodule·PRD·코드·git은 공통, **차이는 보조 도구만**. worktree 경로 분리 덕에 trial 간 prompt cache 오염이 없다.
 
-**채점(Judge) — 외부 모델(codex/GPT-5)**: actor가 Claude이므로 self-evaluation 편향을 피하려 외부 모델로 채점. 4차원 0–25 rubric.
+**채점(Judge) — 외부 모델(codex/GPT-5)** : actor가 Claude이므로 self-evaluation 편향을 피하려 외부 모델로 채점. 4차원 0–25 rubric.
 
 | 차원 | 가중치 | 정의 |
 |-----|-------|-----|

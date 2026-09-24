@@ -72,11 +72,11 @@ OpenClaw AGENTS.md의 [Coding Style & Naming Conventions](https://github.com/ope
 
 AGENTS.md의 [Build, Test, and Development Commands](https://github.com/openclaw/openclaw/blob/main/AGENTS.md#build-test-and-development-commands) 섹션은 에이전트가 코드를 변경한 후 무엇을 해야 하는지를 매우 명확하게 정의한다. 핵심은 **하드 게이트(hard gate)** 와 **소프트 게이트** 의 구분이다.
 
-**하드 게이트(절대 규칙)**:
+**하드 게이트(절대 규칙)** :
 - 빌드 산출물, 패키징, 모듈 경계, 퍼블리시 표면에 영향을 줄 수 있는 변경은 반드시 `pnpm build`를 실행하고 통과해야 `main`에 푸시할 수 있다
 - 포맷, 린트, 타입, 빌드, 필수 테스트 체크가 실패하는 상태로 커밋하거나 푸시하지 않는다
 
-**소프트 게이트(맥락적 판단)**:
+**소프트 게이트(맥락적 판단)** :
 - 좁은 범위의 변경에는 해당 동작을 직접 검증하는 좁은 범위의 테스트를 선호한다
 - `main`에 푸시할 때의 기본 기준은 `pnpm check`와 `pnpm test`
 

@@ -146,7 +146,7 @@ OpenClaw의 [PR 템플릿](https://github.com/openclaw/openclaw/blob/main/.githu
 
 필수 섹션 중 특히 주목할 부분:
 
-- **What did NOT change (scope boundary)**: 변경하지 않은 범위를 명시적으로 선언. AI 에이전트가 만든 변경은 스코프가 넓어지기 쉬운데, 의도적 경계를 선언하게 해서 리뷰어가 스코프 크리프를 감지할 수 있게 한다.
+- **What did NOT change (scope boundary)** : 변경하지 않은 범위를 명시적으로 선언. AI 에이전트가 만든 변경은 스코프가 넓어지기 쉬운데, 의도적 경계를 선언하게 해서 리뷰어가 스코프 크리프를 감지할 수 있게 한다.
 - **Security Impact**: 권한, 시크릿, 네트워크, 도구 실행, 데이터 접근 변경 여부를 **각각 Yes/No로 체크**. "보안에 영향이 있나요?"라는 모호한 질문 대신, 구체적 표면을 하나씩 점검하게 한다.
 - **Evidence**: 실패→성공 테스트, 트레이스/로그, 스크린샷 중 **최소 1개** 첨부 필수.
 - **Human Verification**: 검증한 시나리오, 엣지 케이스, 그리고 **검증하지 않은 것**을 명시.

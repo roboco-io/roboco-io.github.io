@@ -23,9 +23,9 @@ tags:
 
 Vibe Coding은 인간이 AI 모델(예: Claude 3.7, GPT-4o)을 활용하여 기능적인 프로젝트를 효율적으로 구축하는 협업적 소프트웨어 개발 방식입니다. Matthew Berman이 자신의 유튜브 채널에서 공개한 "[Vibe Coding 튜토리얼 및 모범 사례](https://www.youtube.com/watch?v=YWwS911iLhg)"에서 소개된 이 개념은 세 가지 핵심 기둥에 기반합니다:
 
-1. **명세(Specification)**: 목표를 정의합니다(예: "로그인 기능이 있는 Twitter 클론 구축").
-2. **규칙(Rules)**: 명시적인 제약 조건을 설정합니다(예: "Python 사용, 복잡성 피하기").
-3. **감독(Oversight)**: 프로세스를 모니터링하고 조정하여 일관성을 보장합니다.
+1. **명세(Specification)** : 목표를 정의합니다(예: "로그인 기능이 있는 Twitter 클론 구축").
+2. **규칙(Rules)** : 명시적인 제약 조건을 설정합니다(예: "Python 사용, 복잡성 피하기").
+3. **감독(Oversight)** : 프로세스를 모니터링하고 조정하여 일관성을 보장합니다.
 
 이 매뉴얼은 Berman의 기초 위에 YouTube 댓글(u/nufh, u/robistocco 등)과 Reddit 스레드(u/illusionst, u/DonkeyBonked 등)의 커뮤니티 통찰력을 통합하여 모든 수준의 개발자를 위한 종합적인 프레임워크를 제공합니다.
 
@@ -193,7 +193,7 @@ AI 모델은 강력하지만 과도한 엔지니어링, 범위 확장 또는 컨
   - u/evia89(이모지 컨텍스트 확인).
   - u/dhamaniasad, u/capecoderrr(감정적 프롬프팅).
 
-- **Grok(xAI)**: u/Low_Target2606의 요청으로 모든 통찰력을 하나의 일관된 프레임워크로 통합해 이 매뉴얼을 합성했습니다.
+- **Grok(xAI)** : u/Low_Target2606의 요청으로 모든 통찰력을 하나의 일관된 프레임워크로 통합해 이 매뉴얼을 합성했습니다.
 
 ## 결론: Vibe Coding에 대한 가이드
 
