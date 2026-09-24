@@ -1,0 +1,126 @@
+:root {
+  --ink: #050f28;
+  --navy: #000428;
+  --blue: #004e92;
+  --steel: #526b88;
+  --mist: #edf3fa;
+  --line: #d4e0ec;
+  --signal: #ffb03a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+body { color: var(--ink); background: #e2e5ea; font-size: 9.5pt; line-height: 1.65; }
+body:lang(ko) { font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; word-break: keep-all; }
+body:lang(en) { font-family: "Helvetica Neue", "Arial", sans-serif; }
+body:lang(ja) { font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; }
+a { color: var(--blue); text-decoration-thickness: .5pt; text-underline-offset: 2pt; }
+strong { font-weight: 700; }
+@page { size: A4; margin: 0; }
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  padding: 16mm 15mm 24mm;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  break-after: page;
+}
+.sheet:last-child { break-after: auto; }
+.sheet > * { flex-shrink: 0; }
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 5mm;
+  padding-bottom: 3mm;
+  margin-bottom: 7mm;
+  border-bottom: 1.5pt solid var(--ink);
+  font-size: 9pt;
+  color: var(--blue);
+}
+.brand { font-weight: 800; letter-spacing: .16em; }
+.page-footer {
+  position: absolute;
+  bottom: 10mm;
+  left: 15mm;
+  right: 15mm;
+  border-top: .5pt solid var(--line);
+  padding-top: 2.5mm;
+  display: flex;
+  justify-content: space-between;
+  gap: 5mm;
+  color: var(--steel);
+  font-size: 7.5pt;
+}
+.page-footer a { color: inherit; }
+h2 { font-size: 24pt; line-height: 1.3; letter-spacing: -.025em; margin-bottom: 4mm; }
+h3 { font-size: 12pt; line-height: 1.4; margin-bottom: 2mm; }
+p { line-height: 1.7; }
+.lead { font-size: 10.3pt; color: #2c3b55; }
+.section-title { font-size: 14pt; margin-top: 7mm; margin-bottom: 3mm; }
+.note { font-size: 8.2pt; line-height: 1.6; color: var(--steel); }
+.cover { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; }
+.cover .page-heading { border-color: rgba(255,255,255,.35); color: #dbe6f4; }
+.cover .brand { font-size: 19pt; color: #fff; }
+.cover .page-footer { border-color: rgba(255,255,255,.3); color: #c3d3e8; }
+.cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 7mm 0 10mm; }
+.cover h1 { font-size: 36pt; font-weight: 800; letter-spacing: -.035em; line-height: 1.28; margin-bottom: 8mm; }
+.cover-definition { font-size: 13pt; line-height: 1.7; color: #f2f6fb; max-width: 166mm; }
+.cover-promise { font-size: 10.5pt; line-height: 1.75; color: #cbdaf0; margin-top: 6mm; max-width: 160mm; }
+.cover-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; border-top: 1pt solid rgba(255,255,255,.35); padding-top: 6mm; }
+.cover-facts h3 { color: var(--signal); font-size: 13pt; }
+.cover-facts p { color: #dbe6f4; font-size: 9pt; }
+.role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+.role { background: var(--mist); padding: 5mm; border-top: 2pt solid var(--blue); }
+.role p { font-size: 9.2pt; }
+.process { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 7mm; }
+.process li { border-top: 1.5pt solid var(--blue); padding: 4mm 4mm 3mm 0; position: relative; }
+.process li::before { content: ""; width: 2mm; height: 2mm; background: var(--blue); position: absolute; top: -1.2mm; left: 0; }
+.process h3 { font-size: 10.5pt; }
+.process p { font-size: 8.8pt; color: #35486a; }
+.feedback { text-align: center; border: 1pt solid var(--line); border-top: 0; padding: 3mm 5mm; color: var(--blue); font-size: 9pt; }
+.foundation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.foundation { border-top: 1pt solid var(--line); padding-top: 3mm; }
+.foundation h3 { font-size: 10.5pt; }
+.foundation p { font-size: 8.8pt; color: #35486a; }
+.dark-note { margin-top: auto; padding: 5mm 6mm; background: var(--ink); color: #edf3fa; font-size: 9.2pt; }
+.dark-note strong { color: var(--signal); }
+.service { display: grid; grid-template-columns: 12mm 47mm 1fr; gap: 4mm; padding: 5mm 0; border-top: 1.5pt solid var(--ink); }
+.service:first-of-type { margin-top: 6mm; }
+.service-number { color: var(--blue); font-size: 17pt; font-weight: 700; }
+.service h3 { font-size: 13pt; }
+.service .caption { color: var(--steel); font-size: 8.5pt; }
+.service .detail { font-size: 9.2pt; }
+.service .result { margin-top: 2mm; color: var(--blue); font-size: 8.8pt; }
+.embedded { margin-top: 2mm; font-size: 9pt; color: #35486a; }
+.specialist { margin-top: 5mm; padding: 4mm 5mm; background: var(--mist); }
+.specialist h3 { font-size: 10.5pt; }
+.specialist p { font-size: 8.8pt; }
+.pilot { margin-top: auto; padding: 5mm; border: 1.5pt solid var(--ink); }
+.pilot h3 { font-size: 12pt; }
+.pilot p { font-size: 9.2pt; }
+.pilot a { display: inline-block; margin-top: 2mm; font-size: 9pt; }
+.case { background: var(--mist); border-left: 3pt solid var(--blue); padding: 5mm 6mm; margin-top: 4mm; }
+.case h3 { font-size: 15pt; margin-bottom: 3mm; }
+.case p { font-size: 9.2pt; }
+.case .note { margin-top: 3mm; font-size: 8pt; }
+.research-list { list-style: none; }
+.research-list li { display: grid; grid-template-columns: 52mm 1fr; gap: 6mm; padding: 3mm 0; border-top: 1pt solid var(--line); }
+.research-list h3 { font-size: 10pt; margin: 0; }
+.research-list p { font-size: 8.8pt; }
+.research-list .status { margin-top: 1mm; color: var(--steel); font-size: 7.8pt; }
+.methods { margin-top: 4mm; font-size: 8.8pt; color: #35486a; }
+.contact { margin-top: auto; background: var(--ink); color: #fff; padding: 5mm 6mm; display: flex; justify-content: space-between; align-items: center; gap: 5mm; }
+.contact h3 { font-size: 14pt; margin: 0; }
+.contact p { color: #cbdaf0; font-size: 9pt; margin-top: 1mm; }
+.contact-links { text-align: right; line-height: 1.9; white-space: nowrap; font-size: 9pt; }
+.contact a { color: var(--signal); }
+body:lang(en) .cover h1 { font-size: 37pt; }
+body:lang(ja) .cover h1 { font-size: 32pt; line-height: 1.4; }
+body:lang(ja) .lead { font-size: 10pt; }
+body:lang(ja) h2 { font-size: 22pt; }
+@media screen {
+  body { padding: 20px; }
+  .sheet { margin: 0 auto 20px; box-shadow: 0 4px 24px rgba(0,0,0,.2); }
+}
