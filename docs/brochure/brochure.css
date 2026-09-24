@@ -101,15 +101,12 @@ p { line-height: 1.7; }
 .pilot h3 { font-size: 12pt; }
 .pilot p { font-size: 9.2pt; }
 .pilot a { display: inline-block; margin-top: 2mm; font-size: 9pt; }
-.case { background: var(--mist); border-left: 3pt solid var(--blue); padding: 5mm 6mm; margin-top: 4mm; }
-.case h3 { font-size: 15pt; margin-bottom: 3mm; }
-.case p { font-size: 9.2pt; }
-.case .note { margin-top: 3mm; font-size: 8pt; }
-.research-list { list-style: none; }
-.research-list li { display: grid; grid-template-columns: 52mm 1fr; gap: 6mm; padding: 3mm 0; border-top: 1pt solid var(--line); }
-.research-list h3 { font-size: 10pt; margin: 0; }
-.research-list p { font-size: 8.8pt; }
-.research-list .status { margin-top: 1mm; color: var(--steel); font-size: 7.8pt; }
+.client-cases { display: grid; gap: 4mm; margin-top: 4mm; }
+.client-case { background: var(--mist); border-left: 3pt solid var(--blue); padding: 4mm 5mm; }
+.client-case h3 { font-size: 13.5pt; margin-bottom: 2mm; }
+.client-case p { font-size: 9.2pt; }
+.client-case .case-kind { color: var(--blue); font-size: 8.2pt; margin-bottom: 1.5mm; }
+.case-notes { margin-top: 3mm; font-size: 8pt; color: var(--steel); }
 .methods { margin-top: 4mm; font-size: 8.8pt; color: #35486a; }
 .contact { margin-top: auto; background: var(--ink); color: #fff; padding: 5mm 6mm; display: flex; justify-content: space-between; align-items: center; gap: 5mm; }
 .contact h3 { font-size: 14pt; margin: 0; }

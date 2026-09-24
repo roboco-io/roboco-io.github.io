@@ -27,6 +27,6 @@ Please include the following information in your email, and we'll get back to yo
 
 ## Company Brochure
 
-A four-page introduction to the software factory, how it works, our three-stage service journey, an anonymous client case, and Research.
+A four-page introduction to the software factory, how it works, our three-stage service journey, and selected anonymous client stories.
 
 - **[Download the company brochure (PDF)](/brochure/roboco-brochure.en.pdf)**
