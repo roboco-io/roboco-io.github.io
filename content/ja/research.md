@@ -5,7 +5,7 @@ date: 2026-09-24T09:00:00+09:00
 draft: false
 layout: "research"
 aliases:
-  - /ja/experiments/
+  - experiments/
 ---
 
 **研究と実験から得られた学びを公開します。**

@@ -5,7 +5,7 @@ date: 2026-09-24T09:00:00+09:00
 draft: false
 layout: "research"
 aliases:
-  - /en/experiments/
+  - experiments/
 ---
 
 **We research, experiment, and share what we learn.**

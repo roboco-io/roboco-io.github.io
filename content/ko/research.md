@@ -5,7 +5,7 @@ date: 2026-09-24T09:00:00+09:00
 draft: false
 layout: "research"
 aliases:
-  - /experiments/
+  - experiments/
 ---
 
 **연구하고 실험하며, 배운 것을 공개합니다.**
