@@ -79,6 +79,27 @@
 }
 
 /* 상단 메뉴 아이콘 링크 (GitHub 등) */
+.header__inner {
+    width: 1040px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+@media (min-width: 685px) and (max-width: 1020px) {
+    .menu__inner {
+        padding: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .menu__inner li {
+        margin: 0 7px;
+    }
+
+    .header__right {
+        margin-left: auto;
+    }
+}
+
 .menu__inner .menu__item--icon {
     display: flex;
     align-items: center;
@@ -110,6 +131,40 @@
 .center-image {
     display: block;
     margin: 0 auto;
+}
+
+/* 실험 소개는 근거와 한계를 읽기 쉬운 본문으로 제공한다. */
+.research-page {
+    line-height: 1.8;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+}
+
+.research-page:lang(ko) {
+    word-break: keep-all;
+}
+
+.research-languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+}
+
+.research-page h2 {
+    display: block;
+    line-height: 1.4;
+    scroll-margin-top: 24px;
+}
+
+.research-page a {
+    text-underline-offset: 4px;
+}
+
+.research-page a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
 }
 
 /* 반응형 디자인 */

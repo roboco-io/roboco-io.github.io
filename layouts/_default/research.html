@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{/* Shared layout for the three localized research pages. */}}
+  <main class="post research-page" aria-labelledby="research-title">
+    {{ if .IsTranslated }}
+    <nav class="research-languages" aria-label="{{ i18n "translations" }}">
+      <span>{{ i18n "postAvailable" }}</span>
+      {{ range .Translations }}
+        <a href="{{ .RelPermalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+    <h1 class="post-title" id="research-title">{{ .Title }}</h1>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </main>
+{{ end }}
