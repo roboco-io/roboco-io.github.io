@@ -56,6 +56,25 @@
         </div>
       </section>
 
+      {{ with .Params.research }}
+      <section class="factory-section" aria-labelledby="factory-research-title">
+        <h2 id="factory-research-title">{{ .title }}</h2>
+        <p class="factory-section-lead">{{ .description }}</p>
+        <ul class="factory-research" role="list">
+          {{ range .items }}
+          <li>
+            <div>
+              <p class="factory-research-status">{{ .status }}</p>
+              <h3><a href="{{ "research/" | relLangURL }}#{{ .anchor }}">{{ .title }}</a></h3>
+            </div>
+            <p>{{ .description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+        <a class="factory-text-link" href="{{ "research/" | relLangURL }}">{{ .link }}</a>
+      </section>
+      {{ end }}
+
       <section class="factory-section factory-start" aria-labelledby="factory-start-title">
         <h2 id="factory-start-title">{{ .Params.cta.title }}</h2>
         <p>{{ .Params.cta.description }}</p>

@@ -117,6 +117,10 @@ menu:
       name: Products
       url: /products/
       weight: 25
+    - identifier: research
+      name: Research
+      url: /research/
+      weight: 27
     - identifier: posts
       name: Posts
       url: /posts/

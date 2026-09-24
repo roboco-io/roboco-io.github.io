@@ -127,8 +127,9 @@ Claude Codeの使い勝手を拡張するSkills・Commands・Agents・Hooksプ�
 
 ### **s3-experiments**
 
-Amazon S3を単なるストレージではなく、Key-Value Store、Event Store、耐久性RDBMS(Litestream+SQLite)、サーバーレスRDBMS(Athena)、ファイルI/Oの代替として活用する方法を探る実験プロジェクト。CDKでデプロイ可能な動作コードと、専用サービス(DynamoDB、RDS、Aurora)との正直なトレードオフベンチマークを併せて提供します——専任のクラウド研究チームがなくても、アーキテクチャ決定のガードレールを小さなコストで検証できるように。
+Amazon S3のキー・バリュー保存、イベント保管、データベースの保存基盤、ファイルI/Oへの活用を探ります。パターン別の調査とS3 Files・Mountpoint・EFSの比較測定結果を公開し、適用条件と制約も説明しています。
 
+- [実験の問い・進捗・結果を見る](/ja/research/#s3-experiments)
 - GitHub: [roboco-io/s3-experiments](https://github.com/roboco-io/s3-experiments)
 
 ### **serverless-autoresearch**

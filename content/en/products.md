@@ -127,8 +127,9 @@ A collection of Skills, Commands, Agents, and Hooks plugins that extend Claude C
 
 ### **s3-experiments**
 
-An experimental project exploring how to use Amazon S3 as more than simple storage — as a key-value store, event store, durable RDBMS (Litestream + SQLite), serverless RDBMS (Athena), and a file I/O alternative. It includes deployable code (via CDK) alongside honest trade-off benchmarks against purpose-built services (DynamoDB, RDS, Aurora), so architecture-decision guardrails can be validated at low cost without a dedicated cloud research team.
+Explores Amazon S3 for key-value storage, event archiving, database storage, and file I/O. The project publishes research by pattern and measurements comparing S3 Files, Mountpoint, and EFS, alongside the conditions and limitations of each approach.
 
+- [Explore the questions, status, and results](/en/research/#s3-experiments)
 - GitHub: [roboco-io/s3-experiments](https://github.com/roboco-io/s3-experiments)
 
 ### **serverless-autoresearch**

@@ -42,6 +42,23 @@ casestudy:
   story: "After a prolonged outsourcing effort failed to deliver the intended solution, a company launched a prototype within one month of working with ROBOCO. Together, we established a development system in which domain experts with no prior development background could build and improve features themselves."
   progress: "Today, a small team absorbs advances in AI while releasing and improving its product. Its transition toward a software factory continues with ROBOCO."
   link: "See how the development process changed"
+research:
+  title: "We research, experiment, and share what we learn"
+  description: "We explore possibilities in AI development, semiconductor design, and cloud infrastructure, documenting the conditions, observations, and results that fall short of expectations."
+  link: "Explore our research"
+  items:
+    - title: "Ralph loop completion benchmark"
+      anchor: "ralph-loop"
+      status: "Results published · Further experiments ongoing"
+      description: "We test unattended completion across model and harness combinations using the same backend development task, then compare results by condition."
+    - title: "Semiconductor EDA experiments"
+      anchor: "semiconductor-design"
+      status: "Exploratory · Selected track results published"
+      description: "We build semiconductor design tools and models with AI, evaluating correctness and practical usefulness separately."
+    - title: "S3 experiments"
+      anchor: "s3-experiments"
+      status: "Research · Selected measurements completed"
+      description: "We explore alternative uses for S3 and compare file systems to understand performance and the conditions in which they fit."
 cta:
   title: "Start with your own business needs"
   description: "In an initial consultation, we select a real piece of work and agree on the pilot’s scope, timeline, cost, and success criteria."
