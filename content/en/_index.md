@@ -3,11 +3,11 @@ title: "ROBOCO"
 description: "Build a software factory your team owns and runs. ROBOCO helps you move from a real-work pilot to an AI-native development system and continuous operational improvement."
 hero:
   title: "A software factory your team owns and runs"
-  description: "Build what you intend, and turn what you learn into the next improvement. ROBOCO helps your team establish a system for continuously building and improving products with AI."
+  description: "A software factory is a system in which AI develops, tests, and deploys software through defined procedures, with user feedback informing the next improvement. ROBOCO builds this system with your team and transfers the capability to run it yourselves."
   secondary: "Explore our solutions"
 flow:
-  title: "From vibe coding to continuous product improvement"
-  description: "A software factory connects intent, implementation, verification, deployment, and feedback. It turns a successful development effort into a capability your team can repeat."
+  title: "How a software factory works"
+  description: "People define the problem and quality criteria, and make important decisions. AI implements, tests, and deploys within defined permissions and verification procedures. Lessons from real use shape the next requirements and improvements."
   steps:
     - title: "Define intent"
       description: "Clarify the problem to solve and the results you expect."
