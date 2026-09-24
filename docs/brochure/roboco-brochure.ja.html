@@ -2,376 +2,93 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>ROBOCO 会社案内</title>
-<style>
-  :root {
-    --ink: #050f28;
-    --navy: #000428;
-    --blue: #004e92;
-    --steel: #5b7794;
-    --mist: #edf3fa;
-    --line: #d4e0ec;
-    --paper: #ffffff;
-    --signal: #ffb03a;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body {
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
-    color: var(--ink);
-    background: #888;
-  }
-  .mono { font-family: "SF Mono", "Menlo", "Consolas", monospace; }
-
-  @page { size: A4; margin: 0; }
-  .sheet {
-    width: 210mm; height: 297mm;
-    background: var(--paper);
-    padding: 16mm 15mm;
-    page-break-after: always;
-    position: relative;
-    overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  @media screen {
-    body { padding: 20px; }
-    .sheet { margin: 0 auto 20px; box-shadow: 0 4px 24px rgba(0,0,0,.35); }
-  }
-
-  /* ---------- 共通 ---------- */
-  .eyebrow {
-    font-family: "SF Mono", "Menlo", monospace;
-    font-size: 8.5pt; letter-spacing: .22em;
-    color: var(--blue); text-transform: uppercase;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 3mm; margin-bottom: 7mm;
-    display: flex; justify-content: space-between;
-  }
-  .eyebrow .pg { color: var(--steel); letter-spacing: 0; }
-  h2.head {
-    font-size: 22pt; font-weight: 800; line-height: 1.25;
-    letter-spacing: -.01em; margin-bottom: 4mm;
-  }
-  .lead { font-size: 10pt; line-height: 1.7; color: #2c3b55; max-width: 155mm; }
-  .lead strong { color: var(--ink); }
-
-  /* ---------- 1p 表紙 ---------- */
-  .cover {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-    color: #fff;
-  }
-  .cover-top { display: flex; justify-content: space-between; align-items: baseline; }
-  .wordmark { font-size: 20pt; font-weight: 800; letter-spacing: .30em; }
-  .wordmark .dot { color: var(--signal); }
-  .cover-role { font-size: 9pt; letter-spacing: .12em; color: #b9cbe3; }
-  .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-  .cover-x {
-    font-family: "SF Mono", "Menlo", monospace;
-    font-size: 64pt; color: var(--signal); line-height: 1;
-    margin-bottom: 8mm; font-weight: 400;
-  }
-  h1.thesis {
-    font-size: 38pt; font-weight: 800; line-height: 1.28;
-    letter-spacing: -.01em; margin-bottom: 9mm;
-  }
-  h1.thesis em { font-style: normal; color: var(--signal); }
-  .cover-sub { font-size: 11pt; line-height: 1.75; color: #dbe6f4; max-width: 150mm; }
-  .ledger {
-    border-top: 1px solid rgba(255,255,255,.35);
-    padding-top: 5mm;
-  }
-  .ledger-caption {
-    font-family: "SF Mono", "Menlo", monospace;
-    font-size: 7.5pt; letter-spacing: .18em; color: #9fb4d1;
-    margin-bottom: 4mm;
-  }
-  .ledger-grid { display: flex; }
-  .ledger-item { flex: 1; padding-right: 6mm; }
-  .ledger-item + .ledger-item { border-left: 1px solid rgba(255,255,255,.2); padding-left: 6mm; }
-  .ledger-num {
-    font-family: "SF Mono", "Menlo", monospace;
-    font-size: 15pt; color: var(--signal); margin-bottom: 2mm; white-space: nowrap;
-  }
-  .ledger-label { font-size: 8pt; line-height: 1.5; color: #c3d3e8; }
-
-  /* ---------- 2p About ---------- */
-  .caps { display: flex; gap: 5mm; margin: 7mm 0; }
-  .cap {
-    flex: 1; background: var(--mist); padding: 6mm 5mm 5mm;
-    border-top: 3px solid var(--blue);
-  }
-  .cap h3 { font-size: 11pt; font-weight: 800; margin-bottom: 2.5mm; }
-  .cap p { font-size: 8.5pt; line-height: 1.65; color: #35486a; }
-  .cycle { display: flex; gap: 5mm; margin-top: 2mm; }
-  .cycle-col { flex: 1; border: 1px solid var(--line); padding: 5.5mm 5mm; }
-  .cycle-col h4 { font-size: 10pt; font-weight: 800; margin-bottom: 1.5mm; }
-  .cycle-col .tag {
-    font-family: "SF Mono","Menlo",monospace; font-size: 7pt;
-    letter-spacing: .15em; color: var(--blue); margin-bottom: 3.5mm;
-  }
-  .cycle-col ul { list-style: none; }
-  .cycle-col li {
-    font-size: 8.5pt; line-height: 1.55; color: #2c3b55;
-    padding: 1.8mm 0 1.8mm 4.5mm; position: relative;
-    border-top: 1px dashed var(--line);
-  }
-  .cycle-col li::before { content: "—"; position: absolute; left: 0; color: var(--blue); }
-  .cycle-col li strong { color: var(--ink); }
-  .cycle-note {
-    margin-top: auto; background: var(--ink); color: #dbe6f4;
-    font-size: 8.5pt; line-height: 1.65; padding: 4.5mm 5.5mm;
-  }
-  .cycle-note strong { color: var(--signal); }
-
-  /* ---------- 3p Solutions ---------- */
-  .svc { border-top: 2px solid var(--ink); padding: 3.6mm 0 4mm; display: flex; gap: 6mm; }
-  .svc-name { width: 44mm; flex-shrink: 0; }
-  .svc-name h3 { font-size: 12pt; font-weight: 800; line-height: 1.3; overflow-wrap: break-word; }
-  .svc-name .for { font-size: 8pt; color: var(--steel); margin-top: 1.5mm; line-height: 1.5; }
-  .svc-body { flex: 1; }
-  .svc-body p { font-size: 8.8pt; line-height: 1.65; color: #2c3b55; margin-bottom: 2.5mm; }
-  .svc-role {
-    font-family: "SF Mono","Menlo",monospace; font-size: 8pt;
-    color: var(--blue); background: var(--mist);
-    display: inline-block; padding: 1.4mm 3mm;
-  }
-  .why { display: flex; gap: 5mm; margin-top: 4mm; }
-  .why div { flex: 1; }
-  .why h4 { font-size: 9.5pt; font-weight: 800; margin-bottom: 1.6mm; }
-  .why h4::before { content: "× "; color: var(--signal); font-family: "SF Mono","Menlo",monospace; }
-  .why p { font-size: 8pt; line-height: 1.6; color: #35486a; }
-  .start {
-    margin-top: auto; border: 2px solid var(--ink);
-    display: flex; text-align: center;
-  }
-  .start div { flex: 1; padding: 4mm 3mm; }
-  .start div + div { border-left: 1px solid var(--line); }
-  .start b { display: block; font-size: 9.5pt; margin-bottom: 1.2mm; }
-  .start span { font-size: 7.8pt; color: var(--steel); line-height: 1.5; display: block; }
-
-  /* ---------- 4p Products ---------- */
-  .feat { display: flex; gap: 5mm; margin: 6mm 0 5mm; }
-  .feat-card {
-    flex: 1; background: linear-gradient(135deg, var(--navy), var(--blue));
-    color: #fff; padding: 6mm 5.5mm;
-  }
-  .feat-card h3 { font-size: 12pt; font-weight: 800; margin-bottom: 2mm; }
-  .feat-card .tagline { font-size: 8.2pt; line-height: 1.6; color: #dbe6f4; margin-bottom: 3mm; }
-  .feat-card .url { font-family: "SF Mono","Menlo",monospace; font-size: 7pt; color: var(--signal); line-height: 1.6; }
-  .oss { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 5mm; }
-  .oss-item { border-top: 1px solid var(--line); padding-top: 2.6mm; }
-  .oss-item h4 { font-family: "SF Mono","Menlo",monospace; font-size: 9pt; margin-bottom: 1.2mm; }
-  .oss-item p { font-size: 7.8pt; line-height: 1.55; color: #35486a; }
-  .contact-band {
-    margin: auto -15mm -16mm; background: var(--ink); color: #fff;
-    padding: 8mm 15mm 9mm; display: flex; justify-content: space-between; align-items: center;
-  }
-  .contact-band h3 { font-size: 14pt; font-weight: 800; line-height: 1.4; }
-  .contact-band h3 small { display: block; font-size: 8.5pt; font-weight: 400; color: #b9cbe3; margin-top: 1.5mm; }
-  .contact-list { text-align: right; font-family: "SF Mono","Menlo",monospace; font-size: 9pt; line-height: 2; }
-  .contact-list b { color: var(--signal); font-weight: 400; }
-</style>
+<title>ROBOCO | 貴社が所有するソフトウェアファクトリー</title>
+<link rel="stylesheet" href="brochure.css">
 </head>
 <body>
-
-<!-- ═══════════ 1p — 表紙 ═══════════ -->
 <section class="sheet cover">
-  <div class="cover-top">
-    <div class="wordmark">ROBOCO</div>
-    <div class="cover-role">AIトランスフォーメーションパートナー</div>
-  </div>
+  <header class="page-heading"><span class="brand">ROBOCO</span><span>ソフトウェアファクトリー構築パートナー</span></header>
   <div class="cover-main">
-    <div class="cover-x">×10</div>
-    <h1 class="thesis">AIは代替ではなく<br><em>増幅</em>です</h1>
-    <p class="cover-sub">ROBOCOは、経営全般にAIが統合されるよう、コンサルティング・教育・ソフトウェア開発を総合的に提供します。代わりにやるのではなく、貴社のチームが自らAIを活用して一段高い成果を出せるようにすること——それがROBOCOの役割です。</p>
+    <h1>貴社が所有し、<br>運営する<br>ソフトウェアファクトリー</h1>
+    <p class="cover-definition">AIが定められた手順に沿って開発・テスト・デプロイを行い、<br>利用者の反応を次の改善に反映する生産体制です。</p>
+    <p class="cover-promise">ROBOCOは貴社のチームと共にこの仕組みを構築し、自ら運営・改善する力を移転します。人は目標と品質基準を定め、重要な判断を担います。</p>
   </div>
-  <div class="ledger">
-    <div class="ledger-caption">PROOF LEDGER — ROBOCOが自ら実験し公開した実測値</div>
-    <div class="ledger-grid">
-      <div class="ledger-item">
-        <div class="ledger-num">$3.94</div>
-        <div class="ledger-label">モデル改善実験48件すべての完了コスト（SageMaker Spot）</div>
-      </div>
-      <div class="ledger-item">
-        <div class="ledger-num">2.3× / 5〜18×</div>
-        <div class="ledger-label">Karpathyのautoresearchを再現——より速く、より安く</div>
-      </div>
-      <div class="ledger-item">
-        <div class="ledger-num">月$1〜2</div>
-        <div class="ledger-label">LLMエージェントサービスの運用コスト（アイドル時は0円）</div>
-      </div>
-      <div class="ledger-item">
-        <div class="ledger-num">3 LLM</div>
-        <div class="ledger-label">Claude・GPT・Gemini並列分析による4次元スコアリング</div>
-      </div>
-    </div>
+  <div class="cover-facts">
+    <div><h3>意図を正確に実現</h3><p>期待する動作と成功基準を定め、結果を検証します。</p></div>
+    <div><h3>改善を継続</h3><p>実際の利用から学び、製品と意図を共に磨きます。</p></div>
+    <div><h3>能力は貴社の中に</h3><p>知識、開発体制、運営の主導権をチームに残します。</p></div>
   </div>
+  <footer class="page-footer"><a href="https://roboco.io/ja/">roboco.io/ja/</a><span>会社案内 · 2026年9月</span><span>01 / 04</span></footer>
 </section>
 
-<!-- ═══════════ 2p — About ═══════════ -->
 <section class="sheet">
-  <div class="eyebrow"><span>ABOUT — ROBOCOが伴走します</span><span class="pg">02</span></div>
-  <h2 class="head">主導権は貴社にあります</h2>
-  <p class="lead">外注に任せれば早いかもしれませんが、知識は社外に流出します。ROBOCOは別の道を選びました。<strong>顧客がすべての主導権を持ち、AIとクラウドの力を借りて、安全かつコスト効率よくAIトランスフォーメーションを自ら導いていくこと。</strong>ROBOCOはその旅路のパートナーです。高度人材の不足でできなかったこと——データに基づく意思決定、ソフトウェア開発、業務プロセス革新——を、今すぐ始められます。ただし、「可能である」ことと「安全かつ効果的に行う」ことは別の問題です。まさにそこにROBOCOがいます。</p>
-
-  <div class="caps">
-    <div class="cap">
-      <h3>AI活用の専門性</h3>
-      <p>経営・業務全般にAIを統合する実践的な方法論を教育します。バイブコーディングにより非開発者でもソフトウェアを作れるようにしつつ、落とし穴とリスクを事前にお伝えします。「どこまで可能で、どこから危険か」を自社研究で直接確認し、ガイドします。</p>
-    </div>
-    <div class="cap">
-      <h3>グローバルビッグテックの経験</h3>
-      <p>AmazonとGoogle出身の創業メンバーの経験が、安全なガードレールになります。専任の研究組織や大規模な予算がなくても、ビッグテック流のコスト効率を小さく始められることを自社実験で実証し、顧客環境にそのまま移植します。</p>
-    </div>
-    <div class="cap">
-      <h3>教育と能力の移転</h3>
-      <p>すべてのサービスの最終的な成果物は、レポートやシステムではなく、貴社内部に蓄積された能力です。代表・リーダー・実務担当者・運用担当者がそれぞれの役割で学び測定する、役割別の学習ループを設計します。顧客の自立がROBOCOの成功です。</p>
-    </div>
+  <header class="page-heading"><span class="brand">ROBOCO</span><span>ソフトウェアファクトリーの仕組み</span></header>
+  <h2>人が方向を定め、<br>AIが生産の流れを進めます</h2>
+  <p class="lead">モダンソフトウェアエンジニアリングに基づくAIネイティブな開発プロセスで、意図の定義からリリースと改善までをつなぎます。業務の専門家と開発チームが共に参加し、セキュリティ・コスト基準を全工程に適用します。</p>
+  <div class="role-grid">
+    <div class="role"><h3>人が担うこと</h3><p>顧客の課題を理解し、目標と品質基準を定めます。優先順位や重要な変更を判断し、結果が意図に合っているかを確認します。</p></div>
+    <div class="role"><h3>AIが実行すること</h3><p>定められた権限と検証手順の範囲で、実装・テスト・デプロイを行います。結果と判断の根拠を伝え、フィードバックを次の作業に反映します。</p></div>
   </div>
-
-  <h2 class="head" style="font-size:15pt; margin-top:2mm;">コンサルティングと研究の好循環</h2>
-  <div class="cycle">
-    <div class="cycle-col">
-      <h4>顧客ビジネスに直接貢献したプロジェクト</h4>
-      <div class="tag">① CONSULTING</div>
-      <ul>
-        <li>セキュリティSWグループ企業への<strong>バイブコーディング導入コンサルティング</strong></li>
-        <li>グローバルサービス企業の韓国法人による<strong>K-FSI監査対応支援</strong></li>
-        <li><strong>バイブコーディングワークショップ</strong>カリキュラム（開発者・非開発者の分離トラック）</li>
-        <li><strong>Challenge Driven Learning</strong>（4役割の学習ループ教育プラットフォーム）</li>
-      </ul>
-    </div>
-    <div class="cycle-col">
-      <h4>AIを研究員として活用した自社実験</h4>
-      <div class="tag">② RESEARCH</div>
-      <ul>
-        <li><strong>Persona Insight</strong> — Git活動のマルチLLM 4次元スコアリング</li>
-        <li><strong>S3 Deep Dive</strong> — S3をKV・Event Store・RDBMS・サーバーレスDBへ拡張</li>
-        <li><strong>Serverless Autoresearch</strong> — 48実験を$3.94で完了</li>
-        <li><strong>Serverless OpenClaw</strong> — LLMエージェントを月$1〜2で運用</li>
-      </ul>
-    </div>
+  <ol class="process">
+    <li><h3>1. 意図の定義</h3><p>解決する課題と期待する成果を具体化します。</p></li>
+    <li><h3>2. AIと実装</h3><p>業務知識と開発基準をもとに機能を作ります。</p></li>
+    <li><h3>3. 検証・デプロイ</h3><p>品質を確認し、合意した手順でリリースします。</p></li>
+    <li><h3>4. 観察・改善</h3><p>実際の利用結果を次の意図と機能に反映します。</p></li>
+  </ol>
+  <p class="feedback">学びを意図に反映し、この流れを繰り返します。</p>
+  <h3 class="section-title">継続的な生産を支える三つの基盤</h3>
+  <div class="foundation-grid">
+    <div class="foundation"><h3>意図と知識</h3><p>要件、業務知識、判断の根拠を、人とAIが共に活用できる資産に整理します。</p></div>
+    <div class="foundation"><h3>パイプラインとハーネス</h3><p>反復手順とAIの実行・検証環境をつなぎます。セキュリティ・コスト基準、レビュー・承認箇所を組み込みます。</p></div>
+    <div class="foundation"><h3>クラウドネイティブ</h3><p>チームが必要な環境を柔軟に構成・変更できるよう、基盤のデプロイと運用を設計します。</p></div>
   </div>
-  <p class="cycle-note">2つの流れで検証されたパターンは、再び次の顧客の診断・教育・PoC設計へと流れ込み、コンサルティングの速度と精度を高めます。かつては専任組織と大きな予算が必要だった実験を<strong>一人・短時間・低コスト</strong>で直接実行し公開する、技術の民主化の証明です。</p>
+  <p class="dark-note">ROBOCOは<strong>グローバルなテクノロジー企業での経験、AIの専門性、教育と能力移転</strong>を組み合わせます。顧客が生産体制を理解し、自ら改善できることが目標です。</p>
+  <footer class="page-footer"><a href="https://roboco.io/ja/">roboco.io/ja/</a><span>主導権と能力は貴社に</span><span>02 / 04</span></footer>
 </section>
 
-<!-- ═══════════ 3p — Solutions ═══════════ -->
 <section class="sheet">
-  <div class="eyebrow"><span>SOLUTIONS — ソリューション</span><span class="pg">03</span></div>
-  <h2 class="head">はじめの一歩から全社変革、<br>規制市場への参入まで伴走します</h2>
-
-  <div class="svc" style="margin-top:4mm;">
-    <div class="svc-name">
-      <h3>AIブートキャンプ</h3>
-      <div class="for">AIを初めて導入する企業・技術チームのないスタートアップ・外注依存から脱却したい企業</div>
-    </div>
-    <div class="svc-body">
-      <p>経営・業務にAIを活用する実践教育、バイブコーディング教育（開発者・非開発者の分離トラック）、最初のMVPを顧客自身が作るハンズオンワークショップ、その後組織が自ら運用するガイドラインまで。講義を聴くことではなく、<strong>貴社チームがAIを同僚として活用し、自分たちの業務を自ら自動化・改善できるようにすること</strong>が目的です。K-FSI監査対応では、内部人材が匿名化・検証・品質管理を自ら運用する体制を定着させました。</p>
-      <span class="svc-role">ROBOCOの役割 — コーチ: 貴社が自ら行い、ROBOCOは教え、修正します</span>
-    </div>
+  <header class="page-heading"><span class="brand">ROBOCO</span><span>サービスと導入の流れ</span></header>
+  <h2>一つの実務から始め、<br>チームの生産体制へ広げます</h2>
+  <p class="lead">外注開発を内製化したい企業、デジタル・AI変革を進める企業、より速く正確なデリバリーを求めるデジタルネイティブ企業と共に取り組みます。</p>
+  <div class="service">
+    <div class="service-number">01</div>
+    <div><h3>実務パイロット</h3><p class="caption">実際の業務で検証する</p></div>
+    <div><p class="detail">一つの業務や機能を選び、意図と成功基準を定めます。開発・検証・デプロイの流れを共に構築し、貴社のチームが次の改善まで実践します。</p><p class="result"><strong>貴社に残るもの：</strong>動く成果物、再利用できる開発の流れ、実務経験と次の段階の計画。</p></div>
   </div>
-
-  <div class="svc">
-    <div class="svc-name">
-      <h3>AIパートナーシップ</h3>
-      <div class="for">拡大に苦戦する企業・レガシー刷新が必要な企業・内部AI能力を体系化したい企業</div>
-    </div>
-    <div class="svc-body">
-      <p>顧客の内部人材とのペアプログラミング・ペア設計、レガシーモダナイゼーション戦略、社内AIチャンピオン育成、週次定例ミーティング。セキュリティSWグループ企業では、開発者70名への導入論 → シニアリーダー20名へのモダンSWエンジニアリング → 終日ワークショップへと続く<strong>Why・What・Howの3段階プログラム</strong>を設計・運営し、リーダーと実務担当者が同じ言葉で変化に合意できるようにしました。</p>
-      <span class="svc-role">ROBOCOの役割 — シニアパートナー: 貴社がハンドルを握り、ROBOCOはナビゲーションします</span>
-    </div>
+  <div class="service">
+    <div class="service-number">02</div>
+    <div><h3>ソフトウェア<br>ファクトリー構築</h3><p class="caption">反復できる体制を作る</p></div>
+    <div><p class="detail">検証した流れをチーム全体の開発体制へ広げます。クラウド基盤、パイプライン、ハーネス、運用基準を定着させ、能力を移転します。</p><p class="result"><strong>貴社に残るもの：</strong>顧客が所有する環境と知識、生産手順、それを自ら運営する力。</p></div>
   </div>
-
-  <div class="svc">
-    <div class="svc-name">
-      <h3>AIトランスフォーメーション アドバイザリー</h3>
-      <div class="for">全社的なAI変革が必要な中堅〜大企業・技術と組織文化を同時に変えたい企業</div>
-    </div>
-    <div class="svc-body">
-      <p>経営陣ワークショップによるAI統合戦略・ロードマップ策定、部署別のAI活用機会の発掘（マルチLLM並列分析による優先順位付け）、全社教育プログラム、AI CoE構築支援、四半期ごとの経営陣ブリーフィング。顧客チームが自らPoCを実行できるよう支援します——専任のクラウド研究チームがなくても、S3の多目的活用、SageMaker Spot、サーバーレスLLMエージェントといった<strong>高度なパターンを小さな実験単位で検証</strong>できます。</p>
-      <span class="svc-role">ROBOCOの役割 — 戦略アドバイザー: 経営陣の決定に必要な情報と実行方法を提供します</span>
-    </div>
+  <div class="service">
+    <div class="service-number">03</div>
+    <div><h3>運用の高度化</h3><p class="caption">製品と体制を共に改善する</p></div>
+    <div><p class="detail">利用者の反応と運用結果を次の改善に反映します。セキュリティ・コスト・検証基準を点検し、新しいAI技術を実務で評価して導入します。</p><p class="result"><strong>貴社に残るもの：</strong>継続的な改善習慣、蓄積した検証基準、技術の変化に対応する能力。</p></div>
   </div>
-
-  <div class="svc">
-    <div class="svc-name">
-      <h3>認証・コンプライアンス コンサルティング</h3>
-      <div class="for">K-FSI評価を準備するグローバルSaaS/クラウド企業・ISO27001/K-ISMSの取得・更新企業</div>
-    </div>
-    <div class="svc-body">
-      <p>顧客の<strong>プライベートテナンシー内で動作するAI Agent</strong>により、基準分析・ギャップレビュー・エビデンス管理・回答書作成の全過程を加速します。評価基準・関係法令・エビデンスを相互参照ナレッジベース（LLM Wiki）としてコンパイルするため、対応速度は審査期間を通じて複利的に向上し、認証後もウィキは顧客の資産として残ります。ポリシーやエビデンスといった機密資料が外部のSaaSに出ることはありません——<strong>コンプライアンスを準備する過程そのものがコンプライアンスに違反しません。</strong></p>
-      <span class="svc-role">ROBOCOの役割 — 認証準備パートナー: データは貴社のテナンシーに、ノウハウは貴社の組織に</span>
-    </div>
-  </div>
-
-  <div class="why">
-    <div>
-      <h4>代わりにはやりません</h4>
-      <p>一見遅く見えても、貴社内部に能力が蓄積されます。役割別の学習ループが組織に残ること——これこそが真の投資です。</p>
-    </div>
-    <div>
-      <h4>安全なガードレール</h4>
-      <p>幻覚・セキュリティ脆弱性・技術的負債の落とし穴を事前にお伝えします。実験とプロジェクトで蓄積した失敗条件・コストパターンが、次のコンサルティングのガードレールになります。</p>
-    </div>
-    <div>
-      <h4>卒業を祝います</h4>
-      <p>ROBOCOの成功は顧客の自立です。貴社チームが自らAIを活用できるようになったなら、それが最高の結果です。</p>
-    </div>
-  </div>
-
-  <div class="start">
-    <div><b>無料初期相談</b><span>現在の状況を把握し、最適なサービスをご提案します</span></div>
-    <div><b>1か月パイロット</b><span>実際の業務でフィット感を確認。ご不満の場合は費用を請求しません</span></div>
-    <div><b>月単位で解約可能</b><span>長期契約による拘束なしに、価値で勝負します</span></div>
-  </div>
+  <p class="embedded"><strong>教育と助言はすべての段階に含まれます。</strong>開発経験のない業務の専門家も、自らの知識で機能を作り改善できるよう、実務教育と共同開発を進めます。</p>
+  <div class="specialist"><h3>専門サービス：認証・コンプライアンスコンサルティング</h3><p>K-FSI・ISO 27001・K-ISMSの準備に向け、基準分析、エビデンス管理、回答作成、運用能力の移転を支援します。<a href="https://roboco.io/ja/solutions/#compliance">サービスの詳細</a></p></div>
+  <div class="pilot"><h3>初回相談からパイロットを始めます</h3><p>実際の業務を選び、<strong>範囲・期間・費用・成功基準を個別に合意</strong>したうえで開始します。</p><a href="https://roboco.io/ja/contact/">パイロットのご相談：roboco.io/ja/contact/</a></div>
+  <footer class="page-footer"><a href="https://roboco.io/ja/solutions/">roboco.io/ja/solutions/</a><span>教育・助言・共同構築・能力移転</span><span>03 / 04</span></footer>
 </section>
 
-<!-- ═══════════ 4p — Products + 連絡先 ═══════════ -->
 <section class="sheet">
-  <div class="eyebrow"><span>PRODUCTS — プロダクト</span><span class="pg">04</span></div>
-  <h2 class="head">現場から生まれた、<br>バイブコーディング時代のツール</h2>
-  <p class="lead">コンサルティングと教育の現場で得た洞察を、自社プロダクトへと発展させています。すべて誰でも使えるよう公開しており、ご意見と貢献を歓迎します。</p>
-
-  <div class="feat">
-    <div class="feat-card">
-      <h3>Intent Engineering</h3>
-      <p class="tagline"><em>Ship intent, not code.</em> — 意図を明確に記録し、残りはAIに委任するバイブコーディングのパラダイム。「何を、なぜ作るのか」を文書化し、進化させ、チームと共有する実践的な方法論です。</p>
-      <div class="url">intent.roboco.io · github.com/roboco-io/intent-engineering</div>
-    </div>
-    <div class="feat-card">
-      <h3>VibeMap</h3>
-      <p class="tagline">アイデアからデプロイまで、バイブコーディングの全体地図。意図工学・Claude Code・Git・TDD・AWSサーバーレスなど60超の概念と関係を、1枚のインタラクティブグラフで探索できます。</p>
-      <div class="url">vibemap.roboco.io · github.com/roboco-io/vibemap</div>
-    </div>
-    <div class="feat-card">
-      <h3>Vibe Adoption Framework</h3>
-      <p class="tagline">既存企業がエージェント中心開発へ転換する旅程を構造化したフレームワーク。3つの原理・6つの観点（26の能力）・4つの転換領域・4段階の導入旅程に、ROBOCOのコンサルティング経験を凝縮。日・英・韓の3か国語で提供します。</p>
-      <div class="url">vaf.roboco.io · github.com/roboco-io/vibe-adoption-framework</div>
-    </div>
+  <header class="page-heading"><span class="brand">ROBOCO</span><span>顧客事例とResearch</span></header>
+  <h2>実務と研究を通じて、<br>方法を磨きます</h2>
+  <div class="case">
+    <h3>1か月でのプロトタイプから、継続的な改善へ</h3>
+    <p>長年の外注開発で目指すソリューションを完成できなかった企業が、ROBOCOと共に<strong>1か月でプロトタイプをリリース</strong>しました。AIネイティブな開発プロセス、クラウド基盤、堅牢なパイプラインとハーネスを導入し、開発経験のなかった業務の専門家が自ら機能を作り改善できる体制を構築しました。</p>
+    <p style="margin-top:2mm;">現在は少人数のチームがAI技術の進化を取り入れ、製品をリリース・改善しています。ROBOCOと共に<strong>ソフトウェアファクトリーへの移行を進めています。</strong></p>
+    <p class="note">匿名の顧客事例です。1か月はこの事例でプロトタイプのリリースまでに要した期間です。各パイロットの範囲と日程は個別に合意します。</p>
   </div>
-
-  <div class="oss">
-    <div class="oss-item"><h4>roboco-cli</h4><p>AIネイティブ開発のスキャフォールディングCLI。ROBOCOのコンサルティング方法論をコマンド1行に凝縮。</p></div>
-    <div class="oss-item"><h4>vibe-ready-cli</h4><p>リポジトリのバイブコーディング準備度を6カテゴリで点検。<code>npx vibe-ready .</code> で即実行。</p></div>
-    <div class="oss-item"><h4>awesome-vibecoding</h4><p>バイブコーディングのリソース・チュートリアル・ベストプラクティスを集めたawesomeキュレーションリスト。</p></div>
-    <div class="oss-item"><h4>hwp2md</h4><p>HWP文書をLLMが扱えるMarkdownに変換。韓国ビジネスのAI導入における最初の関門を解決。</p></div>
-    <div class="oss-item"><h4>plugins</h4><p>Claude Code拡張のSkills・Commands・Agents・Hooks集。コンサルティングワークフローで磨いたパターン。</p></div>
-    <div class="oss-item"><h4>ghx-cli</h4><p>公式gh CLIが扱えないGitHub Projects v2・DiscussionsをGraphQLで直接操作。</p></div>
-    <div class="oss-item"><h4>s3-experiments</h4><p>S3をKV・Event Store・RDBMS・サーバーレスDBへ押し広げた実験。正直なトレードオフベンチマークを公開。</p></div>
-    <div class="oss-item"><h4>serverless-autoresearch</h4><p>autoresearchをSageMaker Spotで再現——2.3倍速く、5〜18倍安く、48実験を$3.94で完了。</p></div>
-    <div class="oss-item"><h4>claude-wiki</h4><p>Claude Codeでエージェントフレンドリーなコードベースウィキを自動生成・増分更新。APIキー不要。</p></div>
-    <div class="oss-item"><h4>semiconductor-design</h4><p>オープンソースDLアクセラレータ設計のためのAutoResearch実験——「AIを研究員として」アプローチの最新事例。</p></div>
-  </div>
-
-  <div class="contact-band">
-    <h3>無理のないはじめ方を。<small>どんな内容でもお気軽にご連絡ください。担当者が24時間以内にご連絡します。</small></h3>
-    <div class="contact-list">
-      <b>@</b> contact@roboco.io<br>
-      <b>web</b> roboco.io<br>
-      <b>git</b> github.com/roboco-io
-    </div>
-  </div>
+  <h3 class="section-title">Research：結果と限界を共に公開します</h3>
+  <ul class="research-list">
+    <li><div><h3>Ralphループ完遂比較</h3><p class="status">結果公開 · 後続実験を継続</p></div><p>共通の開発課題で、モデル・ハーネスごとの無介入での完遂を検証します。<a href="https://roboco.io/coding-agent-benchmark/">比較ダッシュボード</a></p></li>
+    <li><div><h3>半導体EDA</h3><p class="status">探索中 · 一部トラックの結果公開</p></div><p>設計ツールとモデルの正確性・汎化・現場での有用性を分けて確認します。<a href="https://roboco.io/ja/research/#semiconductor-design">研究とトラック別記録</a></p></li>
+    <li><div><h3>S3実験</h3><p class="status">調査 · 一部の実測が完了</p></div><p>活用パターンとファイルシステムの性能・適用条件を探ります。<a href="https://roboco.io/ja/research/#s3-experiments">結果と測定条件</a></p></li>
+  </ul>
+  <p class="methods">意図を整理する<strong>Intent Engineering</strong>、開発の流れを設計する<strong>VDLC</strong>、組織変革を支える<strong>VAF</strong>などの公開方法論を、顧客の状況に合わせて活用します。<a href="https://roboco.io/ja/products/">ツールと方法論を見る</a></p>
+  <div class="contact"><div><h3>貴社の実務から始めましょう</h3><p>ソフトウェアファクトリーを共に設計・構築します。</p></div><div class="contact-links"><a href="mailto:contact@roboco.io">contact@roboco.io</a><br><a href="https://roboco.io/ja/contact/">roboco.io/ja/contact/</a></div></div>
+  <footer class="page-footer"><a href="https://roboco.io/ja/research/">roboco.io/ja/research/</a><span>研究紹介基準日：2026年9月24日</span><span>04 / 04</span></footer>
 </section>
-
 </body>
 </html>

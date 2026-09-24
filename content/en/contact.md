@@ -27,6 +27,6 @@ Please include the following information in your email, and we'll get back to yo
 
 ## Company Brochure
 
-A four-page brochure covering ROBOCO's services and measured results.
+A four-page introduction to the software factory, how it works, our three-stage service journey, an anonymous client case, and Research.
 
 - **[Download the company brochure (PDF)](/brochure/roboco-brochure.en.pdf)**
