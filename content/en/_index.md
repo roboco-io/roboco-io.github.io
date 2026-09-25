@@ -42,6 +42,23 @@ casestudy:
   story: "After a prolonged outsourcing effort failed to deliver the intended solution, a company launched a prototype within one month of working with ROBOCO. Together, we established a development system in which domain experts with no prior development background could build and improve features themselves."
   progress: "Today, a small team absorbs advances in AI while releasing and improving its product. Its transition toward a software factory continues with ROBOCO."
   link: "See how the development process changed"
+products:
+  title: "Tools built by ROBOCO"
+  description: "We turn what we learn through consulting and training into methods and tools anyone can use."
+  link: "Explore all products"
+  items:
+    - title: "Intent Engineering"
+      anchor: "intent-engineering"
+      description: "A method for recording project intent and sharing it with your team and AI."
+    - title: "VAF — Vibe Adoption Framework"
+      anchor: "vaf--vibe-adoption-framework"
+      description: "A framework for assessing adoption and planning an organization’s transition to vibe coding."
+    - title: "VDLC — Vibe-Driven Development Lifecycle"
+      anchor: "vdlc--vibe-driven-development-lifecycle"
+      description: "A development lifecycle built around intent and context, from implementation to release."
+    - title: "VibeMap"
+      anchor: "vibemap"
+      description: "An interactive map of the core concepts and connections in vibe coding."
 research:
   title: "We research, experiment, and share what we learn"
   description: "We explore possibilities in AI development, semiconductor design, and cloud infrastructure, documenting the conditions, observations, and results that fall short of expectations."

@@ -42,6 +42,23 @@ casestudy:
   story: "오랜 기간 외주 개발로 원하는 솔루션을 완성하지 못했던 한 기업은 로보코와 함께 한 달 만에 프로토타입을 출시했습니다. 비개발자였던 도메인 전문가들이 직접 기능을 만들고 개선할 수 있는 개발 체계를 함께 구축했습니다."
   progress: "현재는 소규모 팀이 AI 기술의 변화를 빠르게 흡수하며 제품을 출시·개선하고, 로보코와 소프트웨어 공장으로의 전환을 이어가고 있습니다."
   link: "이 사례에서 바뀐 개발 방식 보기"
+products:
+  title: "로보코가 만드는 도구"
+  description: "컨설팅과 교육에서 얻은 통찰을 누구나 사용할 수 있는 방법론과 도구로 공개합니다."
+  link: "프로덕트 전체 보기"
+  items:
+    - title: "Intent Engineering"
+      anchor: "intent-engineering"
+      description: "프로젝트의 목적과 의도를 기록하고, 팀과 AI가 공유하는 방법론."
+    - title: "VAF — Vibe Adoption Framework"
+      anchor: "vaf--vibe-adoption-framework"
+      description: "조직의 바이브 코딩 도입을 진단하고 전환 경로를 설계하는 프레임워크."
+    - title: "VDLC — Vibe-Driven Development Lifecycle"
+      anchor: "vdlc--vibe-driven-development-lifecycle"
+      description: "의도와 컨텍스트를 중심으로 개발·검증·배포를 운영하는 라이프사이클."
+    - title: "VibeMap"
+      anchor: "vibemap"
+      description: "바이브 코딩의 핵심 개념과 관계를 탐색하는 인터랙티브 지도."
 research:
   title: "연구하고 실험하며, 배운 것을 공개합니다"
   description: "AI 개발, 반도체 설계, 클라우드 인프라에서 새로운 가능성을 탐구합니다. 실험 조건과 관찰 결과, 기대에 미치지 못한 결과까지 함께 기록합니다."

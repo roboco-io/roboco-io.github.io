@@ -42,6 +42,23 @@ casestudy:
   story: "長年の外注開発で目指すソリューションを完成できなかった企業が、ROBOCOとの協業開始から1か月でプロトタイプをリリースしました。開発経験のなかった業務の専門家が、自ら機能を作り改善できる開発体制を共に構築しました。"
   progress: "現在は少人数のチームがAI技術の進化を素早く取り入れ、製品をリリース・改善しています。ROBOCOと共にソフトウェアファクトリーへの移行を進めています。"
   link: "開発の進め方がどう変わったかを見る"
+products:
+  title: "ROBOCOが作るツール"
+  description: "コンサルティングと研修で得た知見を、誰でも使える方法論とツールとして公開しています。"
+  link: "プロダクト一覧を見る"
+  items:
+    - title: "Intent Engineering"
+      anchor: "intent-engineering"
+      description: "プロジェクトの目的と意図を記録し、チームとAIで共有するための方法論。"
+    - title: "VAF — Vibe Adoption Framework"
+      anchor: "vaf--vibe-adoption-framework"
+      description: "組織のバイブコーディング導入を診断し、移行の道筋を設計するフレームワーク。"
+    - title: "VDLC — Vibe-Driven Development Lifecycle"
+      anchor: "vdlc--vibe-driven-development-lifecycle"
+      description: "意図とコンテキストを軸に、実装・検証・リリースを進める開発ライフサイクル。"
+    - title: "VibeMap"
+      anchor: "vibemap"
+      description: "バイブコーディングの主要な概念と関係を探せるインタラクティブな地図。"
 research:
   title: "研究と実験から得られた学びを公開します"
   description: "AI開発、半導体設計、クラウド基盤の可能性を探ります。実験条件と観察結果、期待に届かなかった結果も記録しています。"

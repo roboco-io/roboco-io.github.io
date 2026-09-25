@@ -265,6 +265,35 @@
   text-align: center;
 }
 
+.factory-home .factory-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 48px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.factory-products li {
+  padding: 18px 0 20px;
+  border-top: 1px solid var(--factory-line);
+}
+
+.factory-products h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.factory-products a {
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+.factory-products p {
+  margin: 0;
+}
+
 .factory-home .factory-research {
   margin: 0 0 16px;
   padding: 0;
@@ -367,6 +396,11 @@
   .factory-case {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .factory-home .factory-products {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .factory-research li {

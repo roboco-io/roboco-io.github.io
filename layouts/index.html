@@ -56,6 +56,22 @@
         </div>
       </section>
 
+      {{ with .Params.products }}
+      <section class="factory-section" aria-labelledby="factory-products-title">
+        <h2 id="factory-products-title">{{ .title }}</h2>
+        <p class="factory-section-lead">{{ .description }}</p>
+        <ul class="factory-products" role="list">
+          {{ range .items }}
+          <li>
+            <h3><a href="{{ "products/" | relLangURL }}#{{ .anchor }}">{{ .title }}</a></h3>
+            <p>{{ .description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+        <a class="factory-text-link" href="{{ "products/" | relLangURL }}">{{ .link }}</a>
+      </section>
+      {{ end }}
+
       {{ with .Params.research }}
       <section class="factory-section" aria-labelledby="factory-research-title">
         <h2 id="factory-research-title">{{ .title }}</h2>
