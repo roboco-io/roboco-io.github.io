@@ -68,6 +68,17 @@
           </li>
           {{ end }}
         </ul>
+        {{ with .opensource }}
+        <h3 class="factory-products-group">{{ .title }}</h3>
+        <ul class="factory-products factory-products-open-source" role="list">
+          {{ range .items }}
+          <li>
+            <h4><a href="{{ .url }}">{{ .title }}</a></h4>
+            <p>{{ .description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
         <a class="factory-text-link" href="{{ "products/" | relLangURL }}">{{ .link }}</a>
       </section>
       {{ end }}

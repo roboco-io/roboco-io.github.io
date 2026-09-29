@@ -279,10 +279,21 @@
   border-top: 1px solid var(--factory-line);
 }
 
-.factory-products h3 {
+.factory-products h3,
+.factory-products h4 {
   margin: 0 0 8px;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.factory-section .factory-products-group {
+  margin: 20px 0 18px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.factory-home .factory-products-open-source {
+  margin-bottom: 16px;
 }
 
 .factory-products a {

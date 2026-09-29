@@ -59,6 +59,15 @@ products:
     - title: "VibeMap"
       anchor: "vibemap"
       description: "바이브 코딩의 핵심 개념과 관계를 탐색하는 인터랙티브 지도."
+  opensource:
+    title: "오픈소스 프로젝트"
+    items:
+      - title: "hwp2md"
+        url: "https://github.com/roboco-io/hwp2md"
+        description: "HWP·HWPX 문서를 Markdown으로 변환하는 CLI. 복잡한 문서는 LLM으로 가독성을 높일 수 있습니다."
+      - title: "vibe-ready-cli"
+        url: "https://github.com/roboco-io/vibe-ready-cli"
+        description: "Claude 또는 Codex로 저장소의 AI 개발 준비도를 점검하고 개선할 항목을 제안하는 CLI."
 research:
   title: "연구하고 실험하며, 배운 것을 공개합니다"
   description: "AI 개발, 반도체 설계, 클라우드 인프라에서 새로운 가능성을 탐구합니다. 실험 조건과 관찰 결과, 기대에 미치지 못한 결과까지 함께 기록합니다."

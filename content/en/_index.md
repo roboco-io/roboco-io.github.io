@@ -59,6 +59,15 @@ products:
     - title: "VibeMap"
       anchor: "vibemap"
       description: "An interactive map of the core concepts and connections in vibe coding."
+  opensource:
+    title: "Open-source projects"
+    items:
+      - title: "hwp2md"
+        url: "https://github.com/roboco-io/hwp2md"
+        description: "A CLI that converts HWP and HWPX documents to Markdown, with optional LLM formatting for complex layouts."
+      - title: "vibe-ready-cli"
+        url: "https://github.com/roboco-io/vibe-ready-cli"
+        description: "A CLI that uses Claude or Codex to assess a repository’s readiness for AI-assisted development and suggest improvements."
 research:
   title: "We research, experiment, and share what we learn"
   description: "We explore possibilities in AI development, semiconductor design, and cloud infrastructure, documenting the conditions, observations, and results that fall short of expectations."
