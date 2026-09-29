@@ -1,7 +1,7 @@
 ---
 title: "Research"
-description: "AI 개발의 무개입 완주, 반도체 EDA, S3 활용을 연구하고 실험합니다. 로보코가 확인한 결과와 조건, 한계를 공개합니다."
-date: 2026-09-24T09:00:00+09:00
+description: "AI 개발의 무개입 완주, 모델 학습 자동화, 반도체 EDA, S3와 AWS 관계형 데이터베이스를 연구하고 실험합니다. 결과와 조건, 한계를 공개합니다."
+date: 2026-09-25T09:00:00+09:00
 draft: false
 layout: "research"
 aliases:
@@ -10,13 +10,15 @@ aliases:
 
 **연구하고 실험하며, 배운 것을 공개합니다.**
 
-로보코는 AI와 작은 팀이 어디까지 도전할 수 있는지 실제 과제로 확인합니다. 개발 에이전트의 완주, 전문 도메인의 도구 개발, 클라우드 인프라의 활용 방식을 탐구하며, 실험 조건과 관찰 결과를 함께 기록합니다. 기대한 결과를 얻지 못했을 때도 다음 판단에 필요한 근거로 남깁니다.
+로보코는 AI와 작은 팀이 어디까지 도전할 수 있는지 실제 과제로 확인합니다. 개발 에이전트의 완주, 모델 학습 자동화, 전문 도메인의 도구 개발, 클라우드 인프라의 활용 방식을 탐구하며, 실험 조건과 관찰 결과를 함께 기록합니다. 기대한 결과를 얻지 못했을 때도 다음 판단에 필요한 근거로 남깁니다.
 
 - [랄프루프 완주 비교](#ralph-loop)
+- [서버리스 자동 학습 실험](#serverless-autoresearch)
 - [반도체 EDA 실험](#semiconductor-design)
 - [S3 실험](#s3-experiments)
+- [Aurora DSQL 비교 실험](#dsql-experiments)
 
-*소개 기준: 2026-09-24. 최신 실험 조건과 진행 상황은 각 프로젝트의 대시보드·연구 기록에서 확인할 수 있습니다.*
+*소개 기준: 2026-09-25. 최신 실험 조건과 진행 상황은 각 프로젝트의 대시보드·연구 기록에서 확인할 수 있습니다.*
 
 ---
 
@@ -34,6 +36,24 @@ aliases:
 
 - [완주 비교 대시보드](https://roboco.io/coding-agent-benchmark/)
 - [실험 설계·결과·코드](https://github.com/roboco-io/coding-agent-benchmark)
+
+---
+
+## 서버리스 자동 학습 실험 {#serverless-autoresearch}
+
+**결과 공개 · 코드·튜토리얼 공개**
+
+**질문:** AI가 모델을 자동으로 개선하는 autoresearch 실험을 GPU 상시 운영 없이, 필요한 만큼의 클라우드 비용으로 실행할 수 있을까요?
+
+**방법:** Karpathy의 autoresearch를 AWS SageMaker Spot에서 재현·확장합니다. L40S와 H100에서 학습 설정을 탐색하고, 후보 생성·병렬 학습·결과 수집·선택을 반복합니다. 학습할 때만 GPU를 사용하는 HUGI 패턴을 적용하며, 실험별 설정과 비용을 기록합니다.
+
+**관찰:** 공개 기록에는 L40S와 H100에서 수행한 48개 실험이 담겨 있습니다. L40S에서 찾은 학습 설정을 H100에서 재검증한 결과와 함께, GPU별 비용·검증 지표, 작업 시작 대기 시간과 Spot 가용성의 영향을 공개합니다. 재현 코드와 8장의 핸즈온 튜토리얼도 제공합니다.
+
+**해석 범위:** 특정 모델·학습 시간·GPU 구성에서 얻은 결과입니다. H100과 원본 프로젝트의 비교에는 단일 실행 결과가 포함되므로 반복 검증이 필요합니다. 비용과 소요 시간은 리전, Spot 가용성, 작업 시작 시간에 따라 달라집니다.
+
+- [프로젝트 저장소](https://github.com/roboco-io/serverless-autoresearch)
+- [실험별 설정과 결과](https://github.com/roboco-io/serverless-autoresearch/tree/main/experiments)
+- [핸즈온 튜토리얼](https://github.com/roboco-io/serverless-autoresearch/tree/main/docs/vibe-coding-tutorial)
 
 ---
 
@@ -70,6 +90,25 @@ aliases:
 - [프로젝트 저장소](https://github.com/roboco-io/s3-experiments)
 - [패턴별 리서치](https://github.com/roboco-io/s3-experiments/tree/main/docs/research)
 - [파일시스템 비교 결과와 측정 조건](https://github.com/roboco-io/s3-experiments/blob/main/docs/research/s3-files.md)
+
+---
+
+## Aurora DSQL 비교 실험 {#dsql-experiments}
+
+**12개 실험 완료 · 도입 판단 보고서와 사용 가이드 공개**
+
+**질문:** Aurora DSQL은 기존 관계형 데이터베이스와 같은 업무를 수행할 때 성능, 개발·운영 작업, 비용과 제약에서 어떤 차이를 보일까요?
+
+**방법:** Aurora DSQL을 RDS PostgreSQL Multi-AZ 인스턴스, Aurora PostgreSQL Provisioned, Aurora PostgreSQL Serverless v2와 비교했습니다. 같은 주문 업무·정합성·지연 목표를 기준으로 SQL 호환성, 경합과 정합성, OLTP 처리량과 지연, 연결, 장애와 복구, 급증과 유휴, 운영 작업, 대용량 조회, 비용을 12개 실험으로 검증했습니다. 실험 조건과 측정 자료, 실행 코드를 공개합니다.
+
+**관찰:** 연결 256개 고정 동시성에서 DSQL은 초당 24,541건 이상을 지연 목표 안에서 처리했고, 대조군이 목표를 지킨 최고 처리량은 Aurora Serverless v2 11,559건, RDS Multi-AZ 5,839건, Aurora Provisioned 3,375건이었습니다. 대신 쿼리 한 번의 지연은 Aurora보다 3–6배 길었고(쓰기 p95 약 30–40 ms), 기존 SQL 35개 중 16개를 고쳐야 했으며, 충돌 재시도와 트랜잭션 분할(3,000행·300초)이 필수였습니다. 비용은 요청 백만 건당 약 0.31달러로 요청 수에 비례해, 평균 부하가 약 1,100 TPS보다 낮거나 쉬는 시간이 긴 서비스에서 고정 인스턴스보다 쌌습니다. 원하는 시각으로 되돌리는 시점 복원은 지원하지 않았습니다.
+
+**해석 범위:** 2026-09-24–29 서울 리전에서 한 가지 주문 업무와 약 5 GiB 데이터로 실행했습니다. 대부분 1회 측정이며, 12개 중 9개는 계획의 일부만 실행한 최소 범위(MVP)입니다. DSQL 처리량은 부하 발생기 한계에 가까운 하한이고, DSQL과 대조군의 처리량 측정은 다른 날·다른 부하 발생기 사양으로 실행했습니다.
+
+- [DSQL 도입 판단 종합 보고서](https://roboco.io/dsql-experiments/decision/)
+- [Aurora DSQL 사용 가이드(사람·코딩 에이전트용)](https://roboco.io/dsql-experiments/guide/)
+- [공개 실험 노트](https://roboco.io/dsql-experiments/)
+- [실험 계획·코드 저장소](https://github.com/roboco-io/dsql-experiments)
 
 ---
 

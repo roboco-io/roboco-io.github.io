@@ -1,7 +1,7 @@
 ---
 title: "Research"
-description: "Research on autonomous AI development, semiconductor EDA, and S3. ROBOCO shares observations, conditions, and limitations."
-date: 2026-09-24T09:00:00+09:00
+description: "Research on autonomous AI development, automated model training, semiconductor EDA, S3, and AWS relational databases, with observations, conditions, and limitations."
+date: 2026-09-25T09:00:00+09:00
 draft: false
 layout: "research"
 aliases:
@@ -10,13 +10,15 @@ aliases:
 
 **We research, experiment, and share what we learn.**
 
-ROBOCO uses real tasks to explore how far small teams can go with AI. We investigate coding-agent completion, tools for specialist domains, and cloud infrastructure, recording the conditions alongside the observations. Results that fall short of expectations also inform our next decisions.
+ROBOCO uses real tasks to explore how far small teams can go with AI. We investigate coding-agent completion, automated model training, tools for specialist domains, and cloud infrastructure, recording the conditions alongside the observations. Results that fall short of expectations also inform our next decisions.
 
 - [Ralph loop completion benchmark](#ralph-loop)
+- [Serverless autoresearch experiments](#serverless-autoresearch)
 - [Semiconductor EDA experiments](#semiconductor-design)
 - [S3 experiments](#s3-experiments)
+- [Aurora DSQL comparison](#dsql-experiments)
 
-*Overview as of September 24, 2026. Each project's dashboard and research records provide its latest conditions and status.*
+*Overview as of September 25, 2026. Each project's dashboard and research records provide its latest conditions and status.*
 
 ---
 
@@ -34,6 +36,24 @@ ROBOCO uses real tasks to explore how far small teams can go with AI. We investi
 
 - [Completion dashboard](https://roboco.io/coding-agent-benchmark/)
 - [Experiment designs, results, and code](https://github.com/roboco-io/coding-agent-benchmark)
+
+---
+
+## Serverless autoresearch experiments {#serverless-autoresearch}
+
+**Results, code, and tutorials published**
+
+**Question:** Can autoresearch experiments that automatically improve models run on cloud GPUs paid for as needed, without keeping a GPU running continuously?
+
+**Method:** We reproduce and extend Karpathy's autoresearch on AWS SageMaker Spot. We explore training settings on L40S and H100 GPUs, repeating candidate generation, parallel training, result collection, and selection. The HUGI pattern uses GPUs only for training; each experiment records its settings and cost.
+
+**Observations:** Published records cover 48 experiments on L40S and H100. They include H100 validation of settings discovered on L40S, costs and validation metrics by GPU, and the effects of startup delays and Spot availability. Reproduction code and an eight-part hands-on tutorial are also available.
+
+**Interpretation:** These results concern specific models, training budgets, and GPU configurations. The H100 comparison with the original project includes single-run results that require repeated validation. Costs and elapsed time depend on region, Spot availability, and startup time.
+
+- [Project repository](https://github.com/roboco-io/serverless-autoresearch)
+- [Experiment settings and results](https://github.com/roboco-io/serverless-autoresearch/tree/main/experiments)
+- [Hands-on tutorial](https://github.com/roboco-io/serverless-autoresearch/tree/main/docs/vibe-coding-tutorial)
 
 ---
 
@@ -70,6 +90,25 @@ ROBOCO uses real tasks to explore how far small teams can go with AI. We investi
 - [Project repository](https://github.com/roboco-io/s3-experiments)
 - [Research by pattern](https://github.com/roboco-io/s3-experiments/tree/main/docs/research)
 - [File-system results and measurement conditions](https://github.com/roboco-io/s3-experiments/blob/main/docs/research/s3-files.md)
+
+---
+
+## Aurora DSQL comparison {#dsql-experiments}
+
+**12 experiments completed · Adoption decision report and usage guide published**
+
+**Question:** For the same workload, how does Aurora DSQL compare with established relational databases in performance, development and operations effort, cost, and constraints?
+
+**Method:** We compared Aurora DSQL with RDS PostgreSQL Multi-AZ instances, Aurora PostgreSQL Provisioned, and Aurora PostgreSQL Serverless v2. Using the same order workload, consistency requirements, and latency objectives, 12 experiments examined SQL compatibility, contention and consistency, OLTP throughput and latency, connections, failure and recovery, bursts and idle periods, operations work, large queries, and cost. We publish conditions, measurements, and execution code.
+
+**Observations:** With 256 fixed connections, DSQL handled more than 24,541 requests per second within the latency objectives; the best results within the objectives for the comparison services were 11,559 for Aurora Serverless v2, 5,839 for RDS Multi-AZ, and 3,375 for Aurora Provisioned. In exchange, each query took 3–6 times longer than on Aurora (write p95 about 30–40 ms), 16 of 35 existing SQL checks needed changes, and conflict retries and split transactions (3,000 rows, 300 seconds) were mandatory. Cost scaled with requests at about USD 0.31 per million, so DSQL was cheaper than fixed instances when average load stayed below about 1,100 requests per second or when services sat idle for long periods. Point-in-time restore was not available.
+
+**Interpretation:** The experiments ran from September 24 to 29, 2026, in the Seoul Region with one order workload and about 5 GiB of data. Most measurements ran once, and 9 of the 12 experiments covered only part of the plan (MVP). The DSQL throughput is a lower bound close to the load generator's limit, and DSQL and the comparison services were measured on different days with different load generator types.
+
+- [DSQL adoption decision report](https://roboco.io/dsql-experiments/decision/)
+- [Aurora DSQL usage guide for people and coding agents](https://roboco.io/dsql-experiments/guide/)
+- [Public experiment notes](https://roboco.io/dsql-experiments/)
+- [Experiment plan and code](https://github.com/roboco-io/dsql-experiments)
 
 ---
 
