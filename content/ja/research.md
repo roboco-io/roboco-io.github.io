@@ -105,9 +105,9 @@ ROBOCOは、AIと少人数のチームでどこまで挑戦できるかを実際
 
 **解釈の範囲：** 2026年9月24〜29日にソウルリージョンで、1種類の注文業務と約5 GiBのデータを使って実行しました。多くの測定は1回のみで、12件のうち9件は計画の一部だけを実行した最小範囲（MVP）です。DSQLの処理量は負荷生成器の限界に近い下限値であり、DSQLと比較対象の処理量は別の日に、異なる負荷生成器の仕様で測定しました。
 
-- [DSQL導入判断の総合レポート](https://roboco.io/dsql-experiments/decision/)
-- [Aurora DSQL利用ガイド（人とコーディングエージェント向け）](https://roboco.io/dsql-experiments/guide/)
-- [公開実験ノート](https://roboco.io/dsql-experiments/)
+- [DSQL導入判断の総合レポート](https://roboco.io/dsql-experiments/ja/decision/)
+- [Aurora DSQL利用ガイド（人とコーディングエージェント向け）](https://roboco.io/dsql-experiments/ja/guide/)
+- [公開実験ノート](https://roboco.io/dsql-experiments/ja/)
 - [実験計画・コードのリポジトリ](https://github.com/roboco-io/dsql-experiments)
 
 ---

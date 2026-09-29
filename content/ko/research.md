@@ -105,9 +105,9 @@ aliases:
 
 **해석 범위:** 2026-09-24–29 서울 리전에서 한 가지 주문 업무와 약 5 GiB 데이터로 실행했습니다. 대부분 1회 측정이며, 12개 중 9개는 계획의 일부만 실행한 최소 범위(MVP)입니다. DSQL 처리량은 부하 발생기 한계에 가까운 하한이고, DSQL과 대조군의 처리량 측정은 다른 날·다른 부하 발생기 사양으로 실행했습니다.
 
-- [DSQL 도입 판단 종합 보고서](https://roboco.io/dsql-experiments/decision/)
-- [Aurora DSQL 사용 가이드(사람·코딩 에이전트용)](https://roboco.io/dsql-experiments/guide/)
-- [공개 실험 노트](https://roboco.io/dsql-experiments/)
+- [DSQL 도입 판단 종합 보고서](https://roboco.io/dsql-experiments/ko/decision/)
+- [Aurora DSQL 사용 가이드(사람·코딩 에이전트용)](https://roboco.io/dsql-experiments/ko/guide/)
+- [공개 실험 노트](https://roboco.io/dsql-experiments/ko/)
 - [실험 계획·코드 저장소](https://github.com/roboco-io/dsql-experiments)
 
 ---

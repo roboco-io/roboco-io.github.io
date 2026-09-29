@@ -1,11 +1,11 @@
 {{ define "main" }}
     <script>
       // The DSQL experiment notes moved from /rds-experiments/ to /dsql-experiments/ (2026-09-29).
-      // Known pages have static redirects under static/rds-experiments/; this catches any other old path.
+      // Old links were Korean pages, so they land on the Korean edition (/ko/). Known pages have static redirects under static/rds-experiments/; this catches any other old path.
       (function () {
         var p = location.pathname;
         if (p === "/rds-experiments" || p.indexOf("/rds-experiments/") === 0) {
-          location.replace("/dsql-experiments" + p.slice("/rds-experiments".length) + location.search + location.hash);
+          location.replace("/dsql-experiments/ko" + p.slice("/rds-experiments".length) + location.search + location.hash);
         }
       })();
     </script>
