@@ -1,5 +1,5 @@
 ---
-title: "Who Dared Cry Lock-In? - Infrastructure Dependence in the Vibe Coding Era"
+title: "Who Spoke of Lock-In - Infrastructure in the Vibe Coding Era"
 date: 2026-09-26T10:00:00+09:00
 draft: false
 toc: false
