@@ -9,6 +9,8 @@ draft: false
 
 ROBOCOは、コンサルティングと教育の現場で得た知見を自社プロダクトへと発展させています。すべて誰でも利用できるよう公開しており、ご意見・コントリビューションを歓迎します。
 
+このページでは、実務に活用できるツールと方法論を紹介します。研究・実験の問いと結果は[Research](/ja/research/)で確認できます。
+
 ---
 
 ## **Intent Engineering**
@@ -97,9 +99,29 @@ ROBOCOは、コンサルティングと教育の現場で得た知見を自社�
 
 ---
 
+## **token-forge**
+
+> *オープンウェイトモデルを自社のAWSアカウントで運用する、コーディングエージェント向けLLM基盤。*
+
+token-forgeは、AWS CDKでEC2 Spot GPUとvLLMの推論環境を構築するオープンソースツールです。OpenAI・Anthropic互換APIを提供し、Claude Codeなどのコーディングエージェントを接続できます。未使用時のGPU停止や、Spotの利用可能性に基づくリージョン選択にも対応しています。
+
+### こんな方に役立ちます
+
+- コードやプロンプトを外部のLLM APIに送れないチーム
+- 大量のトークンを短期間に集中的に使う開発チーム
+- AWSのGPU基盤を自ら運用できる組織
+
+Spotインスタンスが回収されると一時的に停止する可能性があり、初回の導入にはAWSのGPU Spotクォータが必要です。常時稼働が求められるサービスより、開発やバッチ処理に向いています。
+
+### リンク
+
+- GitHub: [roboco-io/token-forge](https://github.com/roboco-io/token-forge)
+
+---
+
 ## **オープンソースツールとリソース**
 
-専用サイトはまだありませんが、ROBOCOがコンサルティング・教育の現場と自社研究の中で作り、磨き上げてきたツール・実験・キュレーションをGitHubで公開しています。すべて実際のプロジェクト、講義、そして「これは本当に小さなコストで可能なのか」を自ら確認した実験の成果物です。
+プロジェクトの準備、文書変換、AIエージェントの活用を支援するツールと学習資料をGitHubで公開しています。ROBOCOがコンサルティング・教育の現場で磨いてきたツールとキュレーションを、ご自身の業務に活用できます。
 
 ### **roboco-cli**
 
@@ -125,22 +147,9 @@ Claude Codeの使い勝手を拡張するSkills・Commands・Agents・Hooksプ�
 
 - GitHub: [roboco-io/plugins](https://github.com/roboco-io/plugins)
 
-### **s3-experiments**
-
-Amazon S3のキー・バリュー保存、イベント保管、データベースの保存基盤、ファイルI/Oへの活用を探ります。パターン別の調査とS3 Files・Mountpoint・EFSの比較測定結果を公開し、適用条件と制約も説明しています。
-
-- [実験の問い・進捗・結果を見る](/ja/research/#s3-experiments)
-- GitHub: [roboco-io/s3-experiments](https://github.com/roboco-io/s3-experiments)
-
-### **serverless-autoresearch**
-
-Karpathyのautoresearchを、AWS SageMaker Spot上で再現・拡張するプロジェクト。H100を1台8時間占有する必要があった夜間自動モデル改善実験を、2.3倍高速かつ5〜18倍安価に運用し、48件の実験全体を$3.94で完了しました。HUGIパターンを適用した並列進化パイプラインと、8章のハンズオンチュートリアルも併せて公開しています。
-
-- GitHub: [roboco-io/serverless-autoresearch](https://github.com/roboco-io/serverless-autoresearch)
-
 ### **vibe-ready-cli**
 
-自分のリポジトリがバイブコーディング(AIエージェントベースの開発)にどれだけ備えられているかを、コマンド一つで点検してくれるCLI。Claude Agent SDKを活用してLLMが直接リポジトリを探索し、6つのカテゴリでスコアを算出したうえで、総合評価と具体的な改善提案を提示します(`npx vibe-ready .` で即座に実行可能)。
+自分のリポジトリがバイブコーディング(AIエージェントベースの開発)にどれだけ備えられているかを、コマンド一つで点検してくれるCLI。Claude Agent SDKまたはCodex CLIでLLMが直接リポジトリを探索し、7つのカテゴリでスコアを算出したうえで、総合評価と具体的な改善提案を提示します(`npx vibe-ready .` で即座に実行可能)。
 
 - GitHub: [roboco-io/vibe-ready-cli](https://github.com/roboco-io/vibe-ready-cli)
 
@@ -154,6 +163,6 @@ Karpathyのautoresearchを、AWS SageMaker Spot上で再現・拡張するプロ
 
 ## **その他の取り組み**
 
-上記のほかにも、さまざまなデモ・実験・教育資料を公開しています。
+上記のほかにも、さまざまなデモ・教育資料とオープンソースプロジェクトを公開しています。
 
 - [github.com/roboco-io](https://github.com/roboco-io)

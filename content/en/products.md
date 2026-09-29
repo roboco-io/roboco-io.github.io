@@ -9,6 +9,8 @@ draft: false
 
 ROBOCO turns the insights gained from consulting and training into products of its own. All of them are open for anyone to use, and we welcome feedback and contributions.
 
+This page introduces tools and methods for practical use. Explore our experimental questions and findings in [Research](/en/research/).
+
 ---
 
 ## **Intent Engineering**
@@ -97,9 +99,29 @@ The vibe coding ecosystem is expanding fast, and it's often hard to know where t
 
 ---
 
+## **token-forge**
+
+> *Run an open-weight model for coding agents in your own AWS account.*
+
+token-forge is an open-source tool that uses AWS CDK to set up EC2 Spot GPUs and a vLLM serving environment. Its OpenAI- and Anthropic-compatible APIs let coding agents such as Claude Code connect to the model. It also shuts down idle GPU capacity and selects regions based on Spot availability.
+
+### Useful if you're
+
+- A team that cannot send code and prompts to an external LLM API
+- A development team that uses large volumes of tokens in concentrated bursts
+- An organization able to operate its own AWS GPU infrastructure
+
+Spot reclamation can interrupt service, and the first deployment requires AWS GPU Spot quota. It is better suited to development and batch work than to services requiring uninterrupted availability.
+
+### Links
+
+- GitHub: [roboco-io/token-forge](https://github.com/roboco-io/token-forge)
+
+---
+
 ## **Open Source Tools and Resources**
 
-Some of what ROBOCO builds and refines through consulting, training, and its own research doesn't have a dedicated site yet — but it's all public on GitHub. Every one of these is the output of a real project, a real course, or an experiment that answered the question, "can this really be done at low cost?"
+We publish tools and learning resources on GitHub to help with project setup, document conversion, and working with AI agents. These tools and curated resources draw on ROBOCO's consulting and training work and are available for use in your own projects.
 
 ### **roboco-cli**
 
@@ -125,22 +147,9 @@ A collection of Skills, Commands, Agents, and Hooks plugins that extend Claude C
 
 - GitHub: [roboco-io/plugins](https://github.com/roboco-io/plugins)
 
-### **s3-experiments**
-
-Explores Amazon S3 for key-value storage, event archiving, database storage, and file I/O. The project publishes research by pattern and measurements comparing S3 Files, Mountpoint, and EFS, alongside the conditions and limitations of each approach.
-
-- [Explore the questions, status, and results](/en/research/#s3-experiments)
-- GitHub: [roboco-io/s3-experiments](https://github.com/roboco-io/s3-experiments)
-
-### **serverless-autoresearch**
-
-A project that reproduces and extends Karpathy's autoresearch on AWS SageMaker Spot instances. An overnight automated model-improvement experiment that once required occupying a single H100 for eight hours now runs 2.3× faster and 5–18× cheaper, with all 48 experiments completed for $3.94. We've also published a parallel evolution pipeline using the HUGI pattern and an eight-part hands-on tutorial.
-
-- GitHub: [roboco-io/serverless-autoresearch](https://github.com/roboco-io/serverless-autoresearch)
-
 ### **vibe-ready-cli**
 
-A CLI that checks, in a single command, how ready your repository is for vibe coding (AI agent-based development). Using the Claude Agent SDK, an LLM explores the repository directly, scores it across six categories, and delivers an overall grade with specific improvement recommendations (run instantly with `npx vibe-ready .`).
+A CLI that checks, in a single command, how ready your repository is for vibe coding (AI agent-based development). Using the Claude Agent SDK or Codex CLI, an LLM explores the repository directly, scores it across seven categories, and delivers an overall grade with specific improvement recommendations (run instantly with `npx vibe-ready .`).
 
 - GitHub: [roboco-io/vibe-ready-cli](https://github.com/roboco-io/vibe-ready-cli)
 
@@ -154,6 +163,6 @@ An extension CLI that fills the gaps left by the official GitHub CLI (`gh`). It 
 
 ## **More Activity**
 
-Beyond the above, we publish a variety of demos, experiments, and training materials.
+Beyond the above, we publish a variety of demos, training materials, and open source projects.
 
 - [github.com/roboco-io](https://github.com/roboco-io)
