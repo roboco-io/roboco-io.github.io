@@ -16,43 +16,9 @@ ROBOCO.IO corporate website - a Hugo-based static site deployed to GitHub Pages.
 ## Commands
 
 ```bash
-# First-time setup (clone with submodules)
+# First-time setup (theme is a git submodule)
 git submodule update --init --recursive
-
-# Local development server (includes drafts)
-hugo server -D
-
-# Create new blog post
-hugo new posts/my-post.md
-
-# Build site (output to ./public)
-hugo -D
-
-# Generate favicons from SVG source
-./scripts/generate_favicons.sh
 ```
-
-## Architecture
-
-- **Static Site Generator**: Hugo v0.143.1
-- **Theme**: hello-friend-ng (as git submodule in `themes/`)
-- **Hosting**: GitHub Pages via GitHub Actions
-- **Config**: `hugo.yaml` (site settings, menu, theme params)
-
-### Key Directories
-
-- `content/posts/` - Blog posts in markdown
-- `content/` - Static pages (about.md, solutions.md, contact.md)
-- `layouts/` - Custom template overrides (index.html, partials/)
-- `assets/css/extended.css` - Custom CSS extending theme
-- `static/favicon/` - Favicon assets (source SVG and generated PNGs)
-
-### Template Customization
-
-Theme overrides are placed in `layouts/` to customize the hello-friend-ng theme:
-- `layouts/index.html` - Custom homepage
-- `layouts/partials/home/logo.html` - Logo component
-- `layouts/partials/extra-head.html` - Additional head content
 
 ## Content Conventions
 
