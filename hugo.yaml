@@ -14,8 +14,8 @@ languages:
     contentDir: "content/ko"
     title: "ROBOCO"
     params:
-      homeSubtitle: "귀사가 소유하고 운영하는 소프트웨어 공장을 함께 만듭니다."
-      description: "로보코는 귀사가 소유하고 운영하는 소프트웨어 공장을 함께 만듭니다. 실제 업무 파일럿부터 AI 네이티브 개발 체계 구축, 운영 고도화까지 함께합니다."
+      homeSubtitle: "귀사가 소유하고 운영하는 소프트웨어 팩토리를 함께 만듭니다."
+      description: "로보코는 귀사가 소유하고 운영하는 소프트웨어 팩토리를 함께 만듭니다. 실제 업무 파일럿부터 AI 네이티브 개발 체계 구축, 운영 고도화까지 함께합니다."
   en:
     languageName: "English"
     languageCode: "en-us"
