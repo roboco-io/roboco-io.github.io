@@ -13,6 +13,8 @@ We work with companies bringing outsourced development in-house, businesses purs
 
 A software factory connects **intent → implementation → verification → deployment → observation and improvement**. Your team sets the goals and criteria for judgment. Together, we define what AI can execute and where human review is needed. Automated guardrails and harnesses apply security and cost criteria throughout this workflow.
 
+You can explore the concepts and operating principles behind this approach in [*The Software Factory*](https://factory.roboco.io), a book ROBOCO is writing in public, and see the full flow from request through verification, deployment, and self-improvement working end to end in [The Software Factory Demo](https://roboco.io/the-software-factory-demo/).
+
 - **[Practical pilot](#pilot)**: Validate the workflow through real work, leaving your team with a working result and experience improving it yourselves.
 - **[Software factory setup](#factory)**: Build repeatable pipelines, verification environments, operating standards, and the capability to run them.
 - **[Operational improvement](#operations)**: Improve the product and its production system while developing your team's ability to evaluate and adopt new technology.
@@ -134,4 +136,4 @@ The materials involved in certification prep are your company's most sensitive d
 
 In an initial consultation, we look at your team, product, and the work you want to improve. Together, we select a real task and **agree on the pilot's scope, timeline, cost, and success criteria** before starting.
 
-[Discuss a pilot](/en/contact/)
+[Discuss a pilot](/en/contact/) · [View training and workshop materials](/en/education/)

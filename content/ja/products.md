@@ -9,7 +9,29 @@ draft: false
 
 ROBOCOは、コンサルティングと教育の現場で得た知見を自社プロダクトへと発展させています。すべて誰でも利用できるよう公開しており、ご意見・コントリビューションを歓迎します。
 
-このページでは、実務に活用できるツールと方法論を紹介します。研究・実験の問いと結果は[Research](/ja/research/)で確認できます。
+このページでは、実務に活用できるツールと方法論を紹介します。研究・実験の問いと結果は[Research](/ja/research/)で、講義・ワークショップ資料は[Education](/ja/education/)で確認できます。
+
+---
+
+## **The Software Factory**
+
+> *意図をポリシーと実行計画に、結果を証拠に、フィードバックを改善に。* — ソフトウェアファクトリーとAI時代の組織設計。
+
+『The Software Factory — ソフトウェアファクトリーとAI時代の組織設計』は、ソフトウェア組織のリーダーに向けた韓国語の書籍です。意図をポリシーと実行計画として具体化し、実行結果を証拠で検証し、フィードバックによってポリシーと計画を改善する開発アプローチを、パターン・ランゲージとして解説します。現在は公開草稿としてWebで読むことができ、GitHub Issuesでご意見を受け付けています。
+
+あわせて公開した**The Software Factory Demo**は、このアプローチの実装例です。人が望む変更を文章で依頼すると、AIが実装・検証したうえで実際のサービス（RealWorldサンプルブログ）に反映する過程を、誰でも観察できます。繰り返される失敗をもとにファクトリーの作業ルールを修正する、自己改善の概念実証もあわせて行っています。
+
+### こんな方に役立ちます
+
+- AI時代に向けて開発組織の役割とプロセスを再設計したいリーダー
+- ソフトウェアファクトリーが実際にどう動くのかを自分の目で確かめたい方
+- 依頼・検証・デプロイ・自己改善がつながった実装事例を参考にしたいチーム
+
+### リンク
+
+- 書籍を読む: [factory.roboco.io](https://factory.roboco.io)
+- デモサービス: [roboco.io/the-software-factory-demo](https://roboco.io/the-software-factory-demo/) · [ファクトリーダッシュボード](https://roboco.io/the-software-factory-demo/factory/)
+- GitHub: [roboco-io/the-software-factory](https://github.com/roboco-io/the-software-factory) · [roboco-io/the-software-factory-demo](https://github.com/roboco-io/the-software-factory-demo)
 
 ---
 
@@ -119,6 +141,43 @@ Spotインスタンスが回収されると一時的に停止する可能性が�
 
 ---
 
+## **Vibe Up**
+
+> *Shape Up for the Vibe-Coding Era.* — 実装コストがゼロに近づいても、ボトルネックは消えずに移動します。
+
+Vibe Upは、BasecampのShape Up（Ryan Singer）をバイブコーディング時代に合わせて再構成したガイドです。実装コストが急激に下がった後に新たに生じたボトルネックである、検証・レビュー、注意力・集中、複雑性の負債を取り上げます。続いて、アペタイトとシェーピングという原作の原理が、予算の単位だけを変えて維持される過程を説明し、[VDLC](https://vdlc.roboco.io)の週次サイクル（4日間のビルド＋1日のクールダウン）へとつなげます。韓国語・英語・日本語で提供しています。
+
+### こんな方に役立ちます
+
+- Shape Upを運用してきたものの、AI導入後にサイクルやベッティングの基準が合わなくなったチーム
+- バイブコーディング環境で、企画（シェーピング）と検証の役割を再定義したいリーダー
+
+### リンク
+
+- サイト: [vibeup.roboco.io](https://vibeup.roboco.io/ja/)
+- GitHub: [roboco-io/vibeup](https://github.com/roboco-io/vibeup)
+
+---
+
+## **AI Doc Ready**
+
+> *人とAIが共に読みやすい報告書へ。* — Markdown・HWPX報告書の構造チェックツール。
+
+AI Doc Ready（`aidocready`）は、MarkdownとHWPXの報告書がAIフレンドリーな作成原則に沿っているかをチェックするCLIです。韓国の行政安全部がAIフレンドリーな報告書の導入を発表した際に示した原則（表・図の上部へのタイトル配置、単純なセル結合、叙述式の文章など）を、実際の文書作成プロセスに適用することから出発しました。構造チェックは再現可能なコードで行い、文章の明確さと意味の保持は原文との照合と手動レビューで確認するよう役割を分けています。HWPXのパースにはオープンソースライブラリKordocを使用しています。
+
+### こんな方に役立ちます
+
+- 公共機関または公共事業の報告書をHWPXで作成する方
+- AIが報告書を正確に読み取り要約できるよう、文書構造を整えたいチーム
+
+### リンク
+
+- 製品ページ: [roboco.io/aidocready](https://roboco.io/aidocready/)
+- 実行: `npx aidocready lint report.hwpx`
+- GitHub: [roboco-io/aidocready](https://github.com/roboco-io/aidocready)
+
+---
+
 ## **オープンソースツールとリソース**
 
 プロジェクトの準備、文書変換、AIエージェントの活用を支援するツールと学習資料をGitHubで公開しています。ROBOCOがコンサルティング・教育の現場で磨いてきたツールとキュレーションを、ご自身の業務に活用できます。
@@ -146,6 +205,19 @@ HWP(ハングルワードプロセッサ)文書を、LLMが扱えるMarkdownに�
 Claude Codeの使い勝手を拡張するSkills・Commands・Agents・Hooksプラグイン集。ROBOCOがコンサルティング・教育ワークフローの中で磨き上げてきたパターンを、誰でもインストールして使えるようにまとめています。
 
 - GitHub: [roboco-io/plugins](https://github.com/roboco-io/plugins)
+
+### **claude-wiki**
+
+Claude Codeでコードベースのエージェントフレンドリーなwikiを生成・維持するツール。wiki生成ロジックはClaude Codeプラグインとして動作するため、別途APIキーを用意せずに既存のClaudeサブスクリプションの範囲内で実行できます。ターミナルやCIでは、薄いCLIラッパー（`claude-wiki`）で同じロジックを実行します。
+
+- GitHub: [roboco-io/claude-wiki](https://github.com/roboco-io/claude-wiki)
+
+### **DORA AI Guide**
+
+DORA（dora.dev）のAI関連リサーチを韓国語と日本語で要約した非公式の学習ガイド。4大レポート、AI Capabilities Modelの7つの能力、12本のインサイトを整理しており、AI導入の効果を根拠に基づいて議論する際の参考になります。
+
+- サイト: [roboco.io/dora-ai-guide](https://roboco.io/dora-ai-guide/ja/)
+- GitHub: [roboco-io/dora-ai-guide](https://github.com/roboco-io/dora-ai-guide)
 
 ### **vibe-ready-cli**
 

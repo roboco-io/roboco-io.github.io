@@ -1,6 +1,6 @@
 ---
 title: "Research"
-description: "Research on autonomous AI development, automated model training, semiconductor EDA, S3, and AWS relational databases, with observations, conditions, and limitations."
+description: "Research on autonomous AI development, a KSAT AI benchmark, automated model training, deep learning efficiency, semiconductor EDA, S3, and AWS relational databases, with observations, conditions, and limitations."
 date: 2026-09-25T09:00:00+09:00
 draft: false
 layout: "research"
@@ -13,12 +13,14 @@ aliases:
 ROBOCO uses real tasks to explore how far small teams can go with AI. We investigate coding-agent completion, automated model training, tools for specialist domains, and cloud infrastructure, recording the conditions alongside the observations. Results that fall short of expectations also inform our next decisions.
 
 - [Ralph loop completion benchmark](#ralph-loop)
+- [KSAT AI benchmark](#ksat-benchmark)
 - [Serverless autoresearch experiments](#serverless-autoresearch)
+- [Topology-based deep learning efficiency experiments](#topology-efficient-dl)
 - [Semiconductor EDA experiments](#semiconductor-design)
 - [S3 experiments](#s3-experiments)
 - [Aurora DSQL comparison](#dsql-experiments)
 
-*Overview as of September 25, 2026. Each project's dashboard and research records provide its latest conditions and status.*
+*Overview as of October 16, 2026. Each project's dashboard and research records provide its latest conditions and status.*
 
 ---
 
@@ -28,7 +30,7 @@ ROBOCO uses real tasks to explore how far small teams can go with AI. We investi
 
 **Question:** Can a coding agent take a goal and complete development without human intervention until the result passes verification? How do the model and its execution environment affect that process?
 
-**Method:** Agents implement the same RealWorld backend task. A Ralph loop repeats work and verification, with the official Hurl test suite determining completion. Each experiment records the model, harness, language, and iteration limit; independent re-checks verify the result. A harness is the environment in which the agent uses tools and executes work.
+**Method:** Agents implement the same RealWorld backend task. A Ralph loop repeats work and verification, with the official Hurl test suite determining completion. Each experiment records the model, harness, language, and iteration limit; independent re-checks verify the result. A harness is the environment in which the agent uses tools and executes work. This experiment began by measuring an Advisor strategy, in which a stronger model advises and a weaker model executes, and then expanded into a completion comparison across combinations of models and execution environments.
 
 **Observations:** We publish completion outcomes, elapsed time, iteration counts, and token usage across combinations. We also analyze cases where environment settings or the grading process changed the result, separating model capability from experimental conditions.
 
@@ -36,6 +38,23 @@ ROBOCO uses real tasks to explore how far small teams can go with AI. We investi
 
 - [Completion dashboard](https://roboco.io/coding-agent-benchmark/)
 - [Experiment designs, results, and code](https://github.com/roboco-io/coding-agent-benchmark)
+
+---
+
+## KSAT AI benchmark {#ksat-benchmark}
+
+**2026 exam results published · 2027 exam to be evaluated right after the test**
+
+**Question:** How well can the latest AI models solve questions from Korea's College Scholastic Ability Test (KSAT), the national university entrance exam? How do accuracy, time, and cost vary by model and execution tool?
+
+**Method:** We render the original odd-numbered-form PDFs of the 2026 KSAT as images and present the questions as they appear, without transcribing them into text. Multiple models from the OpenAI, Anthropic, and open-model families answer 147 unique questions in Korean, mathematics, and English, with tools, search, and plugins disabled. Models may abstain on questions they are unsure about, and abstentions are recorded separately from execution errors.
+
+**Observations:** A dashboard publishes each model's answers and grading results, along with per-question estimates of time, tokens, and cost. Each year, we evaluate the previous year's exam before the test and the new exam right after it, using the same models and protocol to enable year-over-year comparison.
+
+**Interpretation:** Previously published exams may have been included in model training data. We do not convert raw scores into students' standard scores, percentiles, or grades. The English listening section is evaluated using images of the official transcripts, which differs from evaluating audio comprehension. Costs are estimates that divide the cost of batched requests evenly across questions.
+
+- [Results dashboard](https://roboco.io/KSAT-AI-Benchmark/)
+- [Project repository](https://github.com/roboco-io/KSAT-AI-Benchmark)
 
 ---
 
@@ -54,6 +73,23 @@ ROBOCO uses real tasks to explore how far small teams can go with AI. We investi
 - [Project repository](https://github.com/roboco-io/serverless-autoresearch)
 - [Experiment settings and results](https://github.com/roboco-io/serverless-autoresearch/tree/main/experiments)
 - [Hands-on tutorial](https://github.com/roboco-io/serverless-autoresearch/tree/main/docs/vibe-coding-tutorial)
+
+---
+
+## Topology-based deep learning efficiency experiments {#topology-efficient-dl}
+
+**Track A complete (hypothesis rejected) · See the repository for Track B and C status**
+
+**Question:** Can topology and structural mathematics reduce the computational cost of deep learning models (FLOPs, memory, and training time), or improve performance at the same cost?
+
+**Method:** We test this across three tracks. Track A checks whether Persistent Homology summary features can shrink model size for time-series classification. Track B checks whether Simplicial/Cell Complexes can avoid global attention on graphs. Track C checks whether tensor decomposition can compress weights and reduce computation. Each experiment runs with three seeds on SageMaker Managed Spot Training.
+
+**Observations:** In Track A, the small model (PH-MLP) scored 8–32 percentage points lower in F1 than the baseline model (InceptionTime) on all four datasets, missing the success criterion (a drop within 1 percentage point). Analysis attributed this to temporal patterns being lost during feature transformation and to computation costs growing with long time series. The full set of Track A experiments cost about $0.40.
+
+**Interpretation:** These results are limited to the techniques and datasets in Track A. They do not show that topological approaches are ineffective as a whole. Results for Tracks B and C have not been published as of 2026-10-16.
+
+- [Project repository](https://github.com/roboco-io/topology-efficient-deep-learning)
+- [Detailed Track A results](https://github.com/roboco-io/topology-efficient-deep-learning/blob/main/results/track_a_results.md)
 
 ---
 
