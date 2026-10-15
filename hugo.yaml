@@ -121,6 +121,10 @@ menu:
       name: Research
       url: /research/
       weight: 27
+    - identifier: education
+      name: Education
+      url: /education/
+      weight: 28
     - identifier: posts
       name: Posts
       url: /posts/
