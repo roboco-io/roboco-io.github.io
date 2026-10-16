@@ -22,7 +22,12 @@ When I consult on vibe coding adoption, I often hear the same complaint: "Our pr
 
 The same teams were using agents effectively on newly built Python tools and web admin consoles. So it is more natural to conclude that the problem lies in the codebase rather than in the team's skills or the agent itself. In this post, I lay out how to modernize such legacy projects with vibe coding, drawing on public case studies and research. The source material consists of public case studies, papers, and tool documentation surveyed as of October 15, 2026, and I note that each figure is self-reported by the organization that published it.
 
-This post is the first in a two-part series on modernizing legacy codebases. Part 1 covers legacy applications written in C/C++, and Part 2 will cover modernization strategies for legacy web applications written in PHP.
+This post is the first in a two-part series on modernizing legacy codebases. Part 1 covers legacy applications written in C/C++, and Part 2 covers modernization strategies for legacy web applications written in PHP.
+
+**Series: Modernizing Legacy Code with Vibe Coding**
+
+1. 20-Year-Old C/C++ Applications (this post)
+2. [PHP, Built Up Alongside the History of the Web](/en/posts/legacy-php-vibe-coding-modernization/)
 
 ## TL;DR
 
@@ -178,7 +183,7 @@ That is why modernizing legacy C/C++ should start not by handing translation to 
 
 The schedules, thresholds, and configurations in this post are proposals based on public case studies. Before applying them, diagnose the actual repository and adjust accordingly.
 
-In the next post, I will cover strategies for modernizing legacy web applications, specifically those written in PHP, with vibe coding.
+In the [next post](/en/posts/legacy-php-vibe-coding-modernization/), I cover strategies for modernizing legacy web applications, specifically those written in PHP, with vibe coding.
 
 [^1]: Google Bug Hunters, "Scaling Memory Safety: AI Assisted Rewrites of C/C++ Dependencies to Rust" (2026-08-24): https://bughunters.google.com/blog/scaling-memory-safety
 [^2]: Anthropic, Wiz customer story (self-reported by the customer): https://claude.com/customers/wiz
