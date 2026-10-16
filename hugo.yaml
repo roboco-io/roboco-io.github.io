@@ -3,6 +3,11 @@ title: "ROBOCO"
 theme: "hello-friend-ng"
 buildFuture: true
 
+# Google Analytics 4 (layouts/partials/head.html에서 _internal/google_analytics.html로 렌더링, 프로덕션 빌드에서만 출력)
+services:
+  googleAnalytics:
+    id: "G-9G1SGM9SZQ"
+
 defaultContentLanguage: "ko"
 defaultContentLanguageInSubdir: false
 
