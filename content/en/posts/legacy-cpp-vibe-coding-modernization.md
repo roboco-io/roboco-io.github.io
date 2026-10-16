@@ -1,5 +1,5 @@
 ---
-title: "Modernizing 20-Year-Old C/C++ Legacy Code with Vibe Coding"
+title: "Modernizing Legacy Code with Vibe Coding (1/2): 20-Year-Old C/C++ Applications"
 date: 2026-10-16T10:00:00+09:00
 draft: false
 toc: false
@@ -21,6 +21,8 @@ tags:
 When I consult on vibe coding adoption, I often hear the same complaint: "Our project is too complex. The agent can't do what we ask it to do." At first, I assumed the cause was a specialized domain or poorly written prompts. But as the cases piled up, a common thread emerged. Most of the teams saying this were working on **C/C++ codebases more than 20 years old**.
 
 The same teams were using agents effectively on newly built Python tools and web admin consoles. So it is more natural to conclude that the problem lies in the codebase rather than in the team's skills or the agent itself. In this post, I lay out how to modernize such legacy projects with vibe coding, drawing on public case studies and research. The source material consists of public case studies, papers, and tool documentation surveyed as of October 15, 2026, and I note that each figure is self-reported by the organization that published it.
+
+This post is the first in a two-part series on modernizing legacy codebases. Part 1 covers legacy applications written in C/C++, and Part 2 will cover modernization strategies for legacy web applications written in PHP.
 
 ## TL;DR
 
@@ -175,6 +177,8 @@ Some modules have target platforms, certifications, or vendor support that don't
 That is why modernizing legacy C/C++ should start not by handing translation to an agent, but by building a verification environment in which an agent can work. Once you have reproducible builds, compile context, module contracts, and a differential comparison harness, agents can iterate on investigation, transformation, and falsification far faster than humans. This structure points in the same direction as the [software factory](/en/posts/beyond-vibe-coding-software-factory/) discussed on this blog.[^10] In particular, as covered in [factories that filter by evidence](/en/posts/software-factory-evidence-before-fix/), the bar for accepting a change should be execution evidence, not the agent's claims.[^11]
 
 The schedules, thresholds, and configurations in this post are proposals based on public case studies. Before applying them, diagnose the actual repository and adjust accordingly.
+
+In the next post, I will cover strategies for modernizing legacy web applications, specifically those written in PHP, with vibe coding.
 
 [^1]: Google Bug Hunters, "Scaling Memory Safety: AI Assisted Rewrites of C/C++ Dependencies to Rust" (2026-08-24): https://bughunters.google.com/blog/scaling-memory-safety
 [^2]: Anthropic, Wiz customer story (self-reported by the customer): https://claude.com/customers/wiz
