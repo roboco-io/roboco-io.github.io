@@ -12,7 +12,7 @@ tags:
   - cloud-architecture
 ---
 
-> The conventional wisdom that multi-cloud is too complex still holds for active-active operations. But for the DR tier, where you keep only backups and the means to recover in another cloud, the cost structure has changed. What vibe coding reduces is the effort spent on design, implementation, and verification, and that effort has long made up a large share of DR costs.
+> The conventional wisdom that multi-cloud is too complex still holds for active-active operations. But for the DR tier, where you keep only backups and the means to recover in another cloud, the cost structure has changed. Vibe coding reduces the cost of building DR in the first place, and the software factory reduces the cost of keeping that DR working and verified over time. Together, these two costs have made up most of what DR costs.
 
 {{< figure src="/posts/images/Dohyun.png" title="Dohyun Jung - Principal Consultant, ROBOCO" style=".author-image">}}
 
@@ -40,30 +40,35 @@ Meanwhile, in Flexera's 2026 survey, 88% of organizations said they use multi-cl
 
 ## Breaking Down Why Multi-Cloud Was Hard, Cost by Cost
 
-The conventional wisdom that "multi-cloud greatly increases development and operational complexity" bundles several costs into one phrase. To assess the effect of vibe coding accurately, we need to break these costs down by item. The table below sorts each cost by whether vibe coding can reduce it. This assessment is an interpretation based on my consulting experience, not a measured result.
+The conventional wisdom that "multi-cloud greatly increases development and operational complexity" bundles several costs into one phrase. To assess the effect of AI accurately, we need to break these costs down by item, and we also need to split the effect of AI in two.
 
-| Cost item | Description | Effect of vibe coding |
-|---|---|---|
-| Writing infrastructure code twice | Writing and maintaining separate IaC for each cloud's resource model | Greatly reduced |
-| Design and review | Building service mapping tables, designing data replication, designing failover procedures | Greatly reduced |
-| Runbooks and test code | Writing and updating recovery procedures, restore scripts, and verification tests | Greatly reduced |
-| Maintaining an abstraction layer | Maintaining a common interface that hides the differences between two clouds | Partially reduced |
-| Data transfer costs | Egress fees from cross-cloud replication | Not reduced |
-| Security and IAM model differences | Operating permission models, key management, and audit logging separately for each cloud | Partially reduced (writing configuration gets easier, but operational responsibility remains) |
-| Operations staff and on-call | Hiring people who understand both clouds, incident response structure | Not reduced |
-| Diluted usage discounts | Splitting usage across two clouds makes it harder to meet the conditions for commitment and volume discounts | Not reduced |
+The first is the effect of vibe coding. Vibe coding is a way of working in which a person completes a single piece of work through conversation with an AI coding agent. What it reduces is **one-time build cost**. The second is the effect of the software factory. As I explained in an [earlier post](/en/posts/beyond-vibe-coding-software-factory/), a software factory is an operating model in which people set goals, constraints, and the scope of delegation, and multiple automated development streams then carry the work forward continuously, from organizing requirements through implementation, verification, and reporting.[^15] What it reduces is **recurring maintenance and verification cost**. The two effects also differ in timing. Vibe coding is something teams can use in the field today, while the software factory is a direction organizations can now begin to build toward.
 
-As the table shows, the costs that vibe coding reduces are concentrated in work expressed as code and documents. Data transfer fees, ongoing operational responsibility, and discount conditions remain unchanged.
+The table below assesses each cost against both effects. These assessments are interpretations based on my consulting experience, not measured results.
+
+| Cost item | Description | Vibe coding (build) | Software factory (maintain and verify) |
+|---|---|---|---|
+| Writing infrastructure code twice | Writing and maintaining separate IaC for each cloud's resource model | Initial writing cost greatly reduced | Cost of keeping up with primary cloud changes greatly reduced |
+| Design and review | Building service mapping tables, designing data replication, designing failover procedures | Greatly reduced | Cost of re-reviewing when changes occur partially reduced |
+| Runbooks and test code | Recovery procedures, restore scripts, verification tests | Drafting cost greatly reduced | Cost of updating them for infrastructure changes greatly reduced |
+| Restore drills | Regularly restoring from backups and measuring and reporting actual RTO/RPO | Cost of building the drill pipeline reduced | Cost of repeated runs and reporting greatly reduced |
+| Maintaining an abstraction layer | Maintaining a common interface that hides the differences between two clouds | Partially reduced | Partially reduced |
+| Data transfer costs | Egress fees from cross-cloud replication | Not reduced | Not reduced |
+| Security and IAM model differences | Operating permission models, key management, and audit logging separately for each cloud | Cost of writing configuration partially reduced | Cost of detecting configuration drift partially reduced; operational responsibility remains |
+| Operations staff and on-call | Hiring people who understand both clouds, incident response structure | Not reduced | Detection and first-line reporting partially reduced; failover decision authority stays with people |
+| Diluted usage discounts | Splitting usage across two clouds makes it harder to meet the conditions for commitment and volume discounts | Not reduced | Not reduced |
+
+As the table shows, the two effects target different costs. Vibe coding reduces the cost of creating code and documents in the first place, while the software factory reduces the cost of keeping that code and those documents correct and confirming that they actually work. Neither reduces data transfer fees or discount conditions.
 
 The last item deserves particular attention. Cloud provider discounts are designed to favor concentrating usage in one place. There are products that grant discounts in exchange for committing to a certain level of usage, such as AWS Savings Plans and Reserved Instances or Google Cloud's Committed Use Discounts, and large customers sometimes sign separate discount agreements with a provider in exchange for an annual spend commitment. If you split day-to-day workloads across two clouds, usage in each cloud shrinks, making such commitments harder to sign or leaving you in a lower discount tier. No amount of well-written code reduces this cost.
 
-A conclusion follows from this breakdown. Active-active configurations, which run a service in two clouds at once, remain hard because the remaining costs, namely data transfer, ongoing operations, and diluted discounts, make up most of their cost. By contrast, for DR configurations that keep only backups and the means to recover in another cloud, most of the cost has been design, implementation, and verification work. That is exactly the cost vibe coding reduces. On top of that, in a DR configuration your day-to-day compute usage stays concentrated in the primary cloud, so you keep the primary cloud's discounts as well. The ongoing costs in the secondary cloud are mainly backup storage and transfer fees. This is why I see the break-even point dropping first in the DR tier, not in multi-cloud as a whole.
+A conclusion follows from this breakdown. Active-active configurations, which run a service in two clouds at once, remain hard because the remaining costs, namely data transfer, ongoing operations, and diluted discounts, make up most of their cost. By contrast, for DR configurations that keep only backups and the means to recover in another cloud, most of the cost has been design and implementation work plus recurring verification work. Those are exactly the costs that vibe coding and the software factory each reduce. On top of that, in a DR configuration your day-to-day compute usage stays concentrated in the primary cloud, so you keep the primary cloud's discounts as well. The ongoing costs in the secondary cloud are mainly backup storage and transfer fees. This is why I see the break-even point dropping first in the DR tier, not in multi-cloud as a whole.
 
 ## A Multi-Cloud DR Strategy Matrix
 
 AWS divides DR strategies into four tiers: backup and restore, pilot light, warm standby, and multi-site active-active. It explains that the lower you push RTO (the maximum acceptable delay between the interruption of service and restoration of service) and RPO (the maximum acceptable amount of time since the last data recovery point), the more you spend on resources and operational complexity.[^11] The original article covers multi-region configurations within AWS, but the same framework can be applied to a "primary cloud and secondary cloud." The table below does exactly that. The AWS article does not give RTO/RPO figures for each tier, so the table shows only relative levels.
 
-| Strategy | What you keep in the secondary cloud | RTO / RPO | Ongoing cost | What vibe coding reduces |
+| Strategy | What you keep in the secondary cloud | RTO / RPO | Ongoing cost | Build work vibe coding reduces |
 |---|---|---|---|---|
 | Backup and restore | Data backups (object storage replication, DB snapshots and dumps) and IaC code for the secondary cloud | Longest / as long as the backup interval | Lowest (storage and transfer fees) | Writing IaC for the secondary cloud, restore scripts, restore verification tests |
 | Pilot light | A continuously replicated database plus minimal networking and core infrastructure; compute stays off | Long / short | Low | Setting up cross-cloud DB replication, automating compute startup |
@@ -76,7 +81,7 @@ In the past, what made people hesitate over this configuration was not the backu
 
 The criterion for choosing a strategy is each service's RTO/RPO target. Not every service needs the same tier. It is realistic to start most services with backup and restore and raise only the few services directly tied to revenue or regulation to pilot light or warm standby. Vibe coding also lowers the cost of implementing different tiers for different services.
 
-## Verification Is the Real Cost: Continuous Verification with Chaos Engineering
+## The Real Cost Comes After the Build: Continuous Verification with a Software Factory
 
 The most common failure of a DR plan is not failing to build it but failing to confirm that it actually works. In the field, I often see backups that have never been restored, or runbooks that no longer match the procedure because the infrastructure changed in the meantime. This problem gets bigger with multi-cloud DR, because changes in the primary cloud are not automatically reflected in the recovery code for the secondary cloud.
 
@@ -84,9 +89,15 @@ Chaos engineering is the answer to this problem. AWS lays out its principles as 
 
 Applied to multi-cloud DR, the verification system splits into two parts. First, on the primary cloud side, use a tool like FIS to simulate a situation where "the primary environment is unavailable," and confirm that detection and the failover decision happen as expected. Second, on the secondary cloud side, regularly restore the service from backups for real, and measure how long the restore took and the point in time of the last recovered data. Those measurements are your actual RTO and RPO. Because FIS targets AWS resources, the second part has to be built separately as a restore drill pipeline.
 
-Most of the effort of running this system continuously goes into writing and updating code: experiment scenarios, restore pipelines, checks that compare results against targets, and keeping the secondary cloud's recovery code in line every time the primary cloud's infrastructure changes. Vibe coding lowers the cost of all of this. That is why I think the biggest change vibe coding brings to multi-cloud DR is not lower build costs but lower costs for continuous verification. With lower verification costs, you can shorten the drill cycle from quarterly to weekly and catch gaps between the plan and reality sooner.
+Building this system in the first place is well within reach of vibe coding. Experiment scenarios, restore pipelines, and checks that compare results against targets are all code you write once. Keeping the system valid over time is a different kind of work, however. The primary cloud's infrastructure changes every week, and each time, the secondary cloud's recovery code, runbooks, and drill scenarios have to be brought back in line. If a person has to instruct an agent to do this every time, updates slip during busy periods and DR reverts to a plan that exists only on paper.
 
-## Limitations: What Vibe Coding Does Not Solve
+This recurring work is where the software factory comes in. For example, you could run a flow like this continuously. When an IaC change is merged in the primary cloud, an automated development stream identifies the changes needed in the secondary cloud's recovery code and drafts a fix. The fix is applied only after it passes predefined verification. Restore drills run on a set schedule, and the measured RTO/RPO is compared against targets. If results miss the targets or unexpected behavior is found, the stream summarizes the cause, the impact, and the remaining risks and reports them to a person.
+
+There is one thing people must keep fixed. Each service's RTO/RPO target is a success criterion set by people, and the factory must not be able to change it on its own. If it could change the success criteria too, you could no longer trust the judgment that a drill passed. This is the same reason I wrote in the earlier post that a software factory needs a good reporting system.
+
+That is why I think the bigger change in multi-cloud DR lies less in lower build costs than in lower costs for continuous verification. Vibe coding has already brought build costs down. Once a software factory brings verification costs down as well, you can shorten the drill cycle from quarterly to weekly and catch gaps between the plan and reality sooner.
+
+## Limitations: What Vibe Coding and the Software Factory Do Not Solve
 
 This argument has clear limitations.
 
@@ -94,11 +105,11 @@ First, data transfer costs remain. In 2024, Google, AWS, and Azure each announce
 
 Second, regulation does not require multi-cloud. The EU's DORA, in effect since January 2025, requires financial institutions to have exit strategies for critical ICT services and to manage concentration risk, but it does not mandate multi-cloud.[^14] Regulation can prompt a review, but the basis for any configuration should be each organization's RTO/RPO targets.
 
-Third, human judgment does not go away. Setting RTO/RPO targets for each service, the authority and criteria for deciding whether to switch to the secondary cloud during an incident, and how to handle gaps found in drills all still have to be decided by the organization. Recovery code produced through vibe coding must be reviewed by humans and validated through drills, just like any other code.
+Third, human judgment does not go away. Setting RTO/RPO targets for each service, the authority and criteria for deciding whether to switch to the secondary cloud during an incident, and how to handle gaps found in drills all still have to be decided by the organization. Whether recovery code was written through vibe coding or updated by a software factory, people must set the review criteria and the code must be validated through drills, just like any other code.
 
 ## Conclusion: Start by Recalculating the Economics of the DR Tier
 
-The conclusion of this post is not "go multi-cloud." It is that we should stop accepting the conventional wisdom that multi-cloud is hard as a single lump, and recalculate it cost by cost. Broken down that way, the DR tier is where the costs vibe coding reduces make up the largest share. In particular, keeping only backups in another cloud lets you keep day-to-day usage concentrated in the primary cloud, preserving your discounts, while still protecting against the risk of being tied to a single provider.
+The conclusion of this post is not "go multi-cloud." It is that we should stop accepting the conventional wisdom that multi-cloud is hard as a single lump, and recalculate it cost by cost. Broken down that way, the DR tier is where the costs AI reduces make up the largest share. Vibe coding lowers the cost of building DR, and the software factory lowers the cost of keeping that DR working. In particular, keeping only backups in another cloud lets you keep day-to-day usage concentrated in the primary cloud, preserving your discounts, while still protecting against the risk of being tied to a single provider.
 
 Just as the games industry is moving to more platforms as porting costs fall, cloud architectures can now prepare for a wider range of failures as verification costs fall. The starting point is simple: set RTO/RPO targets for each service, keep backups of your single most important service in another cloud, and actually restore from those backups. How far the time measured in your first restore drill differs from the plan becomes the basis for your next investment decision.
 
@@ -118,3 +129,4 @@ Just as the games industry is moving to more platforms as porting costs fall, cl
 [^12]: AWS Architecture Blog, "Chaos Engineering in the Cloud" (2022-10-12): https://aws.amazon.com/blogs/architecture/chaos-engineering-in-the-cloud/
 [^13]: The Register, "Microsoft ends Azure egress fees" (2024-03-13): https://www.theregister.com/2024/03/13/microsoft_ends_azure_egress_fees/ / InfoQ, "AWS removes egress fees" (2024-03): https://www.infoq.com/news/2024/03/aws-egress-fees/
 [^14]: FAST LTA, "DORA: ICT-Drittanbieter" (2026-02-24): https://www.fast-lta.de/en/blog/dora-ict-drittanbieter
+[^15]: Beyond Vibe Coding, Toward the Software Factory: https://roboco.io/en/posts/beyond-vibe-coding-software-factory/
