@@ -18,6 +18,16 @@ tags:
 
 ---
 
+## TL;DR
+
+- The conventional wisdom that multi-cloud is hard still holds for active-active configurations that run a service in two clouds at once, because AI does not reduce data transfer fees, ongoing operations staffing, or the discount dilution that comes from splitting usage.
+- By contrast, the break-even point has dropped for the DR tier, where you keep only backups and the means to recover in another cloud, because most of its cost is build and verification work. Day-to-day usage stays concentrated in the primary cloud, so you keep your discounts too.
+- Vibe coding reduces the cost of building DR (IaC for the secondary cloud, restore scripts, runbooks), and the software factory reduces the recurring cost of keeping that DR updated for infrastructure changes and verifying it through regular restore drills.
+- Each service's RTO/RPO target is a success criterion set by people, and failover decision authority also stays with people.
+- The starting point is to set RTO/RPO targets for each service, keep backups of your single most important service in another cloud, and actually restore from those backups.
+
+---
+
 ## Games Are Already Going Multi-Platform
 
 Over the past one to two years, it has become common in the games industry for exclusives to ship on other platforms. Microsoft released Forza Horizon 5, formerly an Xbox exclusive, on PS5 in April 2025, and the game ranked second in US sales that month.[^1] The same year, Gears of War: Reloaded became the first game in the series to come to PS5, and Indiana Jones and the Great Circle launched on Switch 2 in May 2026.[^2] It also goes the other way. Sony's Helldivers 2 launched on Xbox in August 2025, and according to estimates from analytics firm Alinea, its first-six-day sales on Xbox (about 926,000 units) exceeded the PS5 version's sales over the same period in 2024 (about 633,000 units).[^3]
