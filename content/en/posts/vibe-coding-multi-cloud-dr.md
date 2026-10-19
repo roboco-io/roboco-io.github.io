@@ -51,10 +51,13 @@ The conventional wisdom that "multi-cloud greatly increases development and oper
 | Data transfer costs | Egress fees from cross-cloud replication | Not reduced |
 | Security and IAM model differences | Operating permission models, key management, and audit logging separately for each cloud | Partially reduced (writing configuration gets easier, but operational responsibility remains) |
 | Operations staff and on-call | Hiring people who understand both clouds, incident response structure | Not reduced |
+| Diluted usage discounts | Splitting usage across two clouds makes it harder to meet the conditions for commitment and volume discounts | Not reduced |
 
-As the table shows, the costs that vibe coding reduces are concentrated in work expressed as code and documents. Data transfer fees and ongoing operational responsibility remain unchanged.
+As the table shows, the costs that vibe coding reduces are concentrated in work expressed as code and documents. Data transfer fees, ongoing operational responsibility, and discount conditions remain unchanged.
 
-A conclusion follows from this breakdown. Active-active configurations, which run a service in two clouds at once, remain hard because the remaining costs, namely data transfer and ongoing operations, make up most of their cost. By contrast, for DR configurations that keep only backups and the means to recover in another cloud, most of the cost has been design, implementation, and verification work. That is exactly the cost vibe coding reduces. This is why I see the break-even point dropping first in the DR tier, not in multi-cloud as a whole.
+The last item deserves particular attention. Cloud provider discounts are designed to favor concentrating usage in one place. There are products that grant discounts in exchange for committing to a certain level of usage, such as AWS Savings Plans and Reserved Instances or Google Cloud's Committed Use Discounts, and large customers sometimes sign separate discount agreements with a provider in exchange for an annual spend commitment. If you split day-to-day workloads across two clouds, usage in each cloud shrinks, making such commitments harder to sign or leaving you in a lower discount tier. No amount of well-written code reduces this cost.
+
+A conclusion follows from this breakdown. Active-active configurations, which run a service in two clouds at once, remain hard because the remaining costs, namely data transfer, ongoing operations, and diluted discounts, make up most of their cost. By contrast, for DR configurations that keep only backups and the means to recover in another cloud, most of the cost has been design, implementation, and verification work. That is exactly the cost vibe coding reduces. On top of that, in a DR configuration your day-to-day compute usage stays concentrated in the primary cloud, so you keep the primary cloud's discounts as well. The ongoing costs in the secondary cloud are mainly backup storage and transfer fees. This is why I see the break-even point dropping first in the DR tier, not in multi-cloud as a whole.
 
 ## A Multi-Cloud DR Strategy Matrix
 
@@ -95,7 +98,7 @@ Third, human judgment does not go away. Setting RTO/RPO targets for each service
 
 ## Conclusion: Start by Recalculating the Economics of the DR Tier
 
-The conclusion of this post is not "go multi-cloud." It is that we should stop accepting the conventional wisdom that multi-cloud is hard as a single lump, and recalculate it cost by cost. Broken down that way, the DR tier is where the costs vibe coding reduces make up the largest share. In particular, keeping only backups in another cloud has a low ongoing cost while still protecting against the risk of being tied to a single provider.
+The conclusion of this post is not "go multi-cloud." It is that we should stop accepting the conventional wisdom that multi-cloud is hard as a single lump, and recalculate it cost by cost. Broken down that way, the DR tier is where the costs vibe coding reduces make up the largest share. In particular, keeping only backups in another cloud lets you keep day-to-day usage concentrated in the primary cloud, preserving your discounts, while still protecting against the risk of being tied to a single provider.
 
 Just as the games industry is moving to more platforms as porting costs fall, cloud architectures can now prepare for a wider range of failures as verification costs fall. The starting point is simple: set RTO/RPO targets for each service, keep backups of your single most important service in another cloud, and actually restore from those backups. How far the time measured in your first restore drill differs from the plan becomes the basis for your next investment decision.
 
