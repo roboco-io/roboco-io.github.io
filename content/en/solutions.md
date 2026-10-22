@@ -11,7 +11,7 @@ draft: false
 
 We work with companies bringing outsourced development in-house, businesses pursuing digital or AI transformation, and digital-native teams seeking faster, more accurate delivery beyond vibe coding.
 
-A software factory connects **intent → implementation → verification → deployment → observation and improvement**. Your team sets the goals and criteria for judgment. Together, we define what AI can execute and where human review is needed. Automated guardrails and harnesses apply security and cost criteria throughout this workflow.
+A software factory connects **intent → implementation → verification → deployment → observation and improvement**. Your team sets the goals and criteria for judgment. Together, we define what AI can execute and where human review is needed. Automated guardrails and harnesses apply security and cost criteria throughout this workflow. The specific security controls are described below in [A Software Factory with Built-In Security](#security).
 
 You can explore the concepts and operating principles behind this approach in [*The Software Factory*](https://factory.roboco.io), a book ROBOCO is writing in public, and see the full flow from request through verification, deployment, and self-improvement working end to end in [The Software Factory Demo](https://roboco.io/the-software-factory-demo/).
 
@@ -23,6 +23,22 @@ Training and advisory are integrated into real work at every stage. [Certificati
 
 ---
 
+## A Software Factory with Built-In Security {#security}
+
+As vibe coding speeds up development, it becomes harder to rely on people reading every line of code to check security. The software factory ROBOCO builds does not treat security as a separate step at the end. Instead, it **builds automated security controls into every stage of the production flow**, from intent definition to observation and improvement. These controls are enforced by code and repository protection rules, and we design them so that even when an AI agent makes a mistake or is influenced by malicious input, it cannot skip them to reach production.
+
+| Production flow | Security controls we apply to your factory |
+|---|---|
+| Intent definition | Request text is treated as untrusted input to defend against prompt injection. Requests from outside are not implemented until an authorized person approves them. |
+| Implementation | AI agents receive only the minimum permissions and secrets their work requires. If an agent changes the factory's verification rules or test criteria, the checks fail. |
+| Verification | A different model from the one that wrote the code performs a cross-review. For bug fixes, the factory automatically confirms that the reproduction test fails on the code before the fix and passes after it. |
+| Deployment | The risk tier is determined from the paths of changed files. Changes to authentication, data migrations, dependencies, or factory rules are merged and deployed only after human approval. Deployment secrets stay in the deployment stage only. |
+| Observation and improvement | Production is checked regularly, and errors and user feedback automatically become issues. When an incident occurs, an automated postmortem analyzes the cause and, if confidence conditions are met, reverts the causing change. |
+
+Every change leaves a record, in PR reports and commit signatures, of which agent and model made it, on what basis, and who approved it. This record can serve as change-management evidence in security audits and certification reviews. We design the specific configuration of these controls with you to fit your risk criteria and regulatory requirements, and you can see them working in [The Software Factory Demo](https://roboco.io/the-software-factory-demo/).
+
+---
+
 ## 1. Practical pilot {#pilot}
 
 We select a real business task or feature and build a connected development, verification, and deployment workflow. Your team builds a feature and makes the next improvement, learning which systems and capabilities it needs.
@@ -31,7 +47,7 @@ We select a real business task or feature and build a connected development, ver
 
 - **Clarify the problem and intent**: Define the intended behavior, expected results, and success criteria with your domain experts.
 - **Build a working result**: Implement with AI, then verify and deploy against the agreed criteria.
-- **Apply guardrails**: Establish security and cost criteria and human review points appropriate to the pilot, and incorporate them into the workflow.
+- **Apply guardrails**: Establish security and cost criteria and human review points appropriate to the pilot, and incorporate them into the workflow. Baseline security controls such as risk-tier approval rules and secret isolation apply from the first day of the pilot.
 - **Practice improving it yourselves**: Your team observes how the result is used, then iterates on intent and functionality.
 - **Define the next stage**: Use the bottlenecks and lessons identified to scope the software factory setup.
 
@@ -49,7 +65,7 @@ We extend the approach validated in the pilot into a production system your team
 
 - **Make intent and knowledge reusable**: Organize requirements, domain knowledge, and decision rationale so people and AI can use them together.
 - **Build development pipelines**: Connect and automate the recurring steps of implementation, verification, and deployment.
-- **Design harnesses and guardrails**: Build the environment in which AI work is executed and verified, with security and cost criteria and review and approval procedures.
+- **Design harnesses and guardrails**: Build the environment in which AI work is executed and verified, with security and cost criteria and review and approval procedures. Security controls such as risk-tier assessment, cross-review, evidence checks, and human approval gates are implemented in code across every SDLC stage.
 - **Establish a cloud-native foundation**: Design infrastructure configuration, deployment, and operations so your team can provision and change the environments it needs.
 - **Enable domain experts to develop**: Combine practical training and joint development so people without a development background can turn their expertise into features and improvements.
 - **Transfer operational capability**: Establish the documentation, guidelines, verification criteria, and skills your team needs to operate and improve the system.
@@ -66,7 +82,7 @@ Feed lessons from product use into the next iteration of intent, and improve the
 
 - **Review intent and outcomes**: Check whether features solve the real problem and prioritize the next improvements.
 - **Improve verification**: Incorporate discovered errors and recurring problems into tests, guidelines, and review procedures.
-- **Manage security and cost**: Review AI usage and cloud operations, then adjust guardrails to the agreed criteria.
+- **Manage security and cost**: Review AI usage and cloud operations, then adjust guardrails to the agreed criteria. Production checks, automated incident analysis, and reverting causing changes automate security response in operations.
 - **Evaluate and adopt AI capabilities**: Assess models and tools against real work and incorporate them after verifying their effectiveness.
 - **Expand team autonomy**: Use regular reviews and training to broaden the decisions and improvements your team can handle internally.
 
