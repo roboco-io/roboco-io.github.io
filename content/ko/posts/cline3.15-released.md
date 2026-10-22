@@ -1,7 +1,7 @@
 ---
 title: "클라인이 심상치 않다"
 date: 2025-05-15T08:08:46+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

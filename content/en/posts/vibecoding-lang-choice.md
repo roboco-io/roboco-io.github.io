@@ -1,7 +1,7 @@
 ---
 title: "Does English Work Better Than Korean for Vibe Coding?"
 date: 2025-04-04T08:12:04+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

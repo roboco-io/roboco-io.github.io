@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩 시대 개발자가 지녀야 하는 특성"
 date: 2025-04-11T12:21:17+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

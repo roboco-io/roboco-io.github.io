@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩의 기술"
 date: 2025-05-04T11:59:09-07:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "The Tidy First Methodology: Interpreting and Applying Kent Beck's Augmented Coding"
 date: 2025-07-27T06:29:39+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

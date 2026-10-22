@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩 리뷰 전략"
 date: 2025-06-07T12:21:04+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

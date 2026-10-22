@@ -1,7 +1,7 @@
 ---
 title: "MCP는 바이브 코딩에 필수인가? (feat. CLI)"
 date: 2025-04-01T10:28:00+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

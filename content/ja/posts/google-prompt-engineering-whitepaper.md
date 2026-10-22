@@ -1,7 +1,7 @@
 ---
 title: "Googleプロンプトエンジニアリング白書のバイブコーディング関連内容まとめ"
 date: 2025-04-13T08:32:57+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

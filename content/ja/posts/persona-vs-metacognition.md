@@ -1,7 +1,7 @@
 ---
 title: "LLMプロンプティング：ペルソナ指定とメタ認知方式の違い"
 date: 2025-11-27T07:57:49+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

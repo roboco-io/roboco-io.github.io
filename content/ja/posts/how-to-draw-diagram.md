@@ -1,7 +1,7 @@
 ---
 title: "AIでアーキテクチャ図を描く"
 date: 2025-06-14T12:35:06+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

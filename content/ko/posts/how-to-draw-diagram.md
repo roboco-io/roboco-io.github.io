@@ -1,7 +1,7 @@
 ---
 title: "AI로 아키텍처 다이어그램 그리기"
 date: 2025-06-14T12:35:06+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

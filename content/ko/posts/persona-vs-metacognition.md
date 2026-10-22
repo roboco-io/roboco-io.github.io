@@ -1,7 +1,7 @@
 ---
 title: "LLM 프롬프팅: 페르소나 지정 vs 메타인지 방식의 차이점"
 date: 2025-11-27T07:57:49+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

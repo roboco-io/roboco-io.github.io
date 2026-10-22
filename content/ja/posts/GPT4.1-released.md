@@ -1,7 +1,7 @@
 ---
 title: "ソフトウェア開発に特化したGPT-4.1がリリース"
 date: 2025-04-15T07:22:08+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

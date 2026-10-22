@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩의 약점과 장점"
 date: 2025-06-02T10:40:26+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

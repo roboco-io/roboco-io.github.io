@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩에 대한 진실 혹은 거짓"
 date: 2025-03-27T10:18:33+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "The Vibe Coding Manual: A Template for AI-Assisted Development"
 date: 2025-03-11T06:52:53+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

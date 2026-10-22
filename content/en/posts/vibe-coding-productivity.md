@@ -1,7 +1,7 @@
 ---
 title: "The Vibe Coding Productivity Equation"
 date: 2025-05-21T08:56:24+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

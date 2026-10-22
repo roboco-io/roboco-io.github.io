@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding and the XY Problem"
 date: 2025-06-06T09:56:25+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

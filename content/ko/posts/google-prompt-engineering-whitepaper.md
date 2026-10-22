@@ -1,7 +1,7 @@
 ---
 title: "구글 프롬프트 엔지니어링 백서 바이브 코딩 관련 내용 요약"
 date: 2025-04-13T08:32:57+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

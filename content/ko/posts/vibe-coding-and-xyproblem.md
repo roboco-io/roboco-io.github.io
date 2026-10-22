@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩과 XY 문제"
 date: 2025-06-06T09:56:25+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding or Engineering Maturity: Which Comes First?"
 date: 2025-07-11T14:46:42+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "バイブコーディングでは韓国語より英語のほうがうまく動作するのか？"
 date: 2025-04-04T08:12:04+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

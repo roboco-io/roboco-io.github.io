@@ -1,7 +1,7 @@
 ---
 title: "소프트웨어 개발에 특화된 GPT4.1 출시"
 date: 2025-04-15T07:22:08+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

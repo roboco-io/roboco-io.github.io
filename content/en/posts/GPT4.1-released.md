@@ -1,7 +1,7 @@
 ---
 title: "GPT-4.1 Released, Built for Software Development"
 date: 2025-04-15T07:22:08+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

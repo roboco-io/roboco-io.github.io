@@ -1,7 +1,7 @@
 ---
 title: "Tidy First方法論：Kent BeckのAugmented Codingの解釈と適用"
 date: 2025-07-27T06:29:39+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

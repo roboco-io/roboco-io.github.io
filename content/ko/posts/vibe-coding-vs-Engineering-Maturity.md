@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩과 엔지니어링 성숙도 향상, 어느쪽이 먼저일까?"
 date: 2025-07-11T14:46:42+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

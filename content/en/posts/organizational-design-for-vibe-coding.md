@@ -1,7 +1,7 @@
 ---
 title: "Organizational Design for Adopting Vibe Coding"
 date: 2026-03-20T21:23:40+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

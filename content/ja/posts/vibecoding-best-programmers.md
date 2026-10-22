@@ -1,7 +1,7 @@
 ---
 title: "バイブコーディング時代に開発者が備えるべき特性"
 date: 2025-04-11T12:21:17+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

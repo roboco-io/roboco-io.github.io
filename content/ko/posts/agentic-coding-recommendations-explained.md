@@ -1,7 +1,7 @@
 ---
 title: "에이전틱 코딩 권장사항 해설"
 date: 2025-06-17T13:38:18+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

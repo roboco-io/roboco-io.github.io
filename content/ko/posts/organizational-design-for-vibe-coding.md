@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩 도입을 위한 조직 설계"
 date: 2026-03-20T21:23:40+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "A Vibe Coding Maturity Scale"
 date: 2025-05-16T09:06:12+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩 척도"
 date: 2025-05-16T09:06:12+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "LLM Prompting: Persona Assignment vs. Metacognition"
 date: 2025-11-27T07:57:49+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

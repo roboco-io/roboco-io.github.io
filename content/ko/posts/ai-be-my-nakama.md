@@ -1,7 +1,7 @@
 ---
 title: "AI, 내 동료가 되어라!"
 date: 2025-05-25T07:30:47+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

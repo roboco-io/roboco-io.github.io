@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding 매뉴얼: AI 지원 개발을 위한 템플릿"
 date: 2025-03-11T06:52:53+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

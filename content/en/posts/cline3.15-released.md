@@ -1,7 +1,7 @@
 ---
 title: "Cline Is Getting Serious"
 date: 2025-05-15T08:08:46+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

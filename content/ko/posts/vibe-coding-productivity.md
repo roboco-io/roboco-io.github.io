@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩 생산성 방정식"
 date: 2025-05-21T08:56:24+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "The Traits a Developer Needs in the Vibe Coding Era"
 date: 2025-04-11T12:21:17+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
