@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding and Security: True or False"
 date: 2025-12-30T10:01:21+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

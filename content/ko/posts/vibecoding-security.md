@@ -1,7 +1,7 @@
 ---
 title: "바이브 코딩과 보안: 진실 혹은 거짓"
 date: 2025-12-30T10:01:21+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:

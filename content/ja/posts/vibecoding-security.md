@@ -1,7 +1,7 @@
 ---
 title: "バイブコーディングとセキュリティ：真実か嘘か"
 date: 2025-12-30T10:01:21+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
