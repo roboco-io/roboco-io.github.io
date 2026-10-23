@@ -8,6 +8,9 @@
           <a class="factory-button" href="{{ "contact/" | relLangURL }}">{{ .Params.cta.button }}</a>
           <a class="factory-text-link" href="{{ with .Params.hero.secondaryanchor }}{{ . }}{{ else }}{{ "solutions/" | relLangURL }}{{ end }}">{{ .Params.hero.secondary }}</a>
         </div>
+        {{ with .Params.hero.securitylink }}
+        <a class="factory-text-link" href="#security">{{ . }}</a>
+        {{ end }}
       </section>
 
       <section class="factory-section factory-case" aria-labelledby="factory-case-title">
@@ -21,6 +24,23 @@
           <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#case-study">{{ .Params.casestudy.link }}</a>
         </div>
       </section>
+
+      {{ with .Params.security }}
+      <section class="factory-section" id="security" aria-labelledby="factory-security-title">
+        <h2 id="factory-security-title">{{ .title }}</h2>
+        <p class="factory-section-lead">{{ .description }}</p>
+        <ul class="factory-products" role="list">
+          {{ range .items }}
+          <li>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+        <p>{{ .scope }}</p>
+        <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#security">{{ .link }}</a>
+      </section>
+      {{ end }}
 
       {{ with .Params.pilot }}
       <section class="factory-section" id="pilot" aria-labelledby="factory-pilot-title">
