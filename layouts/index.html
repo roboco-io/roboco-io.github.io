@@ -6,8 +6,51 @@
         <p class="factory-lead">{{ .Params.hero.description }}</p>
         <div class="factory-actions">
           <a class="factory-button" href="{{ "contact/" | relLangURL }}">{{ .Params.cta.button }}</a>
-          <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}">{{ .Params.hero.secondary }}</a>
+          <a class="factory-text-link" href="{{ with .Params.hero.secondaryanchor }}{{ . }}{{ else }}{{ "solutions/" | relLangURL }}{{ end }}">{{ .Params.hero.secondary }}</a>
         </div>
+      </section>
+
+      <section class="factory-section factory-case" aria-labelledby="factory-case-title">
+        <div>
+          <p class="factory-case-context">{{ .Params.casestudy.context }}</p>
+          <h2 id="factory-case-title">{{ .Params.casestudy.title }}</h2>
+        </div>
+        <div>
+          <p>{{ .Params.casestudy.story }}</p>
+          <p>{{ .Params.casestudy.progress }}</p>
+          <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#case-study">{{ .Params.casestudy.link }}</a>
+        </div>
+      </section>
+
+      {{ with .Params.pilot }}
+      <section class="factory-section" id="pilot" aria-labelledby="factory-pilot-title">
+        <h2 id="factory-pilot-title">{{ .title }}</h2>
+        <p class="factory-section-lead">{{ .description }}</p>
+        <ul class="factory-products" role="list">
+          {{ range .items }}
+          <li>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </li>
+          {{ end }}
+        </ul>
+        <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#pilot">{{ .link }}</a>
+      </section>
+      {{ end }}
+
+      <section class="factory-section" aria-labelledby="factory-journey-title">
+        <h2 id="factory-journey-title">{{ .Params.journey.title }}</h2>
+        <p class="factory-section-lead">{{ .Params.journey.description }}</p>
+        <ol class="factory-journey">
+          {{ range $index, $step := .Params.journey.steps }}
+            <li>
+              <span class="factory-step-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+              <h3><a href="{{ "solutions/" | relLangURL }}#{{ .anchor }}">{{ .title }}</a></h3>
+              <p>{{ .description }}</p>
+            </li>
+          {{ end }}
+        </ol>
+        <p class="factory-specialist">{{ .Params.journey.specialist }} <a href="{{ "solutions/" | relLangURL }}#compliance">{{ .Params.journey.specialistlink }}</a></p>
       </section>
 
       <section class="factory-section" aria-labelledby="factory-flow-title">
@@ -27,33 +70,6 @@
         </div>
         <p class="factory-ownership">{{ .Params.flow.ownership }}</p>
         <a class="factory-text-link" href="{{ "posts/beyond-vibe-coding-software-factory/" | relLangURL }}">{{ .Params.flow.article }}</a>
-      </section>
-
-      <section class="factory-section" aria-labelledby="factory-journey-title">
-        <h2 id="factory-journey-title">{{ .Params.journey.title }}</h2>
-        <p class="factory-section-lead">{{ .Params.journey.description }}</p>
-        <ol class="factory-journey">
-          {{ range $index, $step := .Params.journey.steps }}
-            <li>
-              <span class="factory-step-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-              <h3><a href="{{ "solutions/" | relLangURL }}#{{ .anchor }}">{{ .title }}</a></h3>
-              <p>{{ .description }}</p>
-            </li>
-          {{ end }}
-        </ol>
-        <p class="factory-specialist">{{ .Params.journey.specialist }} <a href="{{ "solutions/" | relLangURL }}#compliance">{{ .Params.journey.specialistlink }}</a></p>
-      </section>
-
-      <section class="factory-section factory-case" aria-labelledby="factory-case-title">
-        <div>
-          <p class="factory-case-context">{{ .Params.casestudy.context }}</p>
-          <h2 id="factory-case-title">{{ .Params.casestudy.title }}</h2>
-        </div>
-        <div>
-          <p>{{ .Params.casestudy.story }}</p>
-          <p>{{ .Params.casestudy.progress }}</p>
-          <a class="factory-text-link" href="{{ "solutions/" | relLangURL }}#case-study">{{ .Params.casestudy.link }}</a>
-        </div>
       </section>
 
       {{ with .Params.products }}
