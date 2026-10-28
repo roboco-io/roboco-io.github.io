@@ -60,11 +60,11 @@ RufloのREADMEは「314 MCP tools」と「32 plugins」を前面に押し出し�
 flowchart TD
     User[ユーザー]
     CC["Claude Code / CLI / MCP"]
-    Orch["Orchestration Layer<br/>Router + Hooks"]
-    Swarm["Swarm Coordination<br/>Queen / Topology / Consensus"]
-    Agents["100+ Specialized Agents<br/>coder, tester, reviewer, ..."]
-    Mem["Memory & Learning<br/>AgentDB + HNSW + SONA"]
-    LLM["LLM Providers<br/>Claude / GPT / Gemini / Cohere / Ollama"]
+    Orch["オーケストレーション層<br/>ルーター ＋ フック"]
+    Swarm["スウォーム連携<br/>Queen / トポロジー / 合意形成"]
+    Agents["100以上の専門エージェント<br/>コーディング、テスト、レビューなど"]
+    Mem["メモリと学習<br/>AgentDB + HNSW + SONA"]
+    LLM["LLMプロバイダー<br/>Claude / GPT / Gemini / Cohere / Ollama"]
 
     User --> CC
     CC --> Orch
@@ -72,7 +72,7 @@ flowchart TD
     Swarm --> Agents
     Agents --> Mem
     Mem --> LLM
-    Mem -. Learning Loop .-> Orch
+    Mem -. 学習ループ .-> Orch
 ```
 
 中核となるコンポーネントは五つです。第一に、Claude Codeプラグイン／CLI／MCPサーバーで入口を作ります。第二に、ルーターとフックが作業を検知して適切なフローへ送ります。第三に、スウォーム層が複数のエージェントを配置します。第四に、AgentDBとRAGメモリが作業結果と判断の根拠を保存・検索します。第五に、プロバイダー・ルーティングを通じてClaude以外のモデルも一部の経路で使えるようにします。この構造がきちんと機能すれば、単一セッションの成果物が次のセッション、次のリポジトリ、次の開発者の出発点になります。
@@ -106,7 +106,7 @@ flowchart LR
     A["自分のエージェント"] --> B["PII除去<br/>（自動検知）"]
     B --> C["メッセージ署名<br/>ed25519"]
     C --> D["暗号化チャネル<br/>mTLS"]
-    D --> E["身元検証<br/>Challenge-Response"]
+    D --> E["身元検証<br/>チャレンジレスポンス"]
     E --> F["プロンプトインジェクション遮断"]
     F --> G["相手のエージェント"]
     G -. "行動ベースの信頼スコア" .-> A

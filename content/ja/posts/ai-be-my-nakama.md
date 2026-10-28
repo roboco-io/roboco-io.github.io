@@ -18,7 +18,9 @@ tags:
 - AIを脅威としてのみ見れば変化に引きずられますが、仲間にすれば開発者と組織の能力を拡張できます。
 - 企業にとってバイブコーディングは、選択的な実験ではなく生存戦略に近いものになりつつあります。
 
-{{< figure src="/posts/images/SmallTeamsAreTheFuture.png" style=".center-image">}}
+{{< figure src="/posts/images/ja/SmallTeamsAreTheFuture.svg" style=".center-image">}}
+
+*Ben Langによる原図の日本語訳です。数値は原図掲載時点の主張を保持しています。[英語の原図](/posts/images/SmallTeamsAreTheFuture.png)*
 
 最近、業界を驚かせたCursor.aiは、20人の小規模チームで年間経常収益（ARR）1億ドルを21か月で達成し、現在の企業価値は90億ドル（約13兆ウォン）と評価されています。Bolt.newとLovableもそれぞれ15人のチームで、わずか2か月でそれぞれ2,000万ドルと1,000万ドルのARRを記録しました。画像生成AIで有名なMidjourneyは、たった10人で2年のうちに2億ドルのARRを達成しています。このほかにも、Mercor（30人）、ElevenLabs（50人）、Aragon.ai（9人）などが同様の成果を出しています。
 

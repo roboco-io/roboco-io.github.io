@@ -61,7 +61,7 @@ During this process, the model produces numerical arrays called keys and values 
 
 This reuse can extend across requests. With the same model and compatible execution conditions, a new request that begins with the same input as an earlier request can retrieve the KV cache for that prefix and continue processing. This is called prompt caching or prefix caching.[^3]
 
-![The first request processes the document and creates its KV cache. Later requests reuse that cache, while still processing new questions and generating answers.](/posts/images/llm-cache/01-read-and-reuse.svg)
+![The first request processes the document and creates its KV cache. Later requests reuse that cache, while still processing new questions and generating answers.](/posts/images/llm-cache/en/01-read-and-reuse.svg)
 
 *Figure 1. Caching reduces repeated computation over a long shared document. Processing the new question and generating an answer remain necessary.*
 
@@ -73,7 +73,7 @@ Its operation therefore differs from retrieving an answer similar to the last on
 
 Suppose two customers ask questions about the same product manual. One asks about features, the other about integration with external systems. Even though their questions differ, there is an opportunity to reuse computation if their inputs are identical up to the end of the manual.
 
-![Identical instructions and a product document form a shared prefix before requests branch into questions A and B. Placing a changing timestamp first changes the computation for the document that follows.](/posts/images/llm-cache/02-shared-prefix.svg)
+![Identical instructions and a product document form a shared prefix before requests branch into questions A and B. Placing a changing timestamp first changes the computation for the document that follows.](/posts/images/llm-cache/en/02-shared-prefix.svg)
 
 *Figure 2. A prefix is the beginning of an input. Requests follow a common path, then compute independently from the point where their questions differ.*
 
@@ -91,7 +91,7 @@ As user numbers grow, reusing one copy of a manual is not enough. Many conversat
 
 One approach divides the cache into small **blocks**. Think of sharing groups of common pages rather than copying an entire book for every person. PagedAttention introduced an approach that manages KV caches in blocks to reduce memory waste.[^2]
 
-![Requests A and B reference the same two KV blocks. After use, blocks can remain as reuse candidates and be replaced when space is needed.](/posts/images/llm-cache/03-block-sharing.svg)
+![Requests A and B reference the same two KV blocks. After use, blocks can remain as reuse candidates and be replaced when space is needed.](/posts/images/llm-cache/en/03-block-sharing.svg)
 
 *Figure 3. Requests share one copy of common computation while managing their differing parts separately. This diagram simplifies vLLM’s block management principles.*
 
@@ -107,7 +107,7 @@ Now imagine several inference servers. Server A has the product manual’s cache
 
 Distributing request counts evenly can miss opportunities to use caches already present. That motivates **cache-aware routing**. Routing means sending an incoming request to a server that will process it.
 
-![A router considers both caches and load. Server A has the document cache and server B does not, so the benefit of reuse must be weighed against waiting time.](/posts/images/llm-cache/04-cache-aware-routing.svg)
+![A router considers both caches and load. Server A has the document cache and server B does not, so the benefit of reuse must be weighed against waiting time.](/posts/images/llm-cache/en/04-cache-aware-routing.svg)
 
 *Figure 4. A cache existing somewhere in a cluster is not enough. The request must be able to use the stored computation.*
 
@@ -125,7 +125,7 @@ GPU memory is a fast workbench with limited space. Stacking every previously rea
 
 Some systems therefore move KV caches outside the GPU for storage. Immediately needed material can stay on the GPU, while less urgent material goes into CPU memory or storage. LMCache provides a KV cache hierarchy using CPU memory, local storage, and remote storage.[^6]
 
-![A hierarchy stores and reloads KV caches across GPU memory, CPU memory, and SSD or remote storage. Transfer costs must be compared with recomputation costs.](/posts/images/llm-cache/05-cache-hierarchy.svg)
+![A hierarchy stores and reloads KV caches across GPU memory, CPU memory, and SSD or remote storage. Transfer costs must be compared with recomputation costs.](/posts/images/llm-cache/en/05-cache-hierarchy.svg)
 
 *Figure 5. A fast workbench and larger storage areas serve different roles. Not every system has these tiers, and actual configurations vary.*
 
@@ -141,7 +141,7 @@ Consider a numerical example. The following is **hypothetical**, not a measureme
 
 Each of 100 requests includes the same 10,000-token document and a different 500-token question. Without caching, every request processes the document as part of its input. With complete cache reuse, the document is computed once, and subsequent requests process their new questions.
 
-![Processing all 1.05 million input tokens across 100 requests is compared with computing the common document once and prefilling only 60,000 new tokens.](/posts/images/llm-cache/06-repeated-work.svg)
+![Processing all 1.05 million input tokens across 100 requests is compared with computing the common document once and prefilling only 60,000 new tokens.](/posts/images/llm-cache/en/06-repeated-work.svg)
 
 *Figure 6. This token comparison assumes the same model and document, with no expiry, eviction, or routing misses after the first computation. The bars do not represent time or cost.*
 
@@ -173,7 +173,7 @@ To share a public prefix across everyone while isolating only the private suffix
 
 ### Share common input and isolate private context
 
-![Requests from users A and B share one KV cache for an identical public manual, then branch into separate authorization scopes for personal questions and conversations.](/posts/images/llm-cache/07-context-isolation.svg)
+![Requests from users A and B share one KV cache for an identical public manual, then branch into separate authorization scopes for personal questions and conversations.](/posts/images/llm-cache/en/07-context-isolation.svg)
 
 *Figure 7. Cross-user cache hits occur where requests converge on the common prefix cache. Private contexts are separated afterward. This is a design concept for engines supporting segment-level sharing and access control, rather than vLLM’s default isolation with a salt applied to the entire request.*
 

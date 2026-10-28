@@ -66,7 +66,7 @@ graph TB
         ReadGit --> BuildPrompt
         ReadEnv --> BuildPrompt
         
-        BuildPrompt --> CorePrompt[Coreシステムプロンプト]
+        BuildPrompt --> CorePrompt[中核システムプロンプト]
         BuildPrompt --> ToolDesc[ツール説明の追加<br/>17個のビルトインツール]
         BuildPrompt --> ContextPrompt[コンテキストプロンプト<br/>CLAUDE.mdの内容]
         BuildPrompt --> Reminders[システムリマインダーの追加]
@@ -87,17 +87,17 @@ graph TB
     SendAPI --> Response[Claudeの応答]
     
     subgraph "応答処理"
-        Response --> ToolCall{ツール呼び出し?}
-        ToolCall -->|Yes| ExecuteTool[ツールの実行]
-        ToolCall -->|No| Output[ユーザーへの出力]
+        Response --> ToolCall{ツール呼び出し？}
+        ToolCall -->|はい| ExecuteTool[ツールの実行]
+        ToolCall -->|いいえ| Output[ユーザーへの出力]
         
-        ExecuteTool --> BashCheck{Bashコマンド?}
-        BashCheck -->|Yes| CmdCheck[コマンドインジェクション検査]
-        BashCheck -->|No| ToolExec[ツールの実行]
+        ExecuteTool --> BashCheck{Bashコマンド？}
+        BashCheck -->|はい| CmdCheck[コマンドインジェクション検査]
+        BashCheck -->|いいえ| ToolExec[ツールの実行]
         
-        CmdCheck --> Permission{権限が必要?}
-        Permission -->|Yes| AskUser[ユーザーへ承認要求]
-        Permission -->|No| ToolExec
+        CmdCheck --> Permission{権限が必要？}
+        Permission -->|はい| AskUser[ユーザーへ承認要求]
+        Permission -->|いいえ| ToolExec
         AskUser --> ToolExec
         
         ToolExec --> InjectReminder[結果にリマインダーを注入]
@@ -137,32 +137,32 @@ Claude Codeのシステムプロンプトは単一の文字列ではありませ
 
 ```mermaid
 graph LR
-    subgraph "Static Components"
-        A[Core System Prompt<br/>2601 tokens]
-        B[Tone & Style<br/>Guidelines]
-        C[Security Rules<br/>& Restrictions]
+    subgraph "静的な構成要素"
+        A[中核システムプロンプト<br/>2601トークン]
+        B[文体と表現<br/>ガイドライン]
+        C[セキュリティ規則<br/>と制約]
     end
     
-    subgraph "Dynamic Components"
+    subgraph "動的な構成要素"
         D[CLAUDE.md<br/>プロジェクトコンテキスト]
-        E[Git Status<br/>ブランチ、コミット情報]
-        F[Environment Info<br/>OS、ツール、パス]
-        G[Todo List<br/>現在の作業状態]
+        E[Gitの状態<br/>ブランチ、コミット情報]
+        F[環境情報<br/>OS、ツール、パス]
+        G[作業一覧<br/>現在の作業状態]
     end
     
-    subgraph "Conditional Components"
-        H[Learning Mode<br/>1042 tokens]
-        I[Plan Mode<br/>480 tokens]
-        J[MCP CLI<br/>1357 tokens]
+    subgraph "条件付きの構成要素"
+        H[学習モード<br/>1042トークン]
+        I[計画モード<br/>480トークン]
+        J[MCP CLI<br/>1357トークン]
     end
     
-    subgraph "Tool Descriptions"
-        K[Bash: 1074 tokens]
-        L[Write: 159 tokens]
-        M[Read: 439 tokens]
-        N[TodoWrite: 2167 tokens]
-        O[Task: 1055 tokens]
-        P[+12 more tools]
+    subgraph "ツールの説明"
+        K[Bash: 1074トークン]
+        L[Write: 159トークン]
+        M[Read: 439トークン]
+        N[TodoWrite: 2167トークン]
+        O[Task: 1055トークン]
+        P[ほか12個のツール]
     end
     
     A --> Merge[システムプロンプト<br/>動的マージ]
@@ -172,9 +172,9 @@ graph LR
     E --> Merge
     F --> Merge
     G --> Merge
-    H -.->|if enabled| Merge
-    I -.->|if active| Merge
-    J -.->|if configured| Merge
+    H -.->|有効な場合| Merge
+    I -.->|使用中の場合| Merge
+    J -.->|設定済みの場合| Merge
     K --> Merge
     L --> Merge
     M --> Merge
@@ -182,7 +182,7 @@ graph LR
     O --> Merge
     P --> Merge
     
-    Merge --> Final[最終システムプロンプト<br/>10,000+ tokens]
+    Merge --> Final[最終システムプロンプト<br/>10,000+トークン]
     
 ```
 
@@ -220,8 +220,8 @@ Learning Mode、Plan Mode、MCP CLIなどは、ユーザーが特定のモード
 sequenceDiagram
     participant U as ユーザー
     participant CC as Claude Code
-    participant Gen as CLAUDE.md Generator<br/>(384 tokens)
-    participant FS as File System
+    participant Gen as CLAUDE.md生成器<br/>(384トークン)
+    participant FS as ファイルシステム
     participant API as Anthropic API
     
     Note over U,API: 初期設定の段階
@@ -297,25 +297,25 @@ Claude Codeの最も独特な特徴の一つが、`<system-reminder>`タグの�
 
 ```mermaid
 graph TB
-    subgraph "User Message"
+    subgraph "ユーザーメッセージ"
         UM1[ユーザー入力]
         SR1["&lt;system-reminder&gt;<br/>重要な指示の反復<br/>&lt;/system-reminder&gt;"]
         UM1 --> SR1
     end
     
-    subgraph "Tool Execution"
+    subgraph "ツールの実行"
         TE[ツール実行の要求]
         SR2["&lt;system-reminder&gt;<br/>ツール呼び出し情報<br/>&lt;/system-reminder&gt;"]
         TE --> SR2
     end
     
-    subgraph "Tool Result"
+    subgraph "ツールの結果"
         TR[ツール実行の結果]
         SR3["&lt;system-reminder&gt;<br/>条件付きリマインダー<br/>- TodoWrite使用の提案<br/>- セキュリティ警告<br/>- 作業状態<br/>&lt;/system-reminder&gt;"]
         TR --> SR3
     end
     
-    subgraph "Conditional Injection"
+    subgraph "条件付きの挿入"
         CI{条件の確認}
         CI -->|Todoなし & 複雑な作業| AddTodo["TodoWrite使用の提案"]
         CI -->|セキュリティリスク検知| AddSecurity["セキュリティ警告"]
@@ -331,7 +331,7 @@ graph TB
     
     API --> Claude[Claudeの処理]
     
-    Note1[システムリマインダーは<br/>すべての段階で<br/>drift防止のために<br/>注入される]
+    Note1[システムリマインダーは<br/>すべての段階で<br/>指示からの逸脱防止のために<br/>注入される]
     
 ```
 
@@ -389,19 +389,19 @@ Claude Codeは状況に応じて異なるリマインダーを注入します。
 
 ```mermaid
 graph TB
-    Main[Main Agent<br/>全体のシステムプロンプト]
+    Main[主エージェント<br/>全体のシステムプロンプト]
     
-    subgraph "Built-in Sub-Agents"
-        Explore[Explore Agent<br/>369 tokens<br/>- コードベースの探索<br/>- ファイル検索]
-        Plan[Plan Agent<br/>480 tokens<br/>- 作業計画の立案<br/>- アーキテクチャ分析]
-        Task[Task Agent<br/>294 tokens<br/>- 特定作業の実行<br/>- 狭い範囲]
+    subgraph "組み込みサブエージェント"
+        Explore[Exploreエージェント<br/>369トークン<br/>- コードベースの探索<br/>- ファイル検索]
+        Plan[Planエージェント<br/>480トークン<br/>- 作業計画の立案<br/>- アーキテクチャ分析]
+        Task[Taskエージェント<br/>294トークン<br/>- 特定作業の実行<br/>- 狭い範囲]
     end
     
-    subgraph "Utility Agents"
-        Title[Title Generator<br/>159 tokens]
-        Summary[Conversation Summarizer<br/>1121 tokens]
-        BashPrefix[Bash Prefix Detector<br/>835 tokens]
-        Sentiment[User Sentiment Analyzer<br/>205 tokens]
+    subgraph "補助エージェント"
+        Title[タイトル生成器<br/>159トークン]
+        Summary[会話要約器<br/>1121トークン]
+        BashPrefix[Bashプレフィックス検出器<br/>835トークン]
+        Sentiment[ユーザー感情分析器<br/>205トークン]
     end
     
     Main -->|複雑な探索| Explore
@@ -421,7 +421,7 @@ graph TB
     Result2 --> Main
     Result3 --> Main
     
-    Note1[Sub-Agentの特徴:<br/>1. TodoWriteリマインダーなし<br/>2. 狭い範囲の作業<br/>3. 結果をMain Agentへ渡す]
+    Note1[サブエージェントの特徴:<br/>1. TodoWriteリマインダーなし<br/>2. 狭い範囲の作業<br/>3. 結果を主エージェントへ渡す]
     
     Note2[条件付きリマインダー:<br/>- Taskが複雑になったら<br/>- ツール結果に注入<br/>- TodoWriteを提案]
     
@@ -468,14 +468,14 @@ Claude Codeがターミナルで実行されるツールであるという点は
 sequenceDiagram
     participant C as Claude
     participant CC as Claude Code
-    participant Det as Prefix Detector<br/>(835 tokens)
-    participant U as User
-    participant Bash as Bash Shell
+    participant Det as プレフィックス検出器<br/>(835トークン)
+    participant U as ユーザー
+    participant Bash as Bashシェル
     
     C->>CC: Bashコマンドの実行を要求
     CC->>Det: コマンドの分析を要求
     
-    Det->>Det: 1. コマンドprefixの抽出<br/>例: "git commit" → "git commit"
+    Det->>Det: 1. コマンドプレフィックスの抽出<br/>例: "git commit" → "git commit"
     Det->>Det: 2. コマンドインジェクションの検知<br/>例: バッククォート、パイプラインの確認
     
     alt コマンドインジェクションを検知
@@ -484,7 +484,7 @@ sequenceDiagram
         U-->>CC: 承認/拒否
         CC-->>C: 結果を伝達
     else 安全なコマンド
-        Det-->>CC: コマンドprefixを返却
+        Det-->>CC: コマンドプレフィックスを返却
         CC->>CC: 許可リストの確認
         
         alt 許可リストにある
@@ -547,14 +547,14 @@ Claude Codeの性能は、結局**どれだけ効率的にコンテキストを�
 
 ```mermaid
 graph LR
-    subgraph "Context Front-Loading"
+    subgraph "コンテキストの事前準備"
         A[会話開始前]
         A --> B[1. 会話タイトルの生成]
         A --> C[2. 話題変更の検知]
         A --> D[3. 以前の会話の要約]
     end
     
-    subgraph "System Reminders"
+    subgraph "システムリマインダー"
         E[ユーザーメッセージ]
         F[ツールの実行]
         G[ツールの結果]
@@ -564,19 +564,19 @@ graph LR
         G --> G1["&lt;system-reminder&gt;<br/>条件付きの提案"]
     end
     
-    subgraph "Dynamic Context"
+    subgraph "動的コンテキスト"
         H[作業の複雑度の評価]
         H -->|単純| I[最小限のプロンプト]
         H -->|複雑| J[TodoWriteの提案]
-        H -->|非常に複雑| K[Sub-Agentの生成]
+        H -->|非常に複雑| K[サブエージェントの生成]
     end
     
-    subgraph "Cache Optimization"
-        L[System Prompt]
+    subgraph "キャッシュの最適化"
+        L[システムプロンプト]
         M[CLAUDE.md]
         N[ツール説明]
         
-        L --> O["ephemeral cache<br/>（再利用）"]
+        L --> O["一時キャッシュ<br/>（再利用）"]
         M --> O
         N --> O
     end

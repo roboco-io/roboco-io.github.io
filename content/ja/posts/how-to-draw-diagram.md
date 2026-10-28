@@ -31,7 +31,9 @@ tags:
 
 このようにして生成された図は、VS Codeのdrawio関連の拡張機能を使えば手軽にプレビューしたり修正したりできます。また、draw.ioクライアントをインストールすると一緒に提供されるCLIツールで、簡単にSVGやPNG形式の画像に変換して文書へ挿入することもできます。
 
-![alt text](https://raw.githubusercontent.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/abbb4dee4d89070692fc4edc0e81a313c910c52b/docs/diagrams/architecture.svg)
+![ECS Fargate高速スケーリング構成の日本語訳](/posts/images/ja/ecs-fargate-architecture.svg)
+
+*[英語の原図](https://raw.githubusercontent.com/Hands-On-Vibe-Coding/ecs-fargate-fast-scaleout/abbb4dee4d89070692fc4edc0e81a313c910c52b/docs/diagrams/architecture.svg)を翻訳した図です。構成・数値・製品名は原図に従っています。*
 
 一方で、最近のmermaidの最新バージョンでは、AWSアイコンをはじめとするさまざまなアーキテクチャアイコンが標準でサポートされ始めました。[公式ドキュメント](https://mermaid.js.org/syntax/architecture.html)を参照すればすぐに活用できます。ただし、GitHubではまだこの最新機能がサポートされていないため、先ほど説明した方法が当面は最も有用なアプローチになるでしょう。
 

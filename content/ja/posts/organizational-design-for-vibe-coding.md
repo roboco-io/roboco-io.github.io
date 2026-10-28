@@ -108,21 +108,21 @@ tags:
   }
 }}%%
 flowchart TB
-    CTO[CTO / Head of Engineering] --> Platform[AI Platform & Guardrails]
-    CTO --> Squads[Product Squads]
-    CISO[CISO / Security] --> Governance[AI Security & Governance]
+    CTO[CTO / 開発部門責任者] --> Platform[AI基盤とガードレール]
+    CTO --> Squads[製品開発チーム]
+    CISO[CISO / セキュリティ部門] --> Governance[AIセキュリティとガバナンス]
 
-    Platform --> Gateway[LLM Gateway]
-    Platform --> DevEx[Repo / IDE / CI Integration]
-    Platform --> Evals[Evals & Quality Gates]
-    Platform --> Observe[Cost / Logs / Observability]
+    Platform --> Gateway[LLMゲートウェイ]
+    Platform --> DevEx[リポジトリ・IDE・CI連携]
+    Platform --> Evals[評価と品質ゲート]
+    Platform --> Observe[コスト・ログ・可観測性]
 
-    Squads --> Leads[EM / Tech Lead]
-    Squads --> Champions[AI Champions]
+    Squads --> Leads[EM / テックリード]
+    Squads --> Champions[AI推進担当者]
 
-    Governance -. policy .-> Platform
-    Governance -. high-risk approval .-> Squads
-    Champions -. field feedback .-> Platform
+    Governance -. 方針 .-> Platform
+    Governance -. 高リスク作業の承認 .-> Squads
+    Champions -. 現場のフィードバック .-> Platform
 ```
 
 核心は明確です。標準化と共用配布は中央で、文脈の反映は現場で、責任はプロダクトチームが担います。
