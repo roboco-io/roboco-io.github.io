@@ -1,6 +1,6 @@
 ---
 name: refresh-corporate-pages
-description: roboco-io.github.io의 about.md / solutions.md / products.md를 최근 활동으로 보강할 초안을 생성. "about 업데이트", "solutions 갱신", "products 갱신", "회사 페이지 최신화", "최근 프로젝트 반영", "refresh-corporate-pages" 등의 키워드로 트리거. 원본은 절대 덮어쓰지 않고 docs/drafts/ 에 초안 파일을 만든다. about/solutions는 로컬 roboco-io/ 워크스페이스 스캔, products는 GitHub roboco-io org 스캔. 프로젝트 선택과 소개 문구는 모두 AskUserQuestion으로 사용자 확인을 거친다.
+description: roboco-io.github.io의 about.md / solutions.md / products.md를 최근 활동으로 보강할 초안을 생성. "about 업데이트", "solutions 갱신", "products 갱신", "회사 페이지 최신화", "최근 프로젝트 반영", "refresh-corporate-pages" 등의 키워드로 트리거. 원본은 절대 덮어쓰지 않고 docs/drafts/ 에 초안 파일을 만든다. about/solutions는 로컬 roboco-io/ 워크스페이스 스캔, products는 GitHub roboco-io org 스캔. 프로젝트 선택과 소개 문구는 모두 사용자 확인을 거친다.
 ---
 
 # refresh-corporate-pages
@@ -9,11 +9,15 @@ description: roboco-io.github.io의 about.md / solutions.md / products.md를 최
 
 | 대상 | 데이터 소스 | 분류 기준 |
 |---|---|---|
-| `content/about.md` | 로컬 `/Users/dohyunjung/Workspace/roboco-io/` 카테고리 디렉토리 | 카테고리 → 핵심 역량/주도성 근거 |
-| `content/solutions.md` | 동일 (로컬 워크스페이스) | 카테고리 → 서비스 티어 |
-| `content/products.md` | **GitHub `roboco-io` org**(gh CLI) | 6개월 내 활동한 public 리포지토리 |
+| `content/ko/about.md` | 로컬 `/Users/dohyunjung/Workspace/roboco-io/` 카테고리 디렉토리 | 카테고리 → 핵심 역량/주도성 근거 |
+| `content/ko/solutions.md` | 동일 (로컬 워크스페이스) | 카테고리 → 서비스 티어 |
+| `content/ko/products.md` | **GitHub `roboco-io` org**(gh CLI) | 6개월 내 활동한 public 리포지토리 |
 
 이 스킬은 **원본 파일을 절대 덮어쓰지 않는다.** `docs/drafts/` 아래에 초안 파일을 만들고, 사용자가 직접 검토 후 반영한다.
+
+## 실행 환경
+
+질문 도구는 루트 `AGENTS.md`의 환경별 매핑을 따른다. Codex에서는 AskUserQuestion 대신 `request_user_input_async`를 사용한다. `multiSelect`가 필요한 단계는 후보별 포함 여부나 선택할 이름 목록을 질문하고 답변을 기다린다. 지원하지 않는 인자는 전달하지 않는다.
 
 ## 사전 조건
 
@@ -58,7 +62,7 @@ done | sort -r
 ### A3) 비공개 프로젝트 자동 필터
 
 다음 중 하나라도 해당하면 자동 제외하고 사유를 부록에 기록:
-- README/AGENTS.md에 `Confidential`, `Private`, `비공개`, `대외비` 표시
+- README/AGENTS.md/CLAUDE.md에 `Confidential`, `Private`, `비공개`, `대외비` 표시
 - `git remote -v` 결과가 비어있거나 private 조직
 - 디렉토리명에 클라이언트 식별자가 보이지만 README 부재
 
@@ -66,7 +70,7 @@ done | sort -r
 
 ### A4) products.md 중복 회피
 
-이미 `content/products.md` 에서 다루는 프로젝트는 케이스 스터디 신규 섹션에 다시 쓰지 않는다. 본문 보강용 짧은 인용은 가능. 스킬 실행 시 `content/products.md` 를 다시 읽어 최신 목록을 확정한다.
+이미 `content/ko/products.md` 에서 다루는 프로젝트는 케이스 스터디 신규 섹션에 다시 쓰지 않는다. 본문 보강용 짧은 인용은 가능. 스킬 실행 시 `content/ko/products.md` 를 다시 읽어 최신 목록을 확정한다.
 
 ### A5) 프로젝트 선택 — **AskUserQuestion 필수**
 
@@ -82,7 +86,7 @@ done | sort -r
 
 ### A6) 소개 문구 확인 — **AskUserQuestion 필수**
 
-선택된 각 프로젝트에 대해, README/AGENTS.md/INTENT.md 를 근거로 **2~3문장 소개 문구 초안**을 생성한 뒤, 사용자에게 확인받는다. 옵션: 초안 그대로 / 약간 수정(Other) / 빼기.
+선택된 각 프로젝트에 대해, README/AGENTS.md/CLAUDE.md/INTENT.md 를 근거로 **2~3문장 소개 문구 초안**을 생성한 뒤, 사용자에게 확인받는다. 옵션: 초안 그대로 / 약간 수정(Other) / 빼기.
 
 질문은 프로젝트당 1개씩. 한 번에 최대 4개씩 묶어 처리.
 
@@ -98,7 +102,7 @@ done | sort -r
 
 ### A8) 초안 파일 생성
 
-원본 `content/about.md`, `content/solutions.md` 를 다시 읽어 중복을 회피한 뒤:
+원본 `content/ko/about.md`, `content/ko/solutions.md` 를 다시 읽어 중복을 회피한 뒤:
 
 - `docs/drafts/about-update-YYYY-MM-DD.md`
 - `docs/drafts/solutions-update-YYYY-MM-DD.md`
@@ -135,7 +139,7 @@ gh repo list roboco-io \
 
 ### B3) products.md 중복 회피
 
-`content/products.md` 를 읽어 이미 언급된 리포지토리 이름을 추출한다. 다음과 같은 슬러그가 본문에 등장하면 후보에서 제외하고 부록에 기록:
+`content/ko/products.md` 를 읽어 이미 언급된 리포지토리 이름을 추출한다. 다음과 같은 슬러그가 본문에 등장하면 후보에서 제외하고 부록에 기록:
 
 - H2/H3 제목, GitHub 링크(`github.com/roboco-io/<name>`), 자체 도메인(intent.roboco.io, vibemap.roboco.io 등)
 
@@ -204,7 +208,7 @@ candidates_selected: <숫자>
 
 # products.md 업데이트 초안 (YYYY-MM-DD)
 
-> 이 파일은 초안. content/products.md 원본은 수정되지 않음.
+> 이 파일은 초안. content/ko/products.md 원본은 수정되지 않음.
 
 ## A. 신규 H2 풀 제품 블록 (있는 경우)
 > products.md 상단(`## **VibeMap**` 다음, `---` 구분선 뒤)에 추가하는 안.
@@ -266,7 +270,7 @@ candidates_selected: <숫자>
 
 ## 안전장치 (절대 위반 금지)
 
-1. `content/about.md`, `content/solutions.md`, `content/products.md` 는 **읽기만** 한다. 절대 Edit/Write 대상이 아니다.
+1. `content/ko/about.md`, `content/ko/solutions.md`, `content/ko/products.md` 는 **읽기만** 한다. 절대 Edit/Write 대상이 아니다.
 2. `consulting/` 의 클라이언트 프로젝트는 **익명화 표현**이 사용자에 의해 확정되기 전까지 초안에 실명으로 등장시키지 않는다.
 3. AskUserQuestion 없이 임의로 프로젝트/리포지토리 선택·문구 확정 금지. 인터랙션 단계는 건너뛸 수 없다.
 4. 흐름 B에서 **private 리포지토리는 절대 products.md 초안에 포함하지 않는다.** products.md 는 공개 페이지다.
