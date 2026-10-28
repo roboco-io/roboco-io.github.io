@@ -3,8 +3,9 @@
 소스: `content/ko/...` → 출력: `content/en/...`, `content/ja/...` (동일 상대 경로·파일명)
 
 ## Frontmatter
-- `title` 번역 (있다면 `summary`/`description`도). `date`, `draft`, `toc`, `images`, `tags`, `categories`는 값 그대로 유지 (tags/categories 값 번역 금지)
+- `title` 번역 (있다면 `summary`/`description`도). `date`, `draft`, `toc`, `tags`, `categories`는 값 그대로 유지 (tags/categories 값 번역 금지)
 - 정적 페이지의 `url:` 필드는 en/ja 버전에서 제거 (언어 프리픽스 기본 경로 사용). `layout`은 그대로 유지
+- `images`는 공용 이미지이면 유지하고, 언어별 이미지가 있으면 해당 자산 경로로 바꾼다.
 - 새 필드 발명 금지
 
 ## 본문
@@ -13,14 +14,14 @@
 - 유명 인용문이 한국어로 번역돼 있으면: EN은 확인 가능한 원문을 정확히 복원하고, 원문을 확인할 수 없으면 역번역을 원문 인용으로 제시하지 않는다. JA는 의미를 살려 자연스럽게 번역한다.
 
 ## 링크·이미지
-- 이미지 src(`/posts/images/...`)는 절대 변경 금지 (ko 루트에서 서빙됨)
+- 사진·로고·텍스트 없는 이미지의 src는 유지한다. 번역이 필요한 이미지·다이어그램은 [시각 자료 번역 규칙](visual-localization.md)에 따라 언어별 자산을 생성하고 해당 언어의 src를 바꾼다. 저장 위치는 `static/`, 공개 경로는 `/posts/images/...`이며 페이지 언어 접두사를 무조건 붙이지 않는다.
 - 대응 번역 파일과 `draft`, `slug`, `url`을 확인한 뒤 내부 페이지 링크에 언어 프리픽스를 부여한다: `/posts/<slug>/` → `/en/posts/<slug>/` 또는 `/ja/posts/<slug>/`; `/about/`,`/solutions/`,`/products/`,`/contact/` 도 동일
 - 대응 번역이 없으면 발행된 한국어 원문으로 연결하고 한국어 자료임을 알린다. 링크만을 위해 무관한 글을 번역하거나 발행하지 않는다.
 - 한국어 섹션 앵커 딥링크(`/posts/<slug>/#한글-앵커`)는 대상 언어의 실제 앵커로 연결한다. 확인할 수 없으면 해당 포스트 루트로 단순화한다.
 - 외부 링크는 그대로
 
 ## Hugo shortcode
-- `{{< figure src="..." title="..." >}}`: src 유지, title/캡션만 번역
+- `{{< figure src="..." title="..." >}}`: 공용 이미지의 src는 유지하고 언어별 이미지가 있으면 교체, title/캡션도 번역
 - 저자 캡션 고정 번역: EN `"Dohyun Jung - Principal Consultant, ROBOCO"`, JA `"チョン・ドヒョン - ROBOCO首席コンサルタント"` (主席 아님)
 
 ## 영어 (EN)

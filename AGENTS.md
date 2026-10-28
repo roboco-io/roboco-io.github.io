@@ -19,7 +19,7 @@ ROBOCO.IO 기업 웹사이트. Hugo 기반의 정적 사이트이며 GitHub Page
 - 한국어 `content/ko/`가 원본이다. 한국어 URL은 루트를 유지하며 영어는 `/en/`, 일본어는 `/ja/`를 사용한다.
 - 한국어 콘텐츠를 작성·수정하면 [translate-content](.agents/skills/translate-content/SKILL.md)에 따라 영어·일본어도 동기화한다. 원문 작성·수정 작업에서는 사용자의 원문 확인을 먼저 받는다. 번역 보류·한국어만 작성 등 사용자의 언어 범위 지시가 우선한다. 완성된 원문에 대한 직접 번역 요청에는 확인을 반복하지 않는다.
 - Claude의 편집 후 훅은 동기화 확인을 상기시킨다. Codex는 훅에 의존하지 말고 작업 완료 전에 변경한 한국어 콘텐츠와 번역 상태를 직접 확인한다. 확인 대기 중이면 번역을 임의로 시작하지 말고 대기 상태를 보고한다.
-- 이미지는 `static/posts/images/`에서 공유하고 모든 언어에서 `/posts/images/...`로 참조한다. 언어별 콘텐츠 디렉터리에 공용 이미지를 복제하지 않는다.
+- 이미지는 `static/posts/images/`에 보관하고 `/posts/images/...`로 참조한다. 사진·로고·텍스트 없는 삽화는 공유한다. 설명 문구가 있는 이미지·다이어그램은 번역 필요성을 확인해 언어별 자산을 만들고 해당 번역 페이지에서 사용한다. 상세 기준은 `.agents/skills/translate-content/references/visual-localization.md`를 따른다.
 - 모든 언어에서 ROBOCO는 라틴 문자로 유지한다. 일본어는 です・ます調를 사용한다. 상세 규칙은 [공통 번역 규칙](.agents/skills/translate-content/references/translation-rules.md)을 따른다.
 
 ## 주요 명령어
