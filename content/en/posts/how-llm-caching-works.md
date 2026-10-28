@@ -171,9 +171,23 @@ This table is a basis for policy decisions. Not every engine automatically separ
 
 To share a public prefix across everyone while isolating only the private suffix, you must separately verify an engine’s support for segment-level sharing and its security properties. Placing user data last or inserting a cache option midway through a request is insufficient. Where such support is absent, dividing the entire cache by user or permission group and reusing it within each boundary is a practical option.
 
-![A policy diagram separates authorized public sharing from user A and user B’s private data, preserving the same boundaries across GPU memory, CPU memory, and remote storage.](/posts/images/llm-cache/07-context-isolation.svg)
+### Share common input and isolate private context
 
-*Figure 7. Moving between storage tiers does not change sharing permissions. This diagram shows a policy goal; whether a request’s public and private segments can be separated for reuse must be checked for each engine.*
+![Requests from users A and B share one KV cache for an identical public manual, then branch into separate authorization scopes for personal questions and conversations.](/posts/images/llm-cache/07-context-isolation.svg)
+
+*Figure 7. Cross-user cache hits occur where requests converge on the common prefix cache. Private contexts are separated afterward. This is a design concept for engines supporting segment-level sharing and access control, rather than vLLM’s default isolation with a salt applied to the entire request.*
+
+The public prefix must not contain states influenced by private information. Public material must precede private context, and the engine must enforce sharing boundaries independently of input ordering. Separating private segments does not eliminate every kind of side channel.
+
+Even when users A and B have different cache domains, A’s second request can reuse the document blocks created by A’s first request. B can do the same within its own domain. **Preventing cross-user sharing is different from recomputing every repeated request from the same user.** Reuse can also span sessions when the authorization boundary and compatible input remain the same. Conversely, a different isolation value for every request removes those opportunities too.
+
+Even without support for this design, an entire cache partitioned by user can still provide reuse within each user’s domain. For comparison, assume 10 users each make 10 requests containing the same 10,000-token document and a different 500-token question. All cache domains start empty, with no subsequent expiry, eviction, routing misses, or block-boundary losses.
+
+Total input is again 1,050,000 tokens. Each user’s first request computes the document, while the remaining nine read it from cache. Cached document reads total `10 users × 9 requests × 10,000 = 900,000 tokens`. **The token hit rate is `900,000 / 1,050,000`, approximately 85.7%.** Under these conditions, repetition within each user’s domain produces a high hit rate without cross-user cache sharing.
+
+Under a separate assumption of a single trust group authorized to share all inputs, the document is computed once and reused 99 times, giving approximately 94.3%. This comparison illustrates the reuse opportunities lost through user isolation. It does not imply that placing mutually untrusted users in one group is safe. If every user makes only one request and leaves, per-user caching cannot deliver the same benefit. **Consider both the isolation unit and repetition frequency within it.**
+
+The hit rate here is cached input tokens divided by total input tokens. It differs from the proportion of requests with any cache hit and does not represent total cost savings.
 
 ### The existence of a cache can reveal information too
 
